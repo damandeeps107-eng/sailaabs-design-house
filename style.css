@@ -2137,8 +2137,15 @@ h1, h2, h3, h4, h5, h6 {
   will-change: transform;
 }
 
-.reviews-tape-track:hover,
-.reviews-tape-wrapper:hover .reviews-tape-track,
+/* Pause on hover — desktop only (non-touch devices) */
+@media (hover: hover) and (pointer: fine) {
+  .reviews-tape-track:hover,
+  .reviews-tape-wrapper:hover .reviews-tape-track {
+    animation-play-state: paused;
+  }
+}
+
+/* is-paused class (JS-controlled, used on mobile touch) */
 .reviews-tape-wrapper.is-paused .reviews-tape-track {
   animation-play-state: paused;
 }

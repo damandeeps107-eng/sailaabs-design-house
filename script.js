@@ -576,12 +576,13 @@ function initMobileMenu() {
   });
 }
 
-// Infinite Reviews Horizontal Tape — pause on touch interaction for mobile
+// Infinite Reviews Horizontal Tape — smooth on mobile
 function initReviewsTape() {
   const wrapper = document.getElementById('reviewsTapeWrapper');
   if (!wrapper) return;
   let resumeTimer = null;
 
+  // On touch: pause briefly then always resume (never get stuck)
   wrapper.addEventListener('touchstart', () => {
     clearTimeout(resumeTimer);
     wrapper.classList.add('is-paused');
@@ -591,7 +592,15 @@ function initReviewsTape() {
     clearTimeout(resumeTimer);
     resumeTimer = setTimeout(() => {
       wrapper.classList.remove('is-paused');
-    }, 2500);
+    }, 1000);
+  }, { passive: true });
+
+  // Safety fallback: force-resume on cancel
+  wrapper.addEventListener('touchcancel', () => {
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(() => {
+      wrapper.classList.remove('is-paused');
+    }, 500);
   }, { passive: true });
 }
 
