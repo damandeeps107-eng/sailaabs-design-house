@@ -373,7 +373,7 @@ function renderCatalog(filter = 'all') {
     : filtered.map(p => `
     <div class="product-card" onclick="openModal('${p.id}')">
       <div class="product-img-box">
-        <img src="${p.image}" alt="${p.name}" loading="lazy" class="carpet-img">
+        <img src="${p.image}" alt="${p.name}" loading="lazy" decoding="async" class="carpet-img">
         <span class="product-badge">${p.badge}</span>
 
         <!-- Hover overlay — fades in on desktop, always-on on mobile -->
@@ -475,7 +475,7 @@ window.openModal = function(id) {
       </a>`;
   modalBody.innerHTML = `
     <div class="modal-img-wrap">
-      <img src="${p.image}" alt="${p.name}" class="modal-carpet-img">
+      <img src="${p.image}" alt="${p.name}" decoding="async" class="modal-carpet-img">
     </div>
     <h3 style="font-family:var(--font-serif);font-size:1.55rem;font-weight:600;color:var(--text-primary);margin:14px 0 6px;line-height:1.25">${p.name}</h3>
     <span style="font-size:11.5px;text-transform:uppercase;color:var(--gold-luxury);font-weight:700;letter-spacing:1.8px;display:inline-block">${p.category} · ${p.badge}</span>

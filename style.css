@@ -361,7 +361,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Secondary Outline CTA */
-.btn-outline, .btn-trade-outline, .btn-outline-white {
+.btn-outline, .btn-trade-outline {
   background: transparent;
   border-color: var(--text-primary);
   color: var(--text-primary);
@@ -370,6 +370,37 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--text-primary);
   color: var(--bg-main);
   transform: translateY(-2px);
+}
+
+/* Hero Section Explore Catalog Button — High Contrast Luxury Glassmorphism */
+.btn-outline-white {
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
+  color: #FFFFFF !important;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.btn-outline-white i {
+  color: #F5D061; /* Muted bright gold gem icon */
+  margin-right: 6px;
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+.btn-outline-white:hover {
+  background: var(--gold-luxury);
+  border-color: var(--gold-luxury);
+  color: #FFFFFF !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(168, 132, 50, 0.5);
+}
+.btn-outline-white:hover i {
+  color: #FFFFFF;
+  transform: scale(1.15);
 }
 
 /* WhatsApp CTA */
