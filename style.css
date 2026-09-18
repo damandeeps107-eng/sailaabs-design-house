@@ -2105,13 +2105,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .reviews-tape-wrapper {
-  /* Full-bleed breakout on ALL screen sizes */
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  /* Now directly inside section, not container — naturally full width */
+  width: 100%;
   overflow: hidden;
   padding: 36px 0 16px;
   -webkit-mask-image: linear-gradient(
