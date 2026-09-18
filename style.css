@@ -2105,10 +2105,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .reviews-tape-wrapper {
-  /* Now directly inside section, not container — naturally full width */
+  /* Naturally full width, responsive, draggable horizontal tape */
   width: 100%;
   overflow: hidden;
   padding: 36px 0 16px;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -2131,29 +2135,10 @@ h1, h2, h3, h4, h5, h6 {
   align-items: stretch;
   gap: 22px;
   width: max-content;
-  animation: reviewsTapeLoop 22s linear infinite;
   will-change: transform;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
-}
-
-/* Pause on hover — desktop only (non-touch devices) */
-@media (hover: hover) and (pointer: fine) {
-  .reviews-tape-track:hover,
-  .reviews-tape-wrapper:hover .reviews-tape-track {
-    animation-play-state: paused;
-  }
-}
-
-/* is-paused class (JS-controlled, used on mobile touch) */
-.reviews-tape-wrapper.is-paused .reviews-tape-track {
-  animation-play-state: paused;
-}
-
-@keyframes reviewsTapeLoop {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-50%, 0, 0); }
 }
 
 .reviews-tape-track .review-card {

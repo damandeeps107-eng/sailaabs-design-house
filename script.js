@@ -576,40 +576,152 @@ function initMobileMenu() {
   });
 }
 
-// Infinite Reviews Horizontal Tape — smooth on mobile
+// Infinite Reviews Horizontal Tape — High-performance RAF scroller with full mobile swipe & touch drag
 function initReviewsTape() {
   const wrapper = document.getElementById('reviewsTapeWrapper');
   if (!wrapper) return;
+  const track = wrapper.querySelector('.reviews-tape-track');
+  if (!track) return;
+
+  // Kill CSS animation so JS has full 60fps control without CSS/reduced-motion clashes
+  track.style.animation = 'none';
+  track.style.webkitAnimation = 'none';
+  track.style.willChange = 'transform';
+
+  let currentX = 0;
+  const speed = 0.9; // Smooth luxury scrolling speed (px per frame)
+  let isPaused = false;
+  let isDragging = false;
+  let startTouchX = 0;
+  let startTouchY = 0;
+  let startX = 0;
+  let isHorizontalDrag = null;
   let resumeTimer = null;
 
-  const autoResume = (delay = 1200) => {
-    clearTimeout(resumeTimer);
-    resumeTimer = setTimeout(() => {
-      wrapper.classList.remove('is-paused');
-    }, delay);
+  // Track width calculations
+  const getHalfWidth = () => {
+    // Total width divided by 2 (since 2 identical sets of 6 cards exist)
+    const w = track.scrollWidth;
+    return w > 0 ? w / 2 : 1800;
   };
 
-  // On touch: pause briefly then always resume automatically
-  wrapper.addEventListener('touchstart', () => {
+  function step() {
+    if (!isPaused && !isDragging) {
+      currentX -= speed;
+      const halfWidth = getHalfWidth();
+      if (halfWidth > 0 && Math.abs(currentX) >= halfWidth) {
+        currentX += halfWidth;
+      }
+      track.style.transform = `translate3d(${currentX}px, 0, 0)`;
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Desktop hover pause
+  wrapper.addEventListener('mouseenter', () => {
+    isPaused = true;
+  });
+  wrapper.addEventListener('mouseleave', () => {
+    if (!isDragging) isPaused = false;
+  });
+
+  // Mobile Touch Swipe & Drag: allows natural swiping while scrolling continuously
+  wrapper.addEventListener('touchstart', (e) => {
+    if (e.touches.length !== 1) return;
     clearTimeout(resumeTimer);
-    wrapper.classList.add('is-paused');
+    startTouchX = e.touches[0].clientX;
+    startTouchY = e.touches[0].clientY;
+    startX = currentX;
+    isDragging = false;
+    isHorizontalDrag = null;
   }, { passive: true });
 
-  wrapper.addEventListener('touchend', () => {
-    clearTimeout(resumeTimer);
-    resumeTimer = setTimeout(() => {
-      wrapper.classList.remove('is-paused');
-    }, 1000);
+  wrapper.addEventListener('touchmove', (e) => {
+    if (e.touches.length !== 1) return;
+    const diffX = e.touches[0].clientX - startTouchX;
+    const diffY = e.touches[0].clientY - startTouchY;
+
+    if (isHorizontalDrag === null) {
+      if (Math.abs(diffX) > 6 || Math.abs(diffY) > 6) {
+        isHorizontalDrag = Math.abs(diffX) >= Math.abs(diffY);
+      }
+    }
+
+    if (isHorizontalDrag) {
+      isDragging = true;
+      currentX = startX + diffX;
+      const halfWidth = getHalfWidth();
+      if (halfWidth > 0) {
+        while (currentX > 0) currentX -= halfWidth;
+        while (Math.abs(currentX) >= halfWidth) currentX += halfWidth;
+      }
+      track.style.transform = `translate3d(${currentX}px, 0, 0)`;
+    }
   }, { passive: true });
 
-  // Safety fallback: force-resume on cancel
-  wrapper.addEventListener('touchcancel', () => {
+  const handleTouchEnd = () => {
+    if (isDragging) {
+      isDragging = false;
+      isHorizontalDrag = null;
+      const halfWidth = getHalfWidth();
+      if (halfWidth > 0) {
+        while (currentX > 0) currentX -= halfWidth;
+        while (Math.abs(currentX) >= halfWidth) currentX += halfWidth;
+      }
+    }
+    // Briefly delay before resuming smooth crawl
+    isPaused = true;
     clearTimeout(resumeTimer);
     resumeTimer = setTimeout(() => {
-      wrapper.classList.remove('is-paused');
-    }, 500);
-  }, { passive: true });
+      isPaused = false;
+    }, 400);
+  };
+
+  wrapper.addEventListener('touchend', handleTouchEnd, { passive: true });
+  wrapper.addEventListener('touchcancel', handleTouchEnd, { passive: true });
+
+  // Mouse Drag on Desktop
+  let mouseStartX = 0;
+  let isMouseDown = false;
+
+  wrapper.addEventListener('mousedown', (e) => {
+    isMouseDown = true;
+    mouseStartX = e.clientX;
+    startX = currentX;
+    wrapper.style.cursor = 'grabbing';
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isMouseDown) return;
+    const diffX = e.clientX - mouseStartX;
+    if (Math.abs(diffX) > 3) {
+      isDragging = true;
+      currentX = startX + diffX;
+      const halfWidth = getHalfWidth();
+      if (halfWidth > 0) {
+        while (currentX > 0) currentX -= halfWidth;
+        while (Math.abs(currentX) >= halfWidth) currentX += halfWidth;
+      }
+      track.style.transform = `translate3d(${currentX}px, 0, 0)`;
+    }
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (isMouseDown) {
+      isMouseDown = false;
+      isDragging = false;
+      wrapper.style.cursor = 'grab';
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => {
+        isPaused = false;
+      }, 400);
+    }
+  });
+
+  // Start smooth 60fps RAF loop
+  requestAnimationFrame(step);
 }
+
 
 // Global Client Lockdown — Intercept and prevent all WhatsApp, Call (tel:), and Inquire links from opening ONLY in client-preview mode
 document.addEventListener('click', (e) => {
