@@ -359,7 +359,7 @@ function initBgSlider() {
   }, 4500);
 }
 
-// Catalog Renderer — Image-only cards, hover overlay
+// Catalog Renderer — Image-only cards, hover overlay & smooth loading
 function renderCatalog(filter = 'all') {
   const grid = document.getElementById('catalog-grid');
   if (!grid) return;
@@ -370,10 +370,20 @@ function renderCatalog(filter = 'all') {
 
   grid.innerHTML = filtered.length === 0
     ? `<p style="grid-column:1/-1;text-align:center;color:#888;padding:40px 0">No products in this category.</p>`
-    : filtered.map(p => `
+    : filtered.map((p, idx) => {
+        const isPriority = idx < 4;
+        return `
     <div class="product-card" onclick="openModal('${p.id}')">
       <div class="product-img-box">
-        <img src="${p.image}" alt="${p.name}" loading="lazy" decoding="async" class="carpet-img">
+        <img 
+          src="${p.image}" 
+          alt="${p.name}" 
+          loading="${isPriority ? 'eager' : 'lazy'}" 
+          ${isPriority ? 'fetchpriority="high"' : ''}
+          decoding="async" 
+          class="carpet-img"
+          onload="this.classList.add('is-loaded'); this.parentElement.classList.add('is-loaded');"
+        >
         <span class="product-badge">${p.badge}</span>
 
         <!-- Hover overlay — fades in on desktop, always-on on mobile -->
@@ -385,7 +395,8 @@ function renderCatalog(filter = 'all') {
         </div>
       </div>
     </div>
-  `).join('');
+  `;
+    }).join('');
 }
 
 
