@@ -2101,7 +2101,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: stretch;
   gap: 22px;
   width: max-content;
-  animation: reviewsTapeLoop 38s linear infinite;
+  animation: reviewsTapeLoop 18s linear infinite;
   will-change: transform;
 }
 
