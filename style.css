@@ -797,31 +797,31 @@ h1, h2, h3, h4, h5, h6 {
 .compact-loc-bar {
   display: inline-flex;
   align-items: center;
-  gap: 22px;
+  gap: 14px;
   background: rgba(251, 249, 246, 0.12);
   border: 1px solid rgba(251, 249, 246, 0.22);
   backdrop-filter: blur(14px);
-  padding: 14px 28px;
+  padding: 8px 18px;
   border-radius: var(--radius-pill);
-  margin-bottom: 36px;
+  margin-bottom: 20px;
 }
 
 .loc-item {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   text-align: left;
 }
 
 .loc-item i {
   color: var(--gold-luxury);
-  font-size: 1.15rem;
+  font-size: 0.85rem;
 }
 
 .loc-item .tag {
   display: block;
-  font-size: 0.62rem;
-  letter-spacing: 1.5px;
+  font-size: 0.54rem;
+  letter-spacing: 1.2px;
   color: rgba(255, 255, 255, 0.65);
   text-transform: uppercase;
   font-weight: 600;
@@ -829,14 +829,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .loc-item strong {
   display: block;
-  font-size: 0.88rem;
+  font-size: 0.76rem;
   color: #FFFFFF;
   font-weight: 600;
 }
 
 .loc-divider {
   width: 1px;
-  height: 28px;
+  height: 22px;
   background: rgba(255, 255, 255, 0.25);
 }
 
@@ -867,11 +867,13 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 640px) {
   .compact-loc-bar {
-    flex-direction: column;
-    gap: 14px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 14px;
     border-radius: var(--radius-card);
-    padding: 16px 20px;
-    width: 100%;
+    padding: 8px 14px;
+    width: auto;
   }
   .loc-divider { display: none; }
 }
@@ -2057,7 +2059,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ── 14. SECTION H: GOOGLE REVIEWS & TESTIMONIALS TAPE (#FBF9F6) ────────── */
 .reviews-section {
   background-color: var(--bg-main);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .g-rating-pill {
@@ -2103,6 +2105,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .reviews-tape-wrapper {
+  /* Full-bleed breakout on ALL screen sizes */
   width: 100vw;
   position: relative;
   left: 50%;
@@ -2114,15 +2117,15 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
-    rgba(0, 0, 0, 1) 5%,
-    rgba(0, 0, 0, 1) 95%,
+    rgba(0, 0, 0, 1) 6%,
+    rgba(0, 0, 0, 1) 94%,
     transparent 100%
   );
   mask-image: linear-gradient(
     to right,
     transparent 0%,
-    rgba(0, 0, 0, 1) 5%,
-    rgba(0, 0, 0, 1) 95%,
+    rgba(0, 0, 0, 1) 6%,
+    rgba(0, 0, 0, 1) 94%,
     transparent 100%
   );
 }
@@ -2133,8 +2136,11 @@ h1, h2, h3, h4, h5, h6 {
   align-items: stretch;
   gap: 22px;
   width: max-content;
-  animation: reviewsTapeLoop 18s linear infinite;
+  animation: reviewsTapeLoop 22s linear infinite;
   will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
 
 /* Pause on hover — desktop only (non-touch devices) */

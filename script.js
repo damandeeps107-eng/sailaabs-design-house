@@ -582,7 +582,14 @@ function initReviewsTape() {
   if (!wrapper) return;
   let resumeTimer = null;
 
-  // On touch: pause briefly then always resume (never get stuck)
+  const autoResume = (delay = 1200) => {
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(() => {
+      wrapper.classList.remove('is-paused');
+    }, delay);
+  };
+
+  // On touch: pause briefly then always resume automatically
   wrapper.addEventListener('touchstart', () => {
     clearTimeout(resumeTimer);
     wrapper.classList.add('is-paused');
