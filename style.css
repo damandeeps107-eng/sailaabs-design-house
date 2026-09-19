@@ -1860,6 +1860,22 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.2px;
 }
 
+/* Editorial image caption (replaces heavy badge) */
+.why-us-img-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 18px;
+  background: rgba(10, 9, 8, 0.72);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(251, 249, 246, 0.75);
+  text-align: center;
+}
+
 /* Right: Content column */
 .why-us-content-col {
   flex: 1;
