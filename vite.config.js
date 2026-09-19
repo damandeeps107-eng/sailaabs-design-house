@@ -5,5 +5,13 @@ export default defineConfig({
     host: true,
     port: 5173,
     allowedHosts: true
+  },
+  build: {
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        preview: 'preview.html'
+      }
+    }
   }
 });
