@@ -2061,31 +2061,34 @@ h1, h2, h3, h4, h5, h6 {
   flex-wrap: wrap;
 }
 
-/* WhatsApp button */
+/* WhatsApp primary CTA button — website's dark/gold/neutral button styling */
 .why-wa-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: #25D366;
-  color: #FFFFFF;
+  gap: 10px;
+  background: var(--gold-luxury, #C5A059);
+  color: #141210;
   font-size: 14px;
   font-weight: 600;
-  padding: 0 22px;
+  padding: 0 24px;
   height: 48px;
-  border-radius: 7px;
+  border-radius: 6px;
   text-decoration: none;
-  letter-spacing: 0.1px;
-  transition: background 0.25s ease, transform 0.2s ease;
+  letter-spacing: 0.3px;
+  transition: all 0.25s ease;
   flex-shrink: 0;
 }
 
 .why-wa-btn:hover {
-  background: #1EB85A;
+  background: #E5C384;
+  color: #141210;
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.25);
 }
 
 .why-wa-btn i {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  color: #141210;
 }
 
 /* Secondary catalog text link */
