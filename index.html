@@ -61,6 +61,11 @@
         </nav>
 
         <div class="header-right">
+          <button class="header-cart-btn" id="header-cart-btn" aria-label="View Bespoke Cart">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-btn-label">Cart</span>
+            <span class="cart-badge" id="cart-badge">0</span>
+          </button>
           <a href="https://wa.me/919219340149" target="_blank" class="btn btn-white-sm header-wa-btn">
             <i class="fa-brands fa-whatsapp"></i> <span class="wa-btn-text">WhatsApp Us</span>
           </a>
@@ -1400,6 +1405,66 @@
       </div>
     </div>
   </footer>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       BESPOKE CART DRAWER
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="cart-backdrop" id="cart-backdrop" aria-hidden="true"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Cart Drawer" aria-hidden="true">
+    <div class="cart-drawer-header">
+      <div class="cart-header-title-wrap">
+        <i class="fa-solid fa-bag-shopping cart-title-icon"></i>
+        <div>
+          <h3 class="cart-drawer-title">Bespoke Selection</h3>
+          <span class="cart-drawer-subtitle" id="cart-items-count-text">0 items selected</span>
+        </div>
+      </div>
+      <button class="cart-close-btn" id="cart-close-btn" aria-label="Close Cart">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Free Loom Consultation / Direct Price Banner -->
+    <div class="cart-loom-banner">
+      <i class="fa-solid fa-certificate"></i>
+      <span>Direct Loom Pricing · Free Custom Size Guidance</span>
+    </div>
+
+    <!-- Cart Items List Container -->
+    <div class="cart-items-body" id="cart-items-body">
+      <!-- Injected dynamically via JS -->
+    </div>
+
+    <!-- Cart Footer with WhatsApp Checkout CTA -->
+    <div class="cart-drawer-footer" id="cart-drawer-footer">
+      <div class="cart-summary-row">
+        <span class="cart-summary-label">Estimated Total:</span>
+        <span class="cart-summary-value" id="cart-total-price">₹0</span>
+      </div>
+      <p class="cart-tax-note">*Direct loom estimate. Final invoice confirmed with custom finish & dimensions.</p>
+
+      <div class="cart-actions">
+        <button class="btn btn-whatsapp-checkout" id="btn-whatsapp-checkout">
+          <i class="fa-brands fa-whatsapp"></i> Request Loom Quote via WhatsApp
+        </button>
+        <button class="btn btn-outline-clear" id="btn-clear-cart">
+          <i class="fa-regular fa-trash-can"></i> Clear Selection
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Floating Mobile Cart Trigger -->
+  <button class="floating-cart-btn" id="floating-cart-btn" aria-label="Open Cart Drawer">
+    <i class="fa-solid fa-bag-shopping"></i>
+    <span class="floating-cart-badge" id="floating-cart-badge">0</span>
+  </button>
+
+  <!-- Cart Notification Toast -->
+  <div class="cart-toast" id="cart-toast" aria-live="polite">
+    <i class="fa-solid fa-check-circle toast-icon"></i>
+    <span class="toast-message" id="toast-message">Added to cart!</span>
+  </div>
 
   <script type="module" src="/script.js"></script>
 </body>

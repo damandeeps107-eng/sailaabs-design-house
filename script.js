@@ -7,6 +7,7 @@ const productsData = [
     name: "Ivory Blue Floral Hand-Knotted Carpet",
     category: "hand-knotted",
     badge: "⭐ Bestseller",
+    price: 28500,
     material: "100% Pure Kashmiri Silk on Cotton Warp",
     density: "360 KPSI",
     sizes: ["5×8 Ft", "6×9 Ft", "8×10 Ft", "9×12 Ft", "Custom"],
@@ -18,6 +19,7 @@ const productsData = [
     name: "Camel Classic Floral Persian Carpet",
     category: "hand-knotted",
     badge: "⭐ Bestseller",
+    price: 24000,
     material: "Wool & Silk Blend on Cotton Warp",
     density: "300 KPSI",
     sizes: ["5×8 Ft", "6×9 Ft", "8×10 Ft", "9×12 Ft", "Custom"],
@@ -29,6 +31,7 @@ const productsData = [
     name: "Ivory Charcoal Medallion Premium Carpet",
     category: "hand-knotted",
     badge: "⭐ Bestseller",
+    price: 32000,
     material: "Pure Silk on Cotton Foundation",
     density: "320 KPSI",
     sizes: ["6×9 Ft", "8×10 Ft", "9×12 Ft", "10×14 Ft", "Custom"],
@@ -40,6 +43,7 @@ const productsData = [
     name: "Greige Abstract Luxury Carpet",
     category: "modern",
     badge: "🆕 New Arrival",
+    price: 18500,
     material: "New Zealand Wool & Bamboo Silk",
     density: "Hand-Tufted Heavy Pile",
     sizes: ["5×8 Ft", "6×9 Ft", "8×10 Ft", "9×12 Ft", "Custom"],
@@ -53,6 +57,7 @@ const productsData = [
     name: "Navy Beige Irregular Shape Rug",
     category: "irregular",
     badge: "🆕 New Arrival",
+    price: 21000,
     material: "Hand-Knotted Wool Blend",
     density: "Irregular Cut Pile",
     sizes: ["Custom Shape & Size"],
@@ -64,6 +69,7 @@ const productsData = [
     name: "Black Mustard Irregular Statement Rug",
     category: "irregular",
     badge: "Unique Shape",
+    price: 19500,
     material: "Hand-Tufted Wool",
     density: "Heavy Cut Pile",
     sizes: ["Custom Shape & Size"],
@@ -75,6 +81,7 @@ const productsData = [
     name: "Face Art Irregular Designer Rug",
     category: "irregular",
     badge: "Art Piece",
+    price: 22500,
     material: "Hand-Tufted Premium Wool",
     density: "Sculptured Pile",
     sizes: ["Custom Shape & Size"],
@@ -86,6 +93,7 @@ const productsData = [
     name: "Ivory Cloud Irregular Shaggy Rug",
     category: "irregular",
     badge: "🆕 New Arrival",
+    price: 17500,
     material: "Premium Shaggy Wool",
     density: "Extra Deep Shaggy Pile",
     sizes: ["Custom Shape & Size"],
@@ -99,6 +107,7 @@ const productsData = [
     name: "Burgundy Persian Heritage Carpet",
     category: "hand-knotted",
     badge: "⭐ Bestseller",
+    price: 29500,
     material: "Hand-Knotted Pure Wool",
     density: "280 KPSI",
     sizes: ["5×8 Ft", "6×9 Ft", "8×10 Ft", "9×12 Ft", "Custom"],
@@ -110,6 +119,7 @@ const productsData = [
     name: "Teal Botanical Modern Carpet",
     category: "modern",
     badge: "New Design",
+    price: 21500,
     material: "Wool & Silk Blend",
     density: "Hand-Tufted Dense Pile",
     sizes: ["5×8 Ft", "6×9 Ft", "8×10 Ft", "Custom"],
@@ -121,6 +131,7 @@ const productsData = [
     name: "Beige Charcoal Geometric Carpet",
     category: "modern",
     badge: "Modern Design",
+    price: 16500,
     material: "New Zealand Wool Flatweave",
     density: "High Density Flatweave",
     sizes: ["4×6 Ft", "5×8 Ft", "6×9 Ft", "8×10 Ft", "Custom"],
@@ -132,6 +143,7 @@ const productsData = [
     name: "Sage Green Abstract Luxury Carpet",
     category: "modern",
     badge: "Trending",
+    price: 23000,
     material: "Bamboo Silk & Wool Blend",
     density: "Hand-Tufted Plush Pile",
     sizes: ["5×8 Ft", "6×9 Ft", "8×10 Ft", "9×12 Ft", "Custom"],
@@ -143,6 +155,7 @@ const productsData = [
     name: "Cobalt Blue Abstract Statement Carpet",
     category: "modern",
     badge: "Bold Color",
+    price: 25000,
     material: "Bamboo Silk & NZ Wool",
     density: "Hand-Tufted Dense Pile",
     sizes: ["5×8 Ft", "6×9 Ft", "8×10 Ft", "9×12 Ft", "Custom"],
@@ -156,6 +169,7 @@ const productsData = [
     name: "Rust Border Natural Jute Carpet",
     category: "jute",
     badge: "Eco-Friendly",
+    price: 11500,
     material: "100% Natural Jute",
     density: "Hand-Woven Flatweave",
     sizes: ["4×6 Ft", "5×8 Ft", "6×9 Ft", "8×10 Ft", "Custom"],
@@ -167,6 +181,7 @@ const productsData = [
     name: "Round Natural Jute Rug",
     category: "jute",
     badge: "Eco-Friendly",
+    price: 8900,
     material: "100% Natural Jute",
     density: "Hand-Braided Round",
     sizes: ["3 Ft Dia", "4 Ft Dia", "5 Ft Dia", "6 Ft Dia", "Custom"],
@@ -180,6 +195,7 @@ const productsData = [
     name: "Charcoal Shaggy Plush Carpet",
     category: "shaggy",
     badge: "Ultra Soft",
+    price: 18000,
     material: "Chunky Hand-Tufted NZ Wool",
     density: "35mm Deep Shaggy Pile",
     sizes: ["4×6 Ft", "5×8 Ft", "6×9 Ft", "8×10 Ft", "Custom"],
@@ -191,6 +207,7 @@ const productsData = [
     name: "Ivory Shaggy Bedroom Carpet",
     category: "shaggy",
     badge: "Bedroom Pick",
+    price: 16500,
     material: "Premium NZ Wool Shaggy",
     density: "30mm Deep Shaggy Pile",
     sizes: ["4×6 Ft", "5×8 Ft", "6×9 Ft", "8×10 Ft", "Custom"],
@@ -204,6 +221,7 @@ const productsData = [
     name: "Pastel Rainbow Kids Room Carpet",
     category: "kids",
     badge: "Kids Favourite",
+    price: 12500,
     material: "Soft Anti-Allergen Wool",
     density: "Safe Low Pile",
     sizes: ["3×5 Ft", "4×6 Ft", "5×8 Ft", "Custom"],
@@ -215,6 +233,7 @@ const productsData = [
     name: "Blue Grey Dining Room Carpet",
     category: "dining",
     badge: "Dining Room",
+    price: 20500,
     material: "Easy-Clean Wool Blend",
     density: "Low Pile Flatweave",
     sizes: ["6×9 Ft", "8×10 Ft", "9×12 Ft", "Custom"],
@@ -226,6 +245,7 @@ const productsData = [
     name: "Blush Botanical Bedroom Carpet",
     category: "bedroom",
     badge: "Bedroom Pick",
+    price: 19000,
     material: "Bamboo Silk & NZ Wool",
     density: "Hand-Tufted Plush Pile",
     sizes: ["4×6 Ft", "5×8 Ft", "6×9 Ft", "8×10 Ft", "Custom"],
@@ -269,6 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initReviewsTape();
   initScrollReveal();
+  initCartEvents();
 });
 
 // ── SCROLL REVEAL SYSTEM ────────────────────────────────────────────────────
@@ -389,9 +410,15 @@ function renderCatalog(filter = 'all') {
         <!-- Hover overlay — fades in on desktop, always-on on mobile -->
         <div class="card-overlay">
           <p class="overlay-name">${p.name}</p>
-          <span class="overlay-btn">
-            <i class="fa-solid fa-eye" style="font-size:.65rem"></i> View Carpet
-          </span>
+          <div class="card-price-tag">Starting ₹${(p.price || 18500).toLocaleString('en-IN')}</div>
+          <div class="card-actions-row">
+            <span class="overlay-btn" onclick="openModal('${p.id}')">
+              <i class="fa-solid fa-eye"></i> Details
+            </span>
+            <button class="btn-card-add-cart" onclick="event.stopPropagation(); addToCart('${p.id}', null, event)">
+              <i class="fa-solid fa-bag-shopping"></i> Add to Cart
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -477,28 +504,331 @@ window.openModal = function(id) {
   const modal = document.getElementById('product-modal');
   const modalBody = document.getElementById('modal-body');
   const isClient = document.body.classList.contains('client-preview');
+
+  let selectedSize = (p.sizes && p.sizes[0]) || "Standard";
+
+  const sizePillsHtml = (p.sizes || ["Standard"]).map((s, i) => `
+    <button type="button" class="size-pill ${i === 0 ? 'active' : ''}" data-size="${s}">
+      ${s}
+    </button>
+  `).join('');
+
   const modalCta = isClient
     ? `<a href="javascript:void(0)" class="btn btn-black-block" style="pointer-events: none; cursor: default;">
         <i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp (+91 92193 40149)
       </a>`
-    : `<a href="https://wa.me/919219340149?text=${encodeURIComponent("Hello Sailaab's Design House, I am inquiring about " + p.name + " (" + p.category + ")")}" target="_blank" rel="noopener noreferrer" class="btn btn-black-block">
-        <i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp (+91 92193 40149)
+    : `<a href="https://wa.me/919219340149?text=${encodeURIComponent("Hello Sailaab's Design House, I am inquiring about " + p.name + " (" + p.category + ", Size: " + selectedSize + ")")}" target="_blank" rel="noopener noreferrer" class="btn btn-black-block" id="modal-wa-btn">
+        <i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp
       </a>`;
+
   modalBody.innerHTML = `
     <div class="modal-img-wrap">
       <img src="${p.image}" alt="${p.name}" decoding="async" class="modal-carpet-img">
     </div>
     <h3 style="font-family:var(--font-serif);font-size:1.55rem;font-weight:600;color:var(--text-primary);margin:14px 0 6px;line-height:1.25">${p.name}</h3>
-    <span style="font-size:11.5px;text-transform:uppercase;color:var(--gold-luxury);font-weight:700;letter-spacing:1.8px;display:inline-block">${p.category} · ${p.badge}</span>
-    <p style="margin:12px 0 16px;font-size:15px;color:var(--text-secondary);line-height:1.6;font-weight:400">${p.description}</p>
-    <div style="font-size:14px;margin-bottom:22px;display:flex;flex-direction:column;gap:6px;color:var(--text-secondary)">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px">
+      <span style="font-size:11.5px;text-transform:uppercase;color:var(--gold-luxury);font-weight:700;letter-spacing:1.8px">${p.category} · ${p.badge}</span>
+      <span style="font-size:1.15rem;font-weight:700;color:var(--text-primary);font-family:var(--font-serif)">Starting ₹${(p.price || 18500).toLocaleString('en-IN')}</span>
+    </div>
+    <p style="margin:10px 0 14px;font-size:14.5px;color:var(--text-secondary);line-height:1.6;font-weight:400">${p.description}</p>
+    
+    <!-- Size Selector -->
+    <div class="modal-size-select-wrap">
+      <label class="modal-size-label">Select Loom Dimensions:</label>
+      <div class="modal-size-pills" id="modal-size-pills">
+        ${sizePillsHtml}
+      </div>
+    </div>
+
+    <div style="font-size:13.5px;margin-bottom:18px;display:flex;flex-direction:column;gap:5px;color:var(--text-secondary)">
       <p><strong style="color:var(--text-primary);font-weight:650">Material:</strong> ${p.material}</p>
       <p><strong style="color:var(--text-primary);font-weight:650">Density/Weave:</strong> ${p.density}</p>
-      <p><strong style="color:var(--text-primary);font-weight:650">Manufacturer:</strong> Sailaab's Design House, Bhadohi</p>
+      <p><strong style="color:var(--text-primary);font-weight:650">Manufacturer:</strong> Sailaab's Design House, Bhadohi Looms</p>
     </div>
-    ${modalCta}`;
+
+    <div class="modal-action-row">
+      <button type="button" class="btn btn-modal-add-cart" id="modal-add-cart-btn">
+        <i class="fa-solid fa-bag-shopping"></i> Add to Cart
+      </button>
+      ${modalCta}
+    </div>`;
+
+  // Attach size selection listeners
+  const pillBtns = modalBody.querySelectorAll('.size-pill');
+  pillBtns.forEach(pill => {
+    pill.addEventListener('click', (e) => {
+      e.stopPropagation();
+      pillBtns.forEach(b => b.classList.remove('active'));
+      pill.classList.add('active');
+      selectedSize = pill.getAttribute('data-size');
+      const waBtn = document.getElementById('modal-wa-btn');
+      if (waBtn && !isClient) {
+        waBtn.href = `https://wa.me/919219340149?text=${encodeURIComponent("Hello Sailaab's Design House, I am inquiring about " + p.name + " (" + p.category + ", Size: " + selectedSize + ")")}`;
+      }
+    });
+  });
+
+  const addCartBtn = document.getElementById('modal-add-cart-btn');
+  addCartBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    addToCart(p.id, selectedSize);
+    modal.classList.remove('active');
+  });
+
   modal.classList.add('active');
 };
+
+// ── 22. BESPOKE CART STATE & LOGIC ──────────────────────────────────────────
+const CART_STORAGE_KEY = 'sailaab_bespoke_cart';
+
+function getCart() {
+  try {
+    const data = localStorage.getItem(CART_STORAGE_KEY);
+    return data ? JSON.parse(data) : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveCart(cart) {
+  try {
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+  } catch (e) {}
+  updateCartBadge();
+  renderCartDrawer();
+}
+
+window.addToCart = function(productId, customSize = null, event = null) {
+  if (event) event.stopPropagation();
+  const product = productsData.find(p => p.id === productId);
+  if (!product) return;
+
+  const size = customSize || (product.sizes && product.sizes[0]) || "Standard";
+  const cart = getCart();
+
+  const existingIdx = cart.findIndex(item => item.id === productId && item.size === size);
+  if (existingIdx > -1) {
+    cart[existingIdx].qty += 1;
+  } else {
+    cart.push({
+      id: product.id,
+      name: product.name,
+      category: product.category,
+      material: product.material,
+      image: product.image,
+      sizes: product.sizes || ["Standard"],
+      size: size,
+      price: product.price || 18500,
+      qty: 1
+    });
+  }
+
+  saveCart(cart);
+  showCartToast(`"${product.name}" (${size}) added to cart!`);
+};
+
+window.updateCartQty = function(index, delta) {
+  const cart = getCart();
+  if (!cart[index]) return;
+  cart[index].qty += delta;
+  if (cart[index].qty <= 0) {
+    cart.splice(index, 1);
+  }
+  saveCart(cart);
+};
+
+window.removeFromCart = function(index) {
+  const cart = getCart();
+  if (!cart[index]) return;
+  const removedName = cart[index].name;
+  cart.splice(index, 1);
+  saveCart(cart);
+  showCartToast(`Removed "${removedName}" from cart.`);
+};
+
+window.updateCartItemSize = function(index, newSize) {
+  const cart = getCart();
+  if (!cart[index]) return;
+  cart[index].size = newSize;
+  saveCart(cart);
+};
+
+window.clearCart = function() {
+  saveCart([]);
+  showCartToast("Cart cleared.");
+};
+
+function updateCartBadge() {
+  const cart = getCart();
+  const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+
+  const headerBadge = document.getElementById('cart-badge');
+  const floatBadge = document.getElementById('floating-cart-badge');
+  const countText = document.getElementById('cart-items-count-text');
+  const floatBtn = document.getElementById('floating-cart-btn');
+
+  if (headerBadge) headerBadge.textContent = totalCount;
+  if (floatBadge) floatBadge.textContent = totalCount;
+  if (countText) countText.textContent = `${totalCount} ${totalCount === 1 ? 'carpet' : 'carpets'} selected`;
+
+  if (floatBtn) {
+    if (totalCount > 0) {
+      floatBtn.classList.add('has-items');
+    } else {
+      floatBtn.classList.remove('has-items');
+    }
+  }
+}
+
+function renderCartDrawer() {
+  const body = document.getElementById('cart-items-body');
+  const totalPriceEl = document.getElementById('cart-total-price');
+  const footerEl = document.getElementById('cart-drawer-footer');
+  if (!body) return;
+
+  const cart = getCart();
+
+  if (cart.length === 0) {
+    body.innerHTML = `
+      <div class="cart-empty-state">
+        <i class="fa-solid fa-bag-shopping cart-empty-icon"></i>
+        <h4 class="cart-empty-title">Your Bespoke Selection is Empty</h4>
+        <p class="cart-empty-desc">Select handcrafted rugs from our collections crafted on traditional Bhadohi looms.</p>
+        <button class="btn-explore-carpets" onclick="closeCartDrawer(); document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <i class="fa-solid fa-compass"></i> Explore Carpets
+        </button>
+      </div>
+    `;
+    if (totalPriceEl) totalPriceEl.textContent = "₹0";
+    if (footerEl) footerEl.style.display = "none";
+    return;
+  }
+
+  if (footerEl) footerEl.style.display = "flex";
+
+  let grandTotal = 0;
+
+  body.innerHTML = cart.map((item, idx) => {
+    const itemTotal = (item.price || 18500) * item.qty;
+    grandTotal += itemTotal;
+
+    const sizeOptions = (item.sizes || ["Standard"]).map(s => `
+      <option value="${s}" ${s === item.size ? 'selected' : ''}>${s}</option>
+    `).join('');
+
+    return `
+      <div class="cart-item-card">
+        <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+        <div class="cart-item-info">
+          <div>
+            <span class="cart-item-cat">${item.category}</span>
+            <h5 class="cart-item-name">${item.name}</h5>
+            <select class="cart-size-select" onchange="updateCartItemSize(${idx}, this.value)">
+              ${sizeOptions}
+            </select>
+          </div>
+          <div class="cart-item-bottom">
+            <span class="cart-item-price">₹${itemTotal.toLocaleString('en-IN')}</span>
+            <div class="cart-qty-stepper">
+              <button class="cart-qty-btn" onclick="updateCartQty(${idx}, -1)" aria-label="Decrease quantity">−</button>
+              <span class="cart-qty-val">${item.qty}</span>
+              <button class="cart-qty-btn" onclick="updateCartQty(${idx}, 1)" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+        </div>
+        <button class="cart-item-remove" onclick="removeFromCart(${idx})" title="Remove item" aria-label="Remove item">
+          <i class="fa-regular fa-trash-can"></i>
+        </button>
+      </div>
+    `;
+  }).join('');
+
+  if (totalPriceEl) {
+    totalPriceEl.textContent = `₹${grandTotal.toLocaleString('en-IN')}`;
+  }
+}
+
+window.openCartDrawer = function() {
+  const drawer = document.getElementById('cart-drawer');
+  const backdrop = document.getElementById('cart-backdrop');
+  renderCartDrawer();
+  drawer?.classList.add('active');
+  backdrop?.classList.add('active');
+  drawer?.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+};
+
+window.closeCartDrawer = function() {
+  const drawer = document.getElementById('cart-drawer');
+  const backdrop = document.getElementById('cart-backdrop');
+  drawer?.classList.remove('active');
+  backdrop?.classList.remove('active');
+  drawer?.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+};
+
+let toastTimeout = null;
+function showCartToast(msg) {
+  const toast = document.getElementById('cart-toast');
+  const toastMsg = document.getElementById('toast-message');
+  if (!toast || !toastMsg) return;
+
+  toastMsg.textContent = msg;
+  toast.classList.add('show');
+
+  clearTimeout(toastTimeout);
+  toastTimeout = setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2800);
+}
+
+function sendWhatsAppCartInquiry() {
+  const cart = getCart();
+  if (cart.length === 0) {
+    showCartToast("Your cart is empty.");
+    return;
+  }
+
+  const isClient = document.body.classList.contains('client-preview');
+  if (isClient) return;
+
+  let text = "Namaste Sailaab's Design House!\nI would like to request a direct loom quote for my bespoke carpet selection:\n\n";
+  let total = 0;
+
+  cart.forEach((item, i) => {
+    const sub = (item.price || 18500) * item.qty;
+    total += sub;
+    text += `${i + 1}. *${item.name}*\n   • Size: ${item.size}\n   • Quantity: ${item.qty}\n   • Est. Loom Price: ₹${sub.toLocaleString('en-IN')}\n\n`;
+  });
+
+  text += `--------------------------------\n`;
+  text += `*Estimated Total:* ₹${total.toLocaleString('en-IN')}\n`;
+  text += `(Direct Loom Factory Estimate — Bhadohi Looms)\n\n`;
+  text += `Please confirm loom weaving availability, custom sizing, and shipping timeline.`;
+
+  const url = `https://wa.me/919219340149?text=${encodeURIComponent(text)}`;
+  window.open(url, '_blank');
+}
+
+function initCartEvents() {
+  const headerCartBtn = document.getElementById('header-cart-btn');
+  const floatingCartBtn = document.getElementById('floating-cart-btn');
+  const closeBtn = document.getElementById('cart-close-btn');
+  const backdrop = document.getElementById('cart-backdrop');
+  const clearBtn = document.getElementById('btn-clear-cart');
+  const waCheckoutBtn = document.getElementById('btn-whatsapp-checkout');
+
+  headerCartBtn?.addEventListener('click', openCartDrawer);
+  floatingCartBtn?.addEventListener('click', openCartDrawer);
+  closeBtn?.addEventListener('click', closeCartDrawer);
+  backdrop?.addEventListener('click', closeCartDrawer);
+  clearBtn?.addEventListener('click', clearCart);
+  waCheckoutBtn?.addEventListener('click', sendWhatsAppCartInquiry);
+
+  // Initial render
+  updateCartBadge();
+  renderCartDrawer();
+}
 
 // FAQ Accordion Handler
 function initFaqAccordion() {
