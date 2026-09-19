@@ -4,27 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Under Maintenance | Sailaab’s Design House</title>
-  <meta name="description" content="Sailaab’s Design House is currently undergoing scheduled maintenance. For direct loom inquiries, contact +91 92193 40149.">
   
   <!-- Google Fonts: Cormorant Garamond & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   
   <style>
-    :root {
-      --bg-dark: #1A1816;
-      --bg-card: rgba(36, 32, 28, 0.88);
-      --gold-luxury: #C5A059;
-      --gold-light: #E4C587;
-      --text-light: #FBF9F6;
-      --text-muted: #A8A096;
-      --border-subtle: rgba(197, 160, 89, 0.25);
-    }
-
     * {
       margin: 0;
       padding: 0;
@@ -33,338 +19,108 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: var(--bg-dark);
-      background-image: 
-        radial-gradient(circle at 50% 20%, rgba(197, 160, 89, 0.12) 0%, transparent 60%),
-        radial-gradient(circle at 80% 80%, rgba(197, 160, 89, 0.06) 0%, transparent 50%),
-        url('/assets/hero_carpet.jpg');
-      background-size: cover;
-      background-position: center;
-      background-blend-mode: overlay;
-      color: var(--text-light);
+      background: #141210;
+      color: #F7F4EF;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      text-align: center;
       padding: 24px;
       position: relative;
-      overflow-x: hidden;
     }
 
-    body::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(15, 14, 12, 0.88);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 1;
-    }
-
-    .maintenance-container {
-      position: relative;
-      z-index: 2;
-      max-width: 620px;
+    .container {
+      max-width: 520px;
       width: 100%;
-      text-align: center;
     }
 
-    .maintenance-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 20px;
-      padding: 48px 36px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-    }
-
-    @media (max-width: 480px) {
-      .maintenance-card {
-        padding: 36px 20px;
-      }
-    }
-
-    .brand-logo-wrap {
-      margin-bottom: 24px;
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand-logo-img {
-      width: 68px;
-      height: 68px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--gold-luxury);
-      box-shadow: 0 4px 20px rgba(197, 160, 89, 0.3);
-    }
-
-    .brand-title {
+    .brand-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.45rem;
-      letter-spacing: 3px;
+      font-size: 1.15rem;
+      letter-spacing: 4px;
       text-transform: uppercase;
-      font-weight: 700;
-      color: var(--gold-light);
-      line-height: 1.2;
-    }
-
-    .brand-sub {
-      font-size: 0.72rem;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(197, 160, 89, 0.15);
-      border: 1px solid var(--border-subtle);
-      color: var(--gold-light);
-      padding: 6px 16px;
-      border-radius: 999px;
-      font-size: 0.76rem;
+      color: #C5A059;
+      margin-bottom: 28px;
       font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 24px;
     }
 
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--gold-luxury);
-      box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7);
-      animation: pulse 2s infinite;
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(197, 160, 89, 0.4);
+      margin: 0 auto 28px;
     }
 
-    @keyframes pulse {
-      0% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7);
-      }
-      70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 8px rgba(197, 160, 89, 0);
-      }
-      100% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(197, 160, 89, 0);
-      }
-    }
-
-    .main-heading {
+    h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.4rem;
+      font-size: 2.5rem;
       font-weight: 600;
-      color: var(--text-light);
-      line-height: 1.2;
-      margin-bottom: 14px;
+      line-height: 1.25;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
     }
 
-    @media (max-width: 480px) {
-      .main-heading {
-        font-size: 1.95rem;
-      }
-    }
-
-    .main-desc {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.65;
+    p {
+      font-size: 0.92rem;
+      color: #9E968D;
+      line-height: 1.7;
       margin-bottom: 32px;
       font-weight: 400;
     }
 
-    .contact-box {
-      background: rgba(26, 24, 22, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 14px;
-      padding: 20px;
-      margin-bottom: 28px;
-      text-align: left;
+    .contact-link {
+      display: inline-block;
+      font-size: 0.82rem;
+      color: #C5A059;
+      text-decoration: none;
+      letter-spacing: 1px;
+      border-bottom: 1px solid rgba(197, 160, 89, 0.35);
+      padding-bottom: 3px;
+      transition: border-color 0.2s, color 0.2s;
     }
 
-    .contact-box-title {
-      font-size: 0.75rem;
-      text-transform: uppercase;
+    .contact-link:hover {
+      color: #E5C384;
+      border-color: #E5C384;
+    }
+
+    .footer-note {
+      position: absolute;
+      bottom: 24px;
+      font-size: 0.72rem;
+      color: #615B54;
       letter-spacing: 1.5px;
-      color: var(--gold-luxury);
-      font-weight: 700;
-      margin-bottom: 12px;
-      text-align: center;
+      text-transform: uppercase;
     }
 
-    .contact-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      font-size: 0.88rem;
-    }
-
-    .contact-list li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--text-light);
-    }
-
-    .contact-list li i {
-      color: var(--gold-luxury);
-      width: 18px;
-      text-align: center;
-    }
-
-    .contact-list a {
-      color: var(--text-light);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .contact-list a:hover {
-      color: var(--gold-light);
-    }
-
-    .actions-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .btn-wa-direct {
-      background: #25D366;
-      color: #FFFFFF;
-      text-decoration: none;
-      padding: 14px 24px;
-      border-radius: 999px;
-      font-size: 0.92rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
-      transition: transform 0.2s, background 0.2s;
-    }
-
-    .btn-wa-direct:hover {
-      background: #20BA5A;
-      transform: translateY(-2px);
-    }
-
-    .btn-call-direct {
-      background: transparent;
-      color: var(--text-light);
-      text-decoration: none;
-      padding: 12px 24px;
-      border-radius: 999px;
-      font-size: 0.88rem;
-      font-weight: 600;
-      border: 1px solid var(--border-subtle);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: background 0.2s, border-color 0.2s;
-    }
-
-    .btn-call-direct:hover {
-      background: rgba(197, 160, 89, 0.15);
-      border-color: var(--gold-luxury);
-    }
-
-    .footer-credits {
-      margin-top: 32px;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      letter-spacing: 0.5px;
-    }
-
-    .footer-credits strong {
-      color: var(--text-light);
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2.1rem;
+      }
+      p {
+        font-size: 0.88rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="maintenance-container">
-    <div class="maintenance-card">
-      
-      <!-- Logo -->
-      <div class="brand-logo-wrap">
-        <img src="/assets/logo.jpg" alt="Sailaab's Design House" class="brand-logo-img">
-        <div>
-          <h1 class="brand-title">Sailaab’s Design House</h1>
-          <span class="brand-sub">Bhadohi Looms · Atelier &amp; Export</span>
-        </div>
-      </div>
-
-      <!-- Pulse Status Badge -->
-      <div>
-        <div class="status-badge">
-          <span class="pulse-dot"></span>
-          <span>System Maintenance in Progress</span>
-        </div>
-      </div>
-
-      <!-- Main Headline -->
-      <h2 class="main-heading">We are Under Scheduled Maintenance</h2>
-      
-      <p class="main-desc">
-        Our digital portal and collection catalogue are currently being upgraded with new handcrafted rug designs. We will be back online shortly.
-      </p>
-
-      <!-- Direct Contact Box -->
-      <div class="contact-box">
-        <div class="contact-box-title">Direct Loom Orders &amp; Inquiries Active</div>
-        <ul class="contact-list">
-          <li>
-            <i class="fa-solid fa-phone"></i>
-            <span>Direct Call: <a href="tel:+919219340149">+91 92193 40149</a></span>
-          </li>
-          <li>
-            <i class="fa-brands fa-whatsapp"></i>
-            <span>WhatsApp: <a href="https://wa.me/919219340149" target="_blank">+91 92193 40149</a></span>
-          </li>
-          <li>
-            <i class="fa-solid fa-industry"></i>
-            <span>Loom Manufacturing: Bhadohi City, UP, India</span>
-          </li>
-          <li>
-            <i class="fa-solid fa-building-columns"></i>
-            <span>Main Office: Shivpur, Varanasi, UP (221003)</span>
-          </li>
-          <li>
-            <i class="fa-brands fa-instagram"></i>
-            <span>Instagram: <a href="https://www.instagram.com/sailaabdesignhouse" target="_blank">@sailaabdesignhouse</a></span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Action Buttons -->
-      <div class="actions-wrap">
-        <a href="https://wa.me/919219340149?text=Hello%20Sailaab's%20Design%20House,%20I%20am%20inquiring%20about%20direct%20carpet%20loom%20orders." target="_blank" class="btn-wa-direct">
-          <i class="fa-brands fa-whatsapp"></i> Inquire via WhatsApp (+91 92193 40149)
-        </a>
-        <a href="tel:+919219340149" class="btn-call-direct">
-          <i class="fa-solid fa-phone"></i> Call Direct Loom Office
-        </a>
-      </div>
-
-      <div class="footer-credits">
-        © 2026 <strong>Sailaab’s Design House</strong>. Handcrafted with pride in Bhadohi.
-      </div>
-
-    </div>
+  <div class="container">
+    <div class="brand-name">Sailaab’s Design House</div>
+    <div class="divider"></div>
+    
+    <h1>Website Under Maintenance</h1>
+    <p>We are currently performing scheduled maintenance. We’ll be back online shortly.</p>
+    
+    <a href="https://wa.me/919219340149" target="_blank" class="contact-link">
+      Inquiries: +91 92193 40149
+    </a>
   </div>
+
+  <div class="footer-note">Bhadohi · Varanasi</div>
 
 </body>
 </html>
