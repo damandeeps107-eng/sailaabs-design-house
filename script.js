@@ -1080,6 +1080,7 @@ document.addEventListener('click', (e) => {
     text.includes('whatsapp') ||
     text.includes('inquire') ||
     target.classList.contains('header-wa-btn') ||
+    target.classList.contains('header-mobile-wa-link') ||
     target.classList.contains('btn-mobile-wa') ||
     target.classList.contains('btn-mobile-call') ||
     target.classList.contains('why-cta-btn') ||
@@ -1092,3 +1093,28 @@ document.addEventListener('click', (e) => {
     return false;
   }
 }, true);
+
+// ── Dynamic Responsive Header Height Sync ─────────────────────────────────
+// Measures real header height and sets --site-header-height for zero content overlap
+function syncHeaderHeight() {
+  const headerWrap = document.querySelector('.site-header-wrap') || document.querySelector('.minimal-header');
+  if (headerWrap) {
+    const h = headerWrap.getBoundingClientRect().height;
+    if (h > 0) {
+      document.documentElement.style.setProperty('--site-header-height', `${Math.round(h)}px`);
+    }
+  }
+}
+
+window.addEventListener('resize', syncHeaderHeight, { passive: true });
+window.addEventListener('orientationchange', syncHeaderHeight, { passive: true });
+if (typeof ResizeObserver !== 'undefined') {
+  const headerElem = document.querySelector('.site-header-wrap') || document.querySelector('.minimal-header');
+  if (headerElem) {
+    new ResizeObserver(() => syncHeaderHeight()).observe(headerElem);
+  }
+}
+document.addEventListener('DOMContentLoaded', syncHeaderHeight);
+setTimeout(syncHeaderHeight, 100);
+setTimeout(syncHeaderHeight, 500);
+

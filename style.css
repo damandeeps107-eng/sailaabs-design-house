@@ -55,9 +55,11 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 105px;
+  scroll-padding-top: var(--site-header-height, 84px);
   font-size: 16px;
   background-color: var(--bg-main);
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
@@ -68,6 +70,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
 }
 
 a {
@@ -99,6 +104,12 @@ ul {
 @media (max-width: 768px) {
   .container {
     width: calc(100% - 36px);
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    width: calc(100% - 20px);
   }
 }
 
@@ -439,8 +450,10 @@ h1, h2, h3, h4, h5, h6 {
 .site-header-wrap {
   position: sticky;
   top: 0;
-  z-index: 200;
+  z-index: 500;
   width: 100%;
+  background-color: var(--bg-main) !important;
+  box-shadow: 0 1px 0 rgba(53, 50, 46, 0.08);
 }
 
 .minimal-topbar {
@@ -468,8 +481,8 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid rgba(53, 50, 46, 0.08);
   position: relative;
   z-index: 1;
-  padding: 16px 0;
-  transition: box-shadow 0.3s ease;
+  padding: 14px 0;
+  transition: box-shadow 0.3s ease, padding 0.25s ease;
 }
 
 /* Scrolled state: add subtle shadow */
@@ -501,6 +514,7 @@ h1, h2, h3, h4, h5, h6 {
 .brand-meta {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .brand-name {
@@ -510,6 +524,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
   letter-spacing: 0.8px;
   line-height: 1.15;
+  white-space: nowrap;
 }
 
 .brand-desc {
@@ -518,6 +533,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 1.8px;
   text-transform: uppercase;
   margin-top: 2px;
+  white-space: nowrap;
 }
 
 .nav-menu {
@@ -554,6 +570,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 .hamburger-btn {
@@ -568,13 +585,18 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
   font-size: 1.15rem;
   cursor: pointer;
+  flex-shrink: 0;
+}
+
+.header-mobile-wa-bar {
+  display: none;
 }
 
 /* Mobile Nav Drawer */
 .mobile-nav-drawer {
   position: fixed;
   top: 0;
-  right: -100%;
+  right: 0;
   width: 320px;
   max-width: 86vw;
   height: 100vh;
@@ -584,12 +606,17 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   box-shadow: -10px 0 40px rgba(53, 50, 46, 0.12);
-  transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform: translateX(100%);
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), visibility 0.35s ease;
   padding: 24px 20px;
 }
 
 .mobile-nav-drawer.open {
-  right: 0;
+  transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .mobile-nav-backdrop {
@@ -865,18 +892,270 @@ h1, h2, h3, h4, h5, h6 {
   60% { transform: translateY(-4px); }
 }
 
-@media (max-width: 640px) {
-  .compact-loc-bar {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px 14px;
-    border-radius: var(--radius-card);
-    padding: 8px 14px;
-    width: auto;
+/* ── RESPONSIVE HEADER & HERO FOR TABLET & MOBILE (<= 768px & <= 360px) ── */
+@media (max-width: 768px) {
+  /* Site header wrap: stays in normal flow, sticks cleanly with solid opaque background */
+  .site-header-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    background-color: var(--bg-main) !important;
+    box-shadow: 0 2px 10px rgba(53, 50, 46, 0.06);
   }
-  .loc-divider { display: none; }
+
+  .minimal-header {
+    background-color: var(--bg-main) !important;
+    padding: 8px 0 6px;
+    border-bottom: 1px solid rgba(53, 50, 46, 0.08);
+  }
+
+  .header-flex {
+    gap: 8px;
+    align-items: center;
+  }
+
+  /* Brand link: neatly aligned without excessive line breaks */
+  .brand-link {
+    gap: 8px;
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .brand-logo-img {
+    width: 34px;
+    height: 34px;
+    border-radius: 5px;
+    flex-shrink: 0;
+  }
+
+  .brand-meta {
+    min-width: 0;
+  }
+
+  .brand-name {
+    font-size: clamp(0.82rem, 3.4vw, 0.98rem);
+    letter-spacing: 0.4px;
+    font-weight: 600;
+    white-space: nowrap;
+    line-height: 1.15;
+  }
+
+  .brand-desc {
+    font-size: 0.5rem;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    margin-top: 1px;
+  }
+
+  /* Header right: compact and aligned */
+  .header-right {
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .header-cart-btn {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    gap: 5px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-default);
+  }
+
+  .header-cart-btn .cart-btn-label {
+    display: none; /* Icon + badge only for maximum compactness */
+  }
+
+  .cart-badge {
+    min-width: 17px;
+    height: 17px;
+    font-size: 0.65rem;
+    padding: 0 4px;
+  }
+
+  /* WhatsApp button in Row 1 is hidden; moved cleanly to Row 2 */
+  .header-wa-btn {
+    display: none !important;
+  }
+
+  .hamburger-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* Row 2: WhatsApp quick action strip */
+  .header-mobile-wa-bar {
+    display: block;
+    padding: 6px 0 2px;
+  }
+
+  .header-mobile-wa-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: #25D366;
+    color: #FFFFFF;
+    font-size: 0.76rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
+    gap: 6px;
+    box-shadow: 0 2px 6px rgba(37, 211, 102, 0.2);
+    letter-spacing: 0.2px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .header-mobile-wa-link:active {
+    transform: scale(0.98);
+  }
+
+  /* Hero section: normal flow, responsive heights, zero content hidden */
+  .hero-section {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 24px;
+    overflow: hidden;
+    position: relative;
+    scroll-margin-top: var(--site-header-height, 86px);
+  }
+
+  .minimal-hero-center {
+    padding: 30px 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: auto;
+  }
+
+  .sub-heading {
+    font-size: clamp(0.6rem, 2.4vw, 0.72rem);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+
+  .main-title {
+    font-size: clamp(24px, 6.8vw, 36px);
+    line-height: 1.15;
+    letter-spacing: 0.4px;
+    margin-bottom: 12px;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  .main-tagline {
+    font-size: clamp(0.82rem, 3.2vw, 0.94rem);
+    line-height: 1.5;
+    margin: 0 auto 18px;
+    max-width: 92%;
+  }
+
+  .compact-loc-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 14px;
+    border-radius: var(--radius-card);
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 18px;
+  }
+
+  .loc-item {
+    justify-content: center;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .loc-item .tag {
+    font-size: 0.5rem;
+    letter-spacing: 1px;
+  }
+
+  .loc-item strong {
+    font-size: 0.74rem;
+  }
+
+  .loc-divider {
+    display: none;
+  }
+
+  .cta-row {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .cta-row .btn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+    padding: 11px 18px;
+    font-size: 0.84rem;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .scroll-indicator {
+    padding-bottom: 12px;
+  }
 }
+
+/* Extra small devices (<= 360px, e.g. 320px iPhone SE) */
+@media (max-width: 360px) {
+  .minimal-header {
+    padding: 7px 0 5px;
+  }
+  .brand-logo-img {
+    width: 28px;
+    height: 28px;
+  }
+  .brand-name {
+    font-size: 0.78rem;
+    letter-spacing: 0.2px;
+  }
+  .brand-desc {
+    font-size: 0.44rem;
+    letter-spacing: 0.8px;
+  }
+  .hamburger-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+  .header-cart-btn {
+    padding: 5px 8px;
+  }
+  .header-mobile-wa-link {
+    font-size: 0.7rem;
+    padding: 5px 8px;
+  }
+  .main-title {
+    font-size: 22px;
+  }
+  .compact-loc-bar {
+    max-width: 280px;
+    padding: 6px 10px;
+  }
+  .cta-row .btn {
+    max-width: 280px;
+    font-size: 0.78rem;
+    padding: 9px 12px;
+  }
+}
+
+
 
 /* ── 8. SECTION B: ABOUT US & ATELIER HERITAGE (#EEE9E4) ───────────────── */
 .about-section {
