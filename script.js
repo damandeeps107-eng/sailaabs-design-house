@@ -1141,23 +1141,44 @@ function initReviewsTape() {
       dot.addEventListener('click', () => {
         const cardWidth = cards[0].offsetWidth + 24;
         track.scrollTo({ left: idx * cardWidth, behavior: 'smooth' });
+        resetAutoPlay();
       });
       dotsContainer.appendChild(dot);
     });
   }
 
+  // Scroll helpers
+  const scrollNext = () => {
+    const cardWidth = cards[0].offsetWidth + 24;
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    if (track.scrollLeft >= maxScroll - 15) {
+      track.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    }
+  };
+
+  const scrollPrev = () => {
+    const cardWidth = cards[0].offsetWidth + 24;
+    if (track.scrollLeft <= 15) {
+      track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
+    } else {
+      track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    }
+  };
+
   // Prev / Next button click handlers
   if (prevBtn) {
     prevBtn.addEventListener('click', () => {
-      const cardWidth = cards[0].offsetWidth + 24;
-      track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+      scrollPrev();
+      resetAutoPlay();
     });
   }
 
   if (nextBtn) {
     nextBtn.addEventListener('click', () => {
-      const cardWidth = cards[0].offsetWidth + 24;
-      track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      scrollNext();
+      resetAutoPlay();
     });
   }
 
@@ -1175,6 +1196,39 @@ function initReviewsTape() {
       }
     });
   });
+
+  // AUTO TAPE / AUTO-PLAY SCROLLING
+  let isHovered = false;
+  let autoTimer = null;
+
+  const startAutoPlay = () => {
+    stopAutoPlay();
+    autoTimer = setInterval(() => {
+      if (!isHovered) {
+        scrollNext();
+      }
+    }, 3200);
+  };
+
+  const stopAutoPlay = () => {
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  };
+
+  const resetAutoPlay = () => {
+    startAutoPlay();
+  };
+
+  // Hover & Touch listeners to pause auto-scroll
+  track.addEventListener('mouseenter', () => { isHovered = true; });
+  track.addEventListener('mouseleave', () => { isHovered = false; });
+  track.addEventListener('touchstart', () => { isHovered = true; }, { passive: true });
+  track.addEventListener('touchend', () => { isHovered = false; }, { passive: true });
+
+  // Start auto-play
+  startAutoPlay();
 }
 
 window.showAccountToast = function() {
