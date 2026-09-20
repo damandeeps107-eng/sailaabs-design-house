@@ -13,9 +13,9 @@
   --surface-card-subtle: #FAF7F2;
 
   /* Typography Colors */
-  --text-primary: #35322E;         /* Charcoal primary heading & strong text */
-  --text-secondary: #6A655E;       /* Refined warm body text */
-  --text-muted: #858078;           /* Muted meta details */
+  --text-primary: #1A1714;         /* Near-black — strong headings */
+  --text-secondary: #484340;       /* Warm dark body text */
+  --text-muted: #6B6560;           /* Muted meta — still readable */
 
   /* Luxury Accents */
   --gold-luxury: #A88432;          /* Muted antique gold */
@@ -65,7 +65,7 @@ html {
 body {
   font-family: var(--font-sans);
   background-color: var(--bg-main);
-  color: var(--text-secondary);
+  color: #484340;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -89,6 +89,18 @@ img {
 
 ul {
   list-style: none;
+}
+
+
+/* ── TYPOGRAPHY CONTRAST UPGRADE ─────────────────────────────── */
+h1, h2, h3 {
+  color: #1A1714;
+}
+h4, h5, h6 {
+  color: #2A2724;
+}
+p {
+  color: #484340;
 }
 
 /* ── 3. GLOBAL CONTAINER ALIGNMENT (1320px STRICT GRID) ─────────────────── */
@@ -150,6 +162,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-heading {
+  color: #1A1714 !important;
+  font-weight: 700;
   font-family: var(--font-serif);
   font-size: clamp(42px, 4.8vw, 68px);
   font-weight: 550;
@@ -161,11 +175,15 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 992px) {
   .section-heading {
+  color: #1A1714 !important;
+  font-weight: 700;
     font-size: clamp(36px, 4.5vw, 52px);
   }
 }
 @media (max-width: 600px) {
   .section-heading {
+  color: #1A1714 !important;
+  font-weight: 700;
     font-size: clamp(30px, 8.8vw, 42px);
     line-height: 1.15;
     margin-bottom: 16px;
@@ -805,7 +823,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   text-transform: none;
   font-size: clamp(38px, 6vw, 76px);
-  font-weight: 400;
+  font-weight: 700;
   color: #FBF9F6;
   line-height: 1.1;
   letter-spacing: 1px;
@@ -1270,7 +1288,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-size: clamp(28px, 3.6vw, 48px);
   font-weight: 550;
-  color: var(--text-primary);
+  color: #252220;
   line-height: 1.18;
   margin-bottom: 20px;
   letter-spacing: -0.3px;
@@ -1295,7 +1313,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .about-paragraph {
   font-size: 16px;
-  color: var(--text-secondary);
+  color: #484340;
   line-height: 1.75;
   margin-bottom: 18px;
 }
@@ -1379,7 +1397,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-size: clamp(34px, 3.6vw, 52px);
   font-weight: 600;
-  color: var(--gold-luxury);
+  color: #1A1714;
   line-height: 1;
   display: block;
   margin-bottom: 8px;
@@ -1388,7 +1406,7 @@ h1, h2, h3, h4, h5, h6 {
 .stat-label {
   font-size: 11.5px;
   font-weight: 600;
-  color: #5D5851;
+  color: #5A5652;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   line-height: 1.4;
@@ -1473,8 +1491,8 @@ h1, h2, h3, h4, h5, h6 {
 .collection-card h3 {
   font-family: var(--font-serif);
   font-size: 21px;
-  font-weight: 650;
-  color: var(--text-primary);
+  font-weight: 600;
+  color: #1A1714;
   margin-bottom: 8px;
   line-height: 1.25;
 }
@@ -1905,7 +1923,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-size: clamp(42px, 4.2vw, 62px);
   font-weight: 500;
-  color: #FBF9F6;
+  color: #EDE8E2;
   line-height: 1.05;
   letter-spacing: -0.5px;
   margin-bottom: 0;
@@ -1938,7 +1956,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ─ Supporting paragraph ─ */
 .why-subtext {
   font-size: 16px;
-  color: #D1C7BD;
+  color: rgba(237, 232, 226, 0.85);
   line-height: 1.72;
   margin-bottom: 10px;
   max-width: 580px;
@@ -1995,8 +2013,8 @@ h1, h2, h3, h4, h5, h6 {
 .why-proof-title {
   font-family: var(--font-sans);
   font-size: 17px;
-  font-weight: 650;
-  color: #FBF9F6;
+  font-weight: 600;
+  color: #F0EBE4;
   margin-bottom: 5px;
   line-height: 1.3;
   letter-spacing: -0.1px;
@@ -2005,7 +2023,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Feature description */
 .why-proof-desc {
   font-size: 14.5px;
-  color: #A89F95;
+  color: rgba(237, 232, 226, 0.75);
   line-height: 1.65;
   margin: 0;
   font-weight: 400;
@@ -2218,7 +2236,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .trade-header .section-desc {
-  color: #D1C7BD;
+  color: #545048;
 }
 
 .trade-editorial-layout {
@@ -2818,7 +2836,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-sans);
   font-size: 17px;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #1A1714 !important;
   gap: 16px;
 }
 
@@ -3099,8 +3117,8 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--text-primary);
-  font-weight: 650;
+  color: rgba(237, 232, 226, 0.95);
+  font-weight: 600;
   margin-bottom: 22px;
 }
 
@@ -3173,7 +3191,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: flex-start;
   gap: 10px;
   font-size: 0.86rem;
-  color: var(--text-secondary);
+  color: rgba(237, 232, 226, 0.70);
 }
 
 .footer-contact-list i {
@@ -3296,8 +3314,8 @@ h1, h2, h3, h4, h5, h6 {
 .about-heritage-heading {
   font-family: var(--font-serif);
   font-size: clamp(40px, 5.2vw, 72px);
-  font-weight: 500;
-  color: var(--text-primary);
+  font-weight: 700;
+  color: #1A1714;
   line-height: 1.02;
   margin-bottom: 28px;
   letter-spacing: -0.6px;
@@ -3332,8 +3350,8 @@ h1, h2, h3, h4, h5, h6 {
 .process-main-heading {
   font-family: var(--font-serif);
   font-size: clamp(34px, 4vw, 56px);
-  font-weight: 550;
-  color: #1C1916 !important;
+  font-weight: 700;
+  color: #1A1714;
   line-height: 1.12;
   letter-spacing: -0.4px;
   margin-bottom: 16px;
@@ -3496,6 +3514,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─ FAQ Section heading and text ─ */
 .care-faq-section .section-heading {
+  color: #1A1714 !important;
+  font-weight: 700;
   font-size: clamp(30px, 3.4vw, 48px);
 }
 
@@ -3508,6 +3528,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─ Contact Section heading ─ */
 #contact .section-heading {
+  color: #1A1714 !important;
+  font-weight: 700;
   font-size: clamp(30px, 3.4vw, 50px);
   line-height: 1.12;
 }
@@ -3527,7 +3549,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-size: clamp(34px, 4.2vw, 58px);
   font-weight: 550;
-  color: #FBF9F6 !important;
+  color: #EDE8E2;
   line-height: 1.08;
   letter-spacing: -0.4px;
   margin-bottom: 14px;
@@ -4183,13 +4205,13 @@ body.client-preview .btn-black-block {
 .pillar-detail h4 {
   font-family: var(--font-sans);
   font-size: 14.5px;
-  font-weight: 650;
-  color: var(--text-primary);
+  font-weight: 600;
+  color: #252220;
   margin-bottom: 4px;
 }
 .pillar-detail p {
   font-size: 13px;
-  color: var(--text-secondary);
+  color: #505048;
   line-height: 1.5;
   margin: 0;
 }
@@ -4256,13 +4278,13 @@ body.client-preview .btn-black-block {
 .step-heading {
   font-family: var(--font-serif);
   font-size: 20px;
-  font-weight: 650;
-  color: var(--text-primary);
+  font-weight: 600;
+  color: #1A1714;
   margin-bottom: 8px;
 }
 .step-text {
   font-size: 13.5px;
-  color: var(--text-secondary);
+  color: #505048;
   line-height: 1.55;
   margin: 0;
 }
@@ -4920,7 +4942,7 @@ body.client-preview .btn-black-block {
   font-family: var(--font-serif);
   font-size: clamp(36px, 4vw, 52px);
   font-weight: 500;
-  color: #FBF9F6;
+  color: #EDE8E2;
   line-height: 1.12;
   margin-bottom: 14px;
   letter-spacing: -0.3px;
@@ -5041,14 +5063,14 @@ body.client-preview .btn-black-block {
 .trade-title {
   font-family: var(--font-serif);
   font-size: 23px;
-  font-weight: 500;
-  color: #FBF9F6;
+  font-weight: 600;
+  color: #F0EBE4;
   letter-spacing: -0.2px;
 }
 
 .trade-text {
   font-size: 14.5px;
-  color: #C7BEB5;
+  color: rgba(237, 232, 226, 0.75);
   line-height: 1.65;
   margin-bottom: 14px;
   padding-left: 40px;
@@ -5408,10 +5430,345 @@ body.client-preview .btn-black-block {
   padding: 20px 0 !important;
   font-size: 0.95rem !important;
   font-weight: 500 !important;
-  color: var(--text-primary) !important;
+  color: #1A1714 !important;
   border-radius: 0 !important;
 }
 .faq-answer {
   padding: 0 0 20px 0 !important;
   border-top: none !important;
+}
+
+
+/* ══════════════════════════════════════════════════════
+   TYPOGRAPHY & CONTRAST OVERRIDES — Final authority
+   Ensures strong readable hierarchy across all sections
+   ══════════════════════════════════════════════════════ */
+
+/* HEADINGS — near-black on light backgrounds */
+.page-section h2,
+.page-section h3,
+.light-section h2,
+.light-section h3,
+.about-section h2,
+.about-section h3,
+.about-section h4 {
+  color: #1A1714;
+}
+
+/* Section main heading — anchors each section visually */
+.section-heading {
+  color: #1A1714 !important;
+  font-weight: 700 !important;
+}
+
+/* Section description — readable, not faded */
+.section-desc {
+  color: #525048 !important;
+  font-size: 1.02rem;
+}
+
+/* Section tag eyebrow — gold accent, always visible */
+.section-tag {
+  color: var(--gold-luxury) !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+}
+
+/* About subheading */
+.about-subheading {
+  color: #232120 !important;
+  font-weight: 600 !important;
+}
+
+/* About paragraph body */
+.about-paragraph {
+  color: #4A4744 !important;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* About pillar headings */
+.pillar-detail h4 {
+  color: #252220 !important;
+  font-weight: 600 !important;
+}
+
+/* About pillar description */
+.pillar-detail p {
+  color: #555250 !important;
+}
+
+/* About credibility strip labels */
+.stat-number {
+  color: #1A1714 !important;
+  font-weight: 700 !important;
+}
+.stat-label {
+  color: #5A5652 !important;
+}
+
+/* Collection card headings */
+.collection-card h3 {
+  color: #1A1714 !important;
+  font-weight: 600 !important;
+  font-size: 1.15rem;
+}
+
+/* Collection card text */
+.card-body p {
+  color: #545048 !important;
+}
+
+/* Cat pill (label on card) */
+.cat-pill {
+  color: var(--gold-luxury) !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+}
+
+/* Card material line */
+.card-material {
+  color: var(--gold-luxury) !important;
+  font-weight: 600 !important;
+}
+
+/* Process section — light background */
+.process-main-heading {
+  color: #1A1714 !important;
+  font-weight: 700 !important;
+}
+
+.process-intro-text {
+  color: #525048 !important;
+}
+
+.step-heading {
+  color: #1A1714 !important;
+  font-weight: 600 !important;
+  font-size: 1.15rem;
+}
+
+.step-text {
+  color: #525048 !important;
+  line-height: 1.75;
+}
+
+.step-eyebrow {
+  color: var(--gold-luxury) !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+}
+
+/* About pillar numbers */
+.pillar-num {
+  color: var(--gold-luxury) !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+}
+
+/* Heritage since text */
+.heritage-since {
+  color: var(--gold-luxury) !important;
+}
+
+/* About editorial caption */
+.about-editorial-caption {
+  color: #6A6560 !important;
+}
+
+/* FAQ on light background */
+.faq-question {
+  color: #1A1714 !important;
+  font-weight: 600 !important;
+}
+
+.faq-answer p,
+.faq-answer li {
+  color: #484340 !important;
+}
+
+/* Dark section overrides — Why Sailaab, Trade */
+.why-us-section .why-heading {
+  color: #F0EBE4 !important;
+  font-weight: 700 !important;
+}
+.why-us-section .why-subtext {
+  color: rgba(240, 235, 228, 0.85) !important;
+}
+.why-us-section .why-proof-title {
+  color: #F0EBE4 !important;
+  font-weight: 600 !important;
+}
+.why-us-section .why-proof-desc {
+  color: rgba(237, 232, 226, 0.78) !important;
+}
+.why-us-section .why-provenance {
+  color: rgba(168, 132, 50, 0.9) !important;
+}
+.why-us-section .why-tag {
+  color: var(--gold-luxury) !important;
+  opacity: 1 !important;
+}
+.why-us-section .why-stat-lbl {
+  color: rgba(237, 232, 226, 0.75) !important;
+}
+
+/* Trade/Bespoke section (dark bg) */
+.trade-section .trade-heading {
+  color: #F0EBE4 !important;
+  font-weight: 700 !important;
+}
+.trade-section .trade-desc {
+  color: rgba(237, 232, 226, 0.80) !important;
+}
+.trade-section .trade-title {
+  color: #F0EBE4 !important;
+  font-weight: 600 !important;
+  font-size: 1.05rem;
+}
+.trade-section .trade-text {
+  color: rgba(237, 232, 226, 0.75) !important;
+}
+.trade-section .trade-num {
+  color: var(--gold-luxury) !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+}
+.trade-section .trade-cta-title {
+  color: #1A1714 !important;
+  font-weight: 700 !important;
+}
+.trade-section .trade-cta-desc {
+  color: #525048 !important;
+}
+.trade-section .capability-title {
+  color: rgba(237, 232, 226, 0.9) !important;
+  font-weight: 600 !important;
+}
+.trade-section .capability-sub {
+  color: rgba(237, 232, 226, 0.58) !important;
+}
+.trade-tag {
+  color: var(--gold-luxury) !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+}
+
+/* Editorial statement strip */
+.editorial-statement-heading {
+  color: rgba(237, 232, 226, 0.95) !important;
+  font-weight: 400;
+}
+.editorial-statement-gold-accent {
+  color: var(--gold-luxury) !important;
+}
+
+/* Reviews section */
+.reviews-section .section-heading {
+  color: #1A1714 !important;
+}
+.review-text {
+  color: #484340 !important;
+}
+.reviewer-name {
+  color: #1A1714 !important;
+  font-weight: 600 !important;
+}
+
+/* Footer */
+.footer-brand-name {
+  color: rgba(237, 232, 226, 0.95) !important;
+  font-weight: 700 !important;
+}
+.footer-brand-desc {
+  color: rgba(237, 232, 226, 0.65) !important;
+}
+.footer-col-title {
+  color: rgba(237, 232, 226, 0.95) !important;
+  font-weight: 600 !important;
+}
+.footer-links li a {
+  color: rgba(237, 232, 226, 0.65) !important;
+}
+.footer-links li a:hover {
+  color: rgba(237, 232, 226, 0.95) !important;
+}
+.footer-contact-list li {
+  color: rgba(237, 232, 226, 0.65) !important;
+}
+.footer-contact-list li a {
+  color: rgba(237, 232, 226, 0.75) !important;
+}
+
+/* Hero main title */
+.main-title {
+  font-weight: 700 !important;
+  text-transform: none !important;
+}
+
+/* Hero tagline */
+.main-tagline {
+  color: rgba(251, 249, 246, 0.88) !important;
+}
+
+/* Catalog filter tabs */
+.tab-btn {
+  color: #4A4744 !important;
+  font-weight: 500 !important;
+}
+.tab-btn.active {
+  color: #1A1714 !important;
+  font-weight: 600 !important;
+}
+
+/* Brand intro dark section */
+.brand-intro-quote {
+  color: #EDE8E2 !important;
+}
+.brand-intro-body {
+  color: rgba(237, 232, 226, 0.78) !important;
+}
+.brand-pillar-label {
+  color: rgba(237, 232, 226, 0.85) !important;
+  font-weight: 500 !important;
+}
+
+/* Minimum contrast rule — no text below this */
+.section-subtext {
+  color: #525048 !important;
+}
+
+/* About lead */
+.about-lead {
+  color: #525048 !important;
+}
+
+/* Heritage header */
+.about-heritage-heading {
+  color: #1A1714 !important;
+  font-weight: 700 !important;
+}
+
+/* Why catalog link */
+.why-catalog-link {
+  color: rgba(237, 232, 226, 0.80) !important;
+}
+.why-catalog-link:hover {
+  color: rgba(237, 232, 226, 1) !important;
+}
+
+/* Nav items */
+.nav-item {
+  color: var(--text-primary);
+  font-weight: 500 !important;
+}
+.nav-item:hover,
+.nav-item.active {
+  color: #1A1714 !important;
+}
+
+/* Brand name in header */
+.brand-name {
+  color: #1A1714 !important;
+  font-weight: 700 !important;
 }
