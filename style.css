@@ -2109,7 +2109,16 @@ html, body {
   }
 
   .harsh-footer {
-    padding: 48px 0 90px !important;
+    padding: 48px 0 110px !important;
+  }
+
+  .footer-bottom {
+    margin-bottom: 24px !important;
+    padding-bottom: 16px !important;
+    color: #FFFFFF !important;
+    font-size: 0.86rem !important;
+    font-weight: 600 !important;
+    line-height: 1.5 !important;
   }
 
   .bottom-nav-bar, .mobile-bottom-bar {
