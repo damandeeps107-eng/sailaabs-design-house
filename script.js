@@ -380,7 +380,7 @@ function initBgSlider() {
   }, 4500);
 }
 
-// Catalog Renderer — Image-only cards, hover overlay & smooth loading
+// Catalog Renderer — Harsh Carpets Style Product Card
 function renderCatalog(filter = 'all') {
   const grid = document.getElementById('catalog-grid');
   if (!grid) return;
@@ -395,29 +395,25 @@ function renderCatalog(filter = 'all') {
         const isPriority = idx < 4;
         return `
     <div class="product-card" onclick="openModal('${p.id}')">
-      <div class="product-img-box">
+      <div class="product-card-img-wrap">
         <img 
           src="${p.image}" 
           alt="${p.name}" 
           loading="${isPriority ? 'eager' : 'lazy'}" 
           ${isPriority ? 'fetchpriority="high"' : ''}
-          decoding="async" 
-          class="carpet-img"
-          onload="this.classList.add('is-loaded'); this.parentElement.classList.add('is-loaded');"
+          decoding="async"
         >
-        <span class="product-badge">${p.badge}</span>
-
-        <!-- Hover overlay — fades in on desktop, always-on on mobile -->
-        <div class="card-overlay">
-          <p class="overlay-name">${p.name}</p>
-          <div class="card-price-tag">Starting ₹${(p.price || 18500).toLocaleString('en-IN')}</div>
-          <div class="card-actions-row">
-            <span class="overlay-btn" onclick="openModal('${p.id}')">
-              <i class="fa-solid fa-eye"></i> Details
-            </span>
-            <button class="btn-card-add-cart" onclick="event.stopPropagation(); addToCart('${p.id}', null, event)">
-              <i class="fa-solid fa-bag-shopping"></i> Add to Cart
-            </button>
+        <span class="product-badge-tag">${p.badge}</span>
+      </div>
+      <div class="product-card-content">
+        <span class="product-category-lbl">${(p.category || '').toUpperCase().replace('-', ' ')}</span>
+        <h3 class="product-card-title">${p.name}</h3>
+        <p class="product-material-lbl">${p.material || '100% Wool & Silk'}</p>
+        <div class="product-price-row">
+          <span class="product-price">₹${(p.price || 18500).toLocaleString('en-IN')}</span>
+          <div class="card-btn-group">
+            <button class="btn-card-details" onclick="event.stopPropagation(); openModal('${p.id}')">Details</button>
+            <button class="btn-card-add" onclick="event.stopPropagation(); addToCart('${p.id}', null, event)"><i class="fa-solid fa-bag-shopping"></i> Add</button>
           </div>
         </div>
       </div>
@@ -426,10 +422,19 @@ function renderCatalog(filter = 'all') {
     }).join('');
 }
 
+window.filterCategory = function(catKey, btnEl) {
+  if (btnEl) {
+    const parent = btnEl.parentElement;
+    if (parent) {
+      parent.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    }
+    btnEl.classList.add('active');
+  }
+  renderCatalog(catKey);
+};
 
 window.filterCatalog = function(categoryKey) {
-  const tabs = document.querySelectorAll('.tab-btn');
-  tabs.forEach(t => { if (t.getAttribute('data-filter') === categoryKey) t.click(); });
+  renderCatalog(categoryKey);
   document.getElementById('catalog')?.scrollIntoView({ behavior: 'smooth' });
 };
 
