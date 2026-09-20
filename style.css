@@ -5788,3 +5788,502 @@ p,
 .footer-links li a:hover {
   color: #FFFFFF !important;
 }
+
+
+/* ==========================================================================
+   SECTION-BY-SECTION EXPLICIT CONTRAST & VISIBILITY OVERRIDE
+   Strict logic: Light BG -> Dark Text | Dark BG -> Light Text
+   ========================================================================== */
+
+/* ── 1. HERO SECTION (#home - Image Slider + Scrim Overlay) ────────────── */
+.hero-section .bg-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(12, 10, 8, 0.68) 0%,
+    rgba(12, 10, 8, 0.52) 50%,
+    rgba(12, 10, 8, 0.74) 100%
+  ) !important;
+}
+
+.hero-section .hero-eyebrow {
+  color: #E8C59C !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  opacity: 1 !important;
+}
+
+.hero-section .main-title {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+.hero-section .main-tagline {
+  color: rgba(255, 255, 255, 0.92) !important;
+  font-weight: 450 !important;
+  opacity: 1 !important;
+}
+
+
+/* ── 2. ROOTED IN BHADOHI / ABOUT US (#about - Light Ivory BG) ───────────── */
+#about.about-section {
+  background-color: #FAF7F2 !important;
+}
+
+#about .section-tag {
+  color: #7A242B !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  opacity: 1 !important;
+}
+
+#about .about-heritage-heading {
+  color: #171717 !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+}
+
+#about .about-lead,
+#about .about-paragraph,
+#about .pillar-detail p {
+  color: #484848 !important;
+  font-weight: 450 !important;
+  opacity: 1 !important;
+}
+
+#about .about-subheading,
+#about .pillar-detail h4 {
+  color: #292929 !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+}
+
+#about .trust-anchors-bar {
+  background-color: #FFFFFF !important;
+  border: 1px solid rgba(23, 23, 23, 0.12) !important;
+}
+
+#about .stat-number {
+  color: #171717 !important;
+  font-weight: 700 !important;
+}
+
+#about .stat-label {
+  color: #484848 !important;
+  font-weight: 600 !important;
+}
+
+
+/* ── 3. BRAND INTRO SPLIT (.brand-intro-split - Dark Charcoal BG) ──────── */
+.brand-intro-split {
+  background-color: #171513 !important;
+}
+
+.brand-intro-split .brand-intro-eyebrow {
+  color: #F5C6CB !important;
+  background: rgba(122, 36, 43, 0.45) !important;
+  border: 1px solid rgba(245, 198, 203, 0.35) !important;
+  font-weight: 700 !important;
+}
+
+.brand-intro-split .brand-intro-quote {
+  color: #F8F5EF !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+}
+
+.brand-intro-split .brand-intro-body {
+  color: rgba(255, 255, 255, 0.88) !important;
+  font-weight: 450 !important;
+}
+
+.brand-intro-split .brand-pillar-label {
+  color: rgba(255, 255, 255, 0.92) !important;
+  font-weight: 600 !important;
+}
+
+
+/* ── 4. RUG COLLECTIONS (#collections - Clean Off-White BG) ──────────────── */
+#collections {
+  background-color: #FFFFFF !important;
+}
+
+#collections .section-tag {
+  color: #7A242B !important;
+  font-weight: 700 !important;
+}
+
+#collections .section-heading {
+  color: #171717 !important;
+  font-weight: 700 !important;
+}
+
+#collections .section-desc,
+#collections .card-body p {
+  color: #484848 !important;
+}
+
+#collections .collection-card h3 {
+  color: #292929 !important;
+  font-weight: 700 !important;
+}
+
+#collections .cat-pill,
+#collections .card-material {
+  color: #7A242B !important;
+  font-weight: 700 !important;
+}
+
+
+/* ── 5. THE FULL COLLECTION / CATALOG (#catalog - Light Warm Beige BG) ───── */
+#catalog {
+  background-color: #F3EEE8 !important;
+}
+
+#catalog .section-tag {
+  color: #7A242B !important;
+  font-weight: 700 !important;
+}
+
+#catalog .section-heading {
+  color: #171717 !important;
+  font-weight: 700 !important;
+}
+
+#catalog .section-desc {
+  color: #484848 !important;
+}
+
+#catalog .tab-btn {
+  color: #484848 !important;
+  font-weight: 500 !important;
+}
+
+#catalog .tab-btn.active {
+  background-color: #171717 !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+}
+
+
+/* ── 6. MADE IN BHADOHI / WHY SAILAAB (#why-us - Deep Dark Luxury BG) ────── */
+#why-us.why-us-section {
+  background-color: #191715 !important;
+}
+
+#why-us .why-tag {
+  color: #F5C6CB !important;
+  background: rgba(122, 36, 43, 0.45) !important;
+  border: 1px solid rgba(245, 198, 203, 0.35) !important;
+  font-weight: 700 !important;
+}
+
+#why-us .why-heading {
+  color: #F8F5EF !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+}
+
+#why-us .why-heading-accent {
+  color: #DDAA55 !important;
+}
+
+#why-us .why-subtext {
+  color: rgba(255, 255, 255, 0.88) !important;
+  font-weight: 450 !important;
+}
+
+#why-us .why-proof-num {
+  color: #DDAA55 !important;
+  font-weight: 700 !important;
+}
+
+#why-us .why-proof-title {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+#why-us .why-proof-desc {
+  color: rgba(255, 255, 255, 0.86) !important;
+}
+
+#why-us .why-stat-num {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+#why-us .why-stat-lbl {
+  color: #E2DDD7 !important;
+  font-weight: 600 !important;
+}
+
+
+/* ── 7. HOW IT WORKS / PROCESS (#process - Clean Off-White BG) ───────────── */
+#process.process-section {
+  background-color: #FFFFFF !important;
+}
+
+#process .section-tag {
+  color: #7A242B !important;
+  font-weight: 700 !important;
+}
+
+#process .process-main-heading {
+  color: #171717 !important;
+  font-weight: 700 !important;
+}
+
+#process .process-intro-text,
+#process .step-text {
+  color: #484848 !important;
+}
+
+#process .step-eyebrow {
+  color: #7A242B !important;
+  font-weight: 700 !important;
+}
+
+#process .step-heading {
+  color: #292929 !important;
+  font-weight: 700 !important;
+}
+
+
+/* ── 8. BESPOKE RUG ATELIER (#trade - SPECIAL CONTRAST & OVERLAY FIX) ────── */
+#trade.trade-section {
+  background-color: #151312 !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scrim overlay container for Bespoke Atelier hero image */
+.trade-section .trade-hero-frame {
+  position: relative !important;
+}
+
+.trade-section .trade-hero-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(15, 12, 10, 0.72) 0%,
+    rgba(15, 12, 10, 0.48) 50%,
+    rgba(15, 12, 10, 0.18) 100%
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.trade-section .trade-tag {
+  color: #E8C59C !important;
+  background: rgba(232, 197, 156, 0.15) !important;
+  border: 1px solid rgba(232, 197, 156, 0.3) !important;
+  padding: 5px 14px !important;
+  border-radius: 4px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  display: inline-block !important;
+  opacity: 1 !important;
+}
+
+.trade-section .trade-heading {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+  font-size: 2.4rem !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+.trade-section .trade-desc {
+  color: rgba(255, 255, 255, 0.88) !important;
+  font-weight: 450 !important;
+  font-size: 1.05rem !important;
+  opacity: 1 !important;
+}
+
+.trade-section .trade-num {
+  color: #DDAA55 !important;
+  font-weight: 700 !important;
+}
+
+.trade-section .trade-title {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  font-size: 1.22rem !important;
+  opacity: 1 !important;
+}
+
+.trade-section .trade-text {
+  color: rgba(255, 255, 255, 0.86) !important;
+  font-weight: 450 !important;
+}
+
+.trade-section .trade-bullets li {
+  color: rgba(255, 255, 255, 0.88) !important;
+  font-weight: 450 !important;
+}
+
+.trade-section .trade-bullets li i {
+  color: #DDAA55 !important;
+}
+
+.trade-section .trade-capability-strip {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 8px !important;
+  padding: 20px 24px !important;
+}
+
+.trade-section .capability-title {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+.trade-section .capability-sub {
+  color: rgba(255, 255, 255, 0.82) !important;
+  font-weight: 450 !important;
+}
+
+.trade-section .trade-cta-box {
+  background: #FFFFFF !important;
+  border: 1px solid #E5E0D8 !important;
+  border-radius: 12px !important;
+  padding: 36px 30px !important;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+.trade-section .trade-cta-eyebrow {
+  color: #7A242B !important;
+  font-weight: 700 !important;
+}
+
+.trade-section .trade-cta-title {
+  color: #171717 !important;
+  font-weight: 700 !important;
+}
+
+.trade-section .trade-cta-desc {
+  color: #484848 !important;
+  font-weight: 450 !important;
+}
+
+.trade-section .btn-trade-gold {
+  background-color: #7A242B !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  border: 1px solid #6E1F25 !important;
+}
+
+
+/* ── 9. CLIENT FEEDBACK / REVIEWS (#reviews - Warm Ivory BG) ─────────────── */
+#reviews.reviews-section {
+  background-color: #FAF7F2 !important;
+}
+
+#reviews .section-tag {
+  color: #7A242B !important;
+  font-weight: 700 !important;
+}
+
+#reviews .section-heading {
+  color: #171717 !important;
+  font-weight: 700 !important;
+}
+
+#reviews .section-desc,
+#reviews .review-text {
+  color: #484848 !important;
+}
+
+#reviews .reviewer-name {
+  color: #292929 !important;
+  font-weight: 700 !important;
+}
+
+
+/* ── 10. CARPET CARE & FAQ (#care-faq - Light Warm Beige BG) ─────────────── */
+#care-faq.care-faq-section {
+  background-color: #F3EEE8 !important;
+}
+
+#care-faq .section-tag {
+  color: #7A242B !important;
+  font-weight: 700 !important;
+}
+
+#care-faq .section-heading {
+  color: #171717 !important;
+  font-weight: 700 !important;
+}
+
+#care-faq .section-desc,
+#care-faq .faq-answer p,
+#care-faq .faq-answer li {
+  color: #484848 !important;
+}
+
+#care-faq .faq-question {
+  color: #292929 !important;
+  font-weight: 700 !important;
+}
+
+
+/* ── 11. CONTACT US (#contact - Clean Off-White BG) ──────────────────────── */
+#contact {
+  background-color: #FFFFFF !important;
+}
+
+#contact .section-tag {
+  color: #7A242B !important;
+  font-weight: 700 !important;
+}
+
+#contact .contact-heading,
+#contact .contact-form-card h3 {
+  color: #171717 !important;
+  font-weight: 700 !important;
+}
+
+#contact .section-desc,
+#contact .c-item p {
+  color: #484848 !important;
+}
+
+#contact .c-item strong,
+#contact .form-group label {
+  color: #292929 !important;
+  font-weight: 700 !important;
+}
+
+
+/* ── 12. SITE FOOTER (.site-footer - Deep Dark Luxury BG) ────────────────── */
+.site-footer {
+  background-color: #141211 !important;
+}
+
+.site-footer .footer-brand-name,
+.site-footer .footer-col-title {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+}
+
+.site-footer .footer-brand-desc,
+.site-footer .footer-links li a,
+.site-footer .footer-contact-list li {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 450 !important;
+  opacity: 1 !important;
+}
+
+.site-footer .footer-links li a:hover {
+  color: #FFFFFF !important;
+}
+
+.site-footer .footer-made {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
