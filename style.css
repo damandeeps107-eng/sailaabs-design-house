@@ -6287,3 +6287,124 @@ p,
 .site-footer .footer-made {
   color: rgba(255, 255, 255, 0.78) !important;
 }
+
+
+/* ── BESPOKE RUG ATELIER (#trade) — LIGHT BG & CRISP BLACK TEXT ─────────── */
+#trade.trade-section {
+  background-color: #FAF7F2 !important;
+  color: #171717 !important;
+}
+
+.trade-section .trade-hero-frame::after {
+  display: none !important;
+}
+
+.trade-section .trade-tag {
+  color: #7A242B !important;
+  background: rgba(122, 36, 43, 0.08) !important;
+  border: 1px solid rgba(122, 36, 43, 0.2) !important;
+  padding: 5px 14px !important;
+  border-radius: 4px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  display: inline-block !important;
+  opacity: 1 !important;
+}
+
+.trade-section .trade-heading {
+  color: #171717 !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+  font-size: 2.4rem !important;
+  text-shadow: none !important;
+}
+
+.trade-section .trade-desc {
+  color: #454545 !important;
+  font-weight: 450 !important;
+  font-size: 1.05rem !important;
+  opacity: 1 !important;
+}
+
+.trade-section .trade-num {
+  color: #7A242B !important;
+  font-weight: 700 !important;
+}
+
+.trade-section .trade-title {
+  color: #171717 !important;
+  font-weight: 700 !important;
+  font-size: 1.25rem !important;
+  opacity: 1 !important;
+}
+
+.trade-section .trade-text {
+  color: #454545 !important;
+  font-weight: 450 !important;
+  opacity: 1 !important;
+}
+
+.trade-section .trade-bullets li {
+  color: #333333 !important;
+  font-weight: 500 !important;
+}
+
+.trade-section .trade-bullets li i {
+  color: #7A242B !important;
+}
+
+.trade-section .trade-editorial-caption {
+  color: #555555 !important;
+  font-weight: 500 !important;
+}
+
+.trade-section .trade-capability-strip {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(23, 23, 23, 0.12) !important;
+  border-radius: 8px !important;
+  padding: 20px 24px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+}
+
+.trade-section .capability-title {
+  color: #171717 !important;
+  font-weight: 700 !important;
+}
+
+.trade-section .capability-sub {
+  color: #555555 !important;
+  font-weight: 450 !important;
+}
+
+.trade-section .trade-cta-box {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(23, 23, 23, 0.14) !important;
+  border-radius: 12px !important;
+  padding: 36px 30px !important;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06) !important;
+}
+
+.trade-section .trade-cta-eyebrow {
+  color: #7A242B !important;
+  font-weight: 700 !important;
+}
+
+.trade-section .trade-cta-title {
+  color: #171717 !important;
+  font-weight: 700 !important;
+}
+
+.trade-section .trade-cta-desc {
+  color: #454545 !important;
+  font-weight: 450 !important;
+}
+
+.trade-section .btn-trade-gold {
+  background-color: #7A242B !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  border: 1px solid #6E1F25 !important;
+  padding: 13px 26px !important;
+  border-radius: 6px !important;
+}
