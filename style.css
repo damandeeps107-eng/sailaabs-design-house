@@ -7069,3 +7069,425 @@ p,
     flex-shrink: 0 !important;
   }
 }
+
+
+/* ==========================================================================
+   HARSHCARPETS.COM REFERENCE SPECIFICATIONS & NEW SECTIONS STYLING
+   ========================================================================== */
+
+/* ── HERO TRUST STRIP (DIRECTLY BELOW HERO) ────────────────────────────── */
+.hero-trust-strip {
+  background-color: #FFFFFF !important;
+  border-bottom: 1px solid rgba(23, 23, 23, 0.1) !important;
+  padding: 24px 0 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+}
+
+.trust-grid {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: wrap !important;
+  gap: 16px !important;
+}
+
+.trust-item {
+  flex: 1 1 140px !important;
+  text-align: center !important;
+}
+
+.trust-num {
+  font-family: var(--font-serif) !important;
+  font-size: 2.2rem !important;
+  font-weight: 700 !important;
+  color: #171717 !important;
+  line-height: 1.1 !important;
+  display: block !important;
+}
+
+.trust-lbl {
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  color: #555555 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  margin-top: 4px !important;
+  display: block !important;
+}
+
+.trust-divider {
+  width: 1px !important;
+  height: 36px !important;
+  background-color: rgba(23, 23, 23, 0.12) !important;
+}
+
+@media (max-width: 768px) {
+  .trust-divider { display: none !important; }
+  .trust-item { flex: 1 1 45% !important; padding: 8px 0 !important; }
+}
+
+
+/* ── WHY CHOOSE SAILAAB (6 FEATURE PILLARS GRID) ───────────────────────── */
+.why-pillars-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 24px !important;
+  margin-top: 44px !important;
+}
+
+.why-pillar-card {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 12px !important;
+  padding: 30px 24px !important;
+  transition: all 0.3s ease !important;
+}
+
+.why-pillar-card:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-4px) !important;
+  border-color: rgba(221, 170, 85, 0.4) !important;
+}
+
+.pillar-icon-box {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  background: rgba(221, 170, 85, 0.15) !important;
+  color: #DDAA55 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.3rem !important;
+  margin-bottom: 16px !important;
+}
+
+.pillar-badge {
+  color: #DDAA55 !important;
+  font-size: 0.76rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  display: block !important;
+  margin-bottom: 6px !important;
+}
+
+.why-pillar-card .why-proof-title {
+  color: #FFFFFF !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 10px !important;
+}
+
+.why-pillar-card .why-proof-desc {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+}
+
+@media (max-width: 992px) {
+  .why-pillars-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 640px) {
+  .why-pillars-grid { grid-template-columns: 1fr !important; }
+}
+
+
+/* ── SHOP BY SIZE CARDS GRID ────────────────────────────────────────────── */
+.size-cards-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 20px !important;
+  margin-top: 40px !important;
+}
+
+.size-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(23, 23, 23, 0.12) !important;
+  border-radius: 12px !important;
+  padding: 28px 22px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03) !important;
+}
+
+.size-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08) !important;
+  border-color: #7A242B !important;
+}
+
+.size-card.highlight-card {
+  border: 2px solid #7A242B !important;
+  background: #FAF7F2 !important;
+}
+
+.size-card-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 14px !important;
+}
+
+.size-dim {
+  font-family: var(--font-serif) !important;
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  color: #171717 !important;
+}
+
+.size-badge {
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+  background: #EEEEEE !important;
+  color: #555555 !important;
+  text-transform: uppercase !important;
+}
+
+.size-badge.popular {
+  background: #7A242B !important;
+  color: #FFFFFF !important;
+}
+
+.size-badge.custom {
+  background: #171717 !important;
+  color: #FFFFFF !important;
+}
+
+.size-title {
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  color: #171717 !important;
+  margin-bottom: 8px !important;
+}
+
+.size-desc {
+  font-size: 0.9rem !important;
+  color: #555555 !important;
+  line-height: 1.55 !important;
+  margin-bottom: 16px !important;
+}
+
+.size-specs {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 0 20px 0 !important;
+}
+
+.size-specs li {
+  font-size: 0.84rem !important;
+  color: #444444 !important;
+  margin-bottom: 6px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.size-specs li i {
+  color: #7A242B !important;
+  font-size: 0.8rem !important;
+}
+
+.btn-size-cta {
+  display: inline-block !important;
+  text-align: center !important;
+  padding: 11px 16px !important;
+  border-radius: 6px !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  background: #171717 !important;
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+  transition: all 0.25s ease !important;
+}
+
+.btn-size-cta.primary {
+  background: #7A242B !important;
+}
+
+.btn-size-cta.gold {
+  background: #A88432 !important;
+}
+
+.btn-size-cta:hover {
+  transform: translateY(-2px) !important;
+  opacity: 0.9 !important;
+}
+
+@media (max-width: 1024px) {
+  .size-cards-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 600px) {
+  .size-cards-grid { grid-template-columns: 1fr !important; }
+}
+
+
+/* ── RUG SERVICES & ATELIER GRID ────────────────────────────────────────── */
+.services-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 28px !important;
+  margin-top: 40px !important;
+}
+
+.service-card {
+  background: #FAF7F2 !important;
+  border: 1px solid rgba(23, 23, 23, 0.1) !important;
+  border-radius: 12px !important;
+  padding: 34px 26px !important;
+  transition: all 0.3s ease !important;
+}
+
+.service-card:hover {
+  background: #FFFFFF !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06) !important;
+  border-color: #7A242B !important;
+}
+
+.service-icon-wrap {
+  width: 54px !important;
+  height: 54px !important;
+  border-radius: 50% !important;
+  background: rgba(122, 36, 43, 0.1) !important;
+  color: #7A242B !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.4rem !important;
+  margin-bottom: 20px !important;
+}
+
+.service-title {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: #171717 !important;
+  margin-bottom: 10px !important;
+}
+
+.service-desc {
+  font-size: 0.95rem !important;
+  color: #484848 !important;
+  line-height: 1.65 !important;
+  margin-bottom: 18px !important;
+}
+
+.service-link {
+  color: #7A242B !important;
+  font-weight: 700 !important;
+  font-size: 0.88rem !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: gap 0.2s ease !important;
+}
+
+.service-link:hover {
+  gap: 10px !important;
+}
+
+@media (max-width: 900px) {
+  .services-grid { grid-template-columns: 1fr !important; }
+}
+
+
+/* ── BUYING GUIDE GRID (HOW TO CHOOSE THE RIGHT RUG) ───────────────────── */
+.guide-cards-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 20px !important;
+  margin-top: 40px !important;
+}
+
+.guide-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(23, 23, 23, 0.1) !important;
+  border-radius: 12px !important;
+  padding: 26px 20px !important;
+  position: relative !important;
+  transition: all 0.3s ease !important;
+}
+
+.guide-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05) !important;
+  border-color: #7A242B !important;
+}
+
+.guide-num-badge {
+  font-family: var(--font-serif) !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  color: #7A242B !important;
+  margin-bottom: 10px !important;
+}
+
+.guide-title {
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  color: #171717 !important;
+  margin-bottom: 8px !important;
+}
+
+.guide-text {
+  font-size: 0.9rem !important;
+  color: #484848 !important;
+  line-height: 1.6 !important;
+}
+
+@media (max-width: 992px) {
+  .guide-cards-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 576px) {
+  .guide-cards-grid { grid-template-columns: 1fr !important; }
+}
+
+
+/* ── HOME VISIT & SAMPLE REQUEST CTA BANNER ─────────────────────────────── */
+.home-visit-banner {
+  background: linear-gradient(135deg, #1C1A18 0%, #2A2420 100%) !important;
+  color: #FFFFFF !important;
+  padding: 68px 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.banner-eyebrow {
+  color: #DDAA55 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  font-size: 0.82rem !important;
+  text-transform: uppercase !important;
+  margin-bottom: 10px !important;
+  display: inline-block !important;
+}
+
+.banner-title {
+  font-family: var(--font-serif) !important;
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  margin-bottom: 12px !important;
+}
+
+.banner-desc {
+  font-size: 1.08rem !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  max-width: 680px !important;
+  margin: 0 auto 28px !important;
+}
+
+.banner-cta-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 16px !important;
+  flex-wrap: wrap !important;
+}
