@@ -791,7 +791,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 60px 0 40px;
 }
 
-.sub-heading {
+.sub-heading { display: none; /* replaced by hero-eyebrow */ } .sub-heading-old {
   font-size: 0.76rem;
   letter-spacing: 3.5px;
   color: var(--gold-luxury);
@@ -803,6 +803,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .main-title {
   font-family: var(--font-serif);
+  text-transform: none;
   font-size: clamp(38px, 6vw, 76px);
   font-weight: 400;
   color: #FBF9F6;
@@ -1039,7 +1040,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
   }
 
-  .sub-heading {
+  .sub-heading { display: none; /* replaced by hero-eyebrow */ } .sub-heading-old {
     font-size: clamp(0.6rem, 2.4vw, 0.72rem);
     letter-spacing: 2px;
     margin-bottom: 10px;
@@ -1437,6 +1438,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 220px;
   overflow: hidden;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
 }
 
 .card-img-wrap img {
@@ -1483,7 +1486,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 1100px) {
-  .collections-grid { grid-template-columns: repeat(2, 1fr); }
+  .collections-grid { grid-template-columns: repeat(4, 1fr); }
 }
 @media (max-width: 600px) {
   .collections-grid { grid-template-columns: 1fr; }
@@ -3062,9 +3065,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Huge Architectural Brand Header */
-.footer-hero-brand {
-  padding: 64px 0 0;
-}
+.footer-hero-brand { display: none; }
 
 .footer-huge-logo {
   font-family: var(--font-serif);
@@ -3214,7 +3215,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 640px) {
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
   .footer-bottom-inner { flex-direction: column; text-align: center; }
-  .footer-hero-brand { padding: 44px 0 0; }
+  .footer-hero-brand { display: none; }
 }
 
 /* ── 19. QUICK PRODUCT DETAILS MODAL ────────────────────────────────────── */
@@ -5234,3 +5235,183 @@ body.client-preview .btn-black-block {
   }
 }
 
+
+/* Hero eyebrow label */
+.hero-eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(251, 249, 246, 0.65);
+  margin-bottom: 20px;
+}
+.hero-br { display: none; }
+@media (min-width: 640px) { .hero-br { display: inline; } }
+
+/* ── BRAND INTRO SPLIT SECTION ────────────────────────────────── */
+.brand-intro-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 480px;
+  overflow: hidden;
+}
+
+.brand-intro-img-col {
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-intro-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.brand-intro-img-col:hover .brand-intro-img {
+  transform: scale(1.03);
+}
+
+.brand-intro-content-col {
+  background: #1C1A17;
+  padding: 72px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.brand-intro-eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-luxury);
+  margin-bottom: 24px;
+}
+
+.brand-intro-quote {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.45;
+  color: #EDE8E2;
+  border: none;
+  margin: 0 0 24px 0;
+  padding: 0;
+}
+
+.brand-intro-body {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: rgba(237, 232, 226, 0.65);
+  margin-bottom: 36px;
+  max-width: 420px;
+}
+
+.brand-intro-pillars {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 24px;
+}
+
+.brand-pillar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-pillar-icon {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(168, 132, 50, 0.35);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.65rem;
+  color: var(--gold-luxury);
+}
+
+.brand-pillar-label {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(237, 232, 226, 0.75);
+}
+
+@media (max-width: 900px) {
+  .brand-intro-split {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .brand-intro-img-col {
+    height: 300px;
+  }
+  .brand-intro-content-col {
+    padding: 48px 32px;
+  }
+  .brand-intro-quote {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .brand-intro-content-col {
+    padding: 40px 24px;
+  }
+  .brand-intro-quote {
+    font-size: 1.3rem;
+  }
+  .brand-intro-pillars {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}
+
+/* Card material detail line */
+.card-material {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-luxury);
+  margin-bottom: 6px;
+  margin-top: -2px;
+}
+
+/* FAQ refined style override */
+.faq-item {
+  border-top: 1px solid var(--border-subtle) !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  margin-bottom: 0 !important;
+  box-shadow: none !important;
+}
+.faq-item:last-child {
+  border-bottom: 1px solid var(--border-subtle) !important;
+}
+.faq-question {
+  background: transparent !important;
+  padding: 20px 0 !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  color: var(--text-primary) !important;
+  border-radius: 0 !important;
+}
+.faq-answer {
+  padding: 0 0 20px 0 !important;
+  border-top: none !important;
+}
