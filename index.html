@@ -485,45 +485,47 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       11. ENQUIRY FORM & SHOWROOM CONTACT
+       11. ENQUIRY FORM & SHOWROOM CONTACT (LUXURY BESPOKE ATELIER)
   ═══════════════════════════════════════════════════════════════ -->
   <section class="section-contact bg-cream" id="contact">
     <div class="container">
+      <div class="contact-header-block">
+        <span class="contact-eyebrow">BESPOKE INQUIRIES &amp; SHOWROOM APPOINTMENTS</span>
+        <h2 class="contact-heading">TALK TO OUR CARPET MASTERS</h2>
+        <p class="contact-intro">Whether you require a custom size quotation, sample request, or showroom visit in Varanasi, our team is ready to assist you.</p>
+      </div>
+
       <div class="contact-grid">
         <!-- Info Column -->
         <div class="contact-info-col">
-          <span class="section-eyebrow">VISIT &amp; CONNECT</span>
-          <h2 class="contact-heading">Get in Touch with Our Atelier</h2>
-          <p class="contact-intro">Whether you require a custom size quotation, sample request, or showroom visit in Varanasi, our team is ready to assist you.</p>
-
-          <div class="info-block">
+          <div class="info-card-luxury">
             <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <div>
-              <strong class="info-label">Flagship Showroom &amp; Office:</strong>
+            <div class="info-details">
+              <strong class="info-label">FLAGSHIP SHOWROOM &amp; OFFICE</strong>
               <p class="info-val">Shivpur, Varanasi, Uttar Pradesh &ndash; 221003, India</p>
             </div>
           </div>
 
-          <div class="info-block">
+          <div class="info-card-luxury">
             <div class="info-icon"><i class="fa-solid fa-industry"></i></div>
-            <div>
-              <strong class="info-label">Heritage Weaving Looms:</strong>
+            <div class="info-details">
+              <strong class="info-label">HERITAGE WEAVING LOOMS</strong>
               <p class="info-val">Bhadohi Carpet Weaving Cluster, Uttar Pradesh &ndash; 221401</p>
             </div>
           </div>
 
-          <div class="info-block">
-            <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
-            <div>
-              <strong class="info-label">Direct Phone &amp; WhatsApp:</strong>
-              <p class="info-val"><a href="tel:+919219340149">+91 92193 40149</a></p>
+          <div class="info-card-luxury accent-wa">
+            <div class="info-icon wa-bg"><i class="fa-brands fa-whatsapp"></i></div>
+            <div class="info-details">
+              <strong class="info-label">DIRECT PHONE &amp; WHATSAPP INQUIRY</strong>
+              <p class="info-val"><a href="https://wa.me/919219340149" target="_blank" class="info-wa-link">+91 92193 40149 <span class="wa-badge">Active Now</span></a></p>
             </div>
           </div>
 
-          <div class="info-block">
+          <div class="info-card-luxury">
             <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
-            <div>
-              <strong class="info-label">Email Enquiries:</strong>
+            <div class="info-details">
+              <strong class="info-label">EMAIL ENQUIRIES</strong>
               <p class="info-val"><a href="mailto:info@sailaabsdesignhouse.com">info@sailaabsdesignhouse.com</a></p>
             </div>
           </div>
@@ -531,33 +533,46 @@
 
         <!-- Form Column -->
         <div class="contact-form-col">
-          <h3 class="form-title">Send Us an Enquiry</h3>
+          <div class="form-header">
+            <h3 class="form-title">SEND AN INQUIRY</h3>
+            <p class="form-subtitle">Fill in your requirements for instant pricing &amp; loom dispatch details</p>
+          </div>
           
-          <div class="contact-alert" id="contact-alert" style="display: none;"></div>
+          <div class="contact-alert" id="contact-alert" style="display: none;">
+            <i class="fa-solid fa-circle-check"></i> Inquiry submitted! Opening WhatsApp to connect with our loom master...
+          </div>
 
           <form id="main-contact-form" class="clean-form">
             <div class="form-row">
               <div class="form-group">
-                <label for="cnt-name">Your Full Name *</label>
+                <label for="cnt-name">YOUR FULL NAME *</label>
                 <input type="text" id="cnt-name" class="form-input" placeholder="e.g. Ananya Sharma" required>
               </div>
               <div class="form-group">
-                <label for="cnt-phone">Phone / WhatsApp Number *</label>
-                <input type="tel" id="cnt-phone" class="form-input" placeholder="+91 98765 43210" required>
+                <label for="cnt-phone">PHONE / WHATSAPP NUMBER *</label>
+                <input type="tel" id="cnt-phone" class="form-input" placeholder="+91 92193 40149" required>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="cnt-email">Email Address</label>
-              <input type="email" id="cnt-email" class="form-input" placeholder="name@example.com">
+              <label for="cnt-size">CARPET SIZE / ROOM DIMENSIONS</label>
+              <select id="cnt-size" class="form-input form-select">
+                <option value="5x8 Ft">Standard Living Room (5 × 8 Ft)</option>
+                <option value="6x9 Ft">Medium Lounge (6 × 9 Ft)</option>
+                <option value="8x10 Ft">Large Living Room (8 × 10 Ft)</option>
+                <option value="9x12 Ft">Grand Master Suite (9 × 12 Ft)</option>
+                <option value="Custom Size">Custom Size / Shape (Custom Quotation)</option>
+              </select>
             </div>
 
             <div class="form-group">
-              <label for="cnt-msg">Requirements &amp; Carpet Specifications *</label>
-              <textarea id="cnt-msg" class="form-textarea" rows="4" placeholder="Tell us about your room size, preferred color, weave type, or custom rug ideas..." required></textarea>
+              <label for="cnt-msg">REQUIREMENTS &amp; CUSTOM SPECIFICATIONS *</label>
+              <textarea id="cnt-msg" class="form-textarea" rows="4" placeholder="Tell us about your room size, preferred color, weave type (Silk / Wool), or custom rug ideas..." required></textarea>
             </div>
 
-            <button type="submit" class="btn-submit">Send Enquiry</button>
+            <button type="submit" class="btn-submit-inquiry">
+              <i class="fa-brands fa-whatsapp"></i> SEND INQUIRY VIA WHATSAPP &amp; EMAIL
+            </button>
           </form>
         </div>
       </div>
