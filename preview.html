@@ -645,29 +645,29 @@
   </a>
 
   <!-- MOBILE FIXED BOTTOM NAVIGATION BAR -->
-  <div class="mobile-bottom-bar">
-    <a href="#home" class="bottom-nav-item active">
+  <div class="bottom-nav-bar" id="bottom-nav-bar">
+    <a href="#home" class="bottom-nav-item active" id="bottom-nav-home">
       <i class="fa-solid fa-house"></i>
       <span>Home</span>
     </a>
-    <a href="#contact" class="bottom-nav-item">
+    <a href="#about" class="bottom-nav-item" id="bottom-nav-account" onclick="showAccountToast(); return false;">
       <i class="fa-regular fa-user"></i>
       <span>Account</span>
     </a>
-    <a href="#catalog" class="bottom-nav-item">
+    <a href="#catalog" class="bottom-nav-item" id="bottom-nav-shop">
       <i class="fa-solid fa-store"></i>
       <span>Shop</span>
     </a>
-    <button class="bottom-nav-item" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+    <button class="bottom-nav-item" id="bottom-nav-wishlist">
       <div class="bottom-icon-badge">
         <i class="fa-regular fa-heart"></i>
-        <span class="badge-num">0</span>
+        <span class="badge-num wishlist-badge" id="bottom-wishlist-badge">0</span>
       </div>
       <span>Wishlist</span>
     </button>
-    <button class="bottom-nav-item" id="bottom-cart-btn" onclick="openCartDrawer()">
+    <button class="bottom-nav-item" id="bottom-nav-cart">
       <div class="bottom-icon-badge">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <svg class="cart-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
           <path d="M16 11V7a4 4 0 0 0-8 0v4M5 9h14l1 12H4L5 9z"></path>
         </svg>
         <span class="badge-num" id="bottom-cart-badge">0</span>
