@@ -6912,3 +6912,160 @@ p,
     gap: 10px !important;
   }
 }
+
+
+/* ==========================================================================
+   MOBILE HEADER LAYOUT FIX (< 768px) — SINGLE CLEAN HORIZONTAL ROW
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Hide topbar & secondary mobile whatsapp strip */
+  .minimal-topbar,
+  .header-mobile-wa-bar {
+    display: none !important;
+  }
+
+  .site-header-wrap {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+  }
+
+  .minimal-header {
+    padding: 8px 12px !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(23, 23, 23, 0.12) !important;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06) !important;
+  }
+
+  .header-flex {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  /* Flexible Brand Section (Left side) */
+  .brand-link {
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    overflow: hidden !important;
+    text-decoration: none !important;
+  }
+
+  /* Logo Size 44-48px */
+  .brand-logo-img {
+    width: 46px !important;
+    height: 46px !important;
+    object-fit: contain !important;
+    flex-shrink: 0 !important;
+    border-radius: 6px !important;
+  }
+
+  .brand-meta {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .brand-name {
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    color: #171717 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 160px !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .brand-desc {
+    font-size: 0.62rem !important;
+    color: #666666 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 160px !important;
+    letter-spacing: 0.05em !important;
+    margin-top: 2px !important;
+  }
+
+  /* Right Header Actions (Cart, WhatsApp, Hamburger) */
+  .header-right {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 6px !important;
+    flex-shrink: 0 !important;
+    flex-wrap: nowrap !important;
+  }
+
+  /* Compact Cart Button */
+  .header-cart-btn {
+    padding: 8px 10px !important;
+    gap: 5px !important;
+    background: #FAF7F2 !important;
+    border: 1px solid rgba(23, 23, 23, 0.14) !important;
+    border-radius: 30px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .header-cart-btn .cart-btn-label {
+    display: none !important; /* Hide 'Cart' text on mobile so only icon + badge remain */
+  }
+
+  /* Compact Circular 44px Icon-Only WhatsApp Button */
+  .header-wa-btn {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #25D366 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    flex-shrink: 0 !important;
+    box-shadow: 0 3px 10px rgba(37, 211, 102, 0.35) !important;
+  }
+
+  .header-wa-btn .wa-btn-text {
+    display: none !important; /* Hide text, icon-only on mobile */
+  }
+
+  .header-wa-btn i {
+    font-size: 1.25rem !important;
+    margin: 0 !important;
+    color: #FFFFFF !important;
+  }
+
+  /* Compact Hamburger Menu Button */
+  .hamburger-btn {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #FAF7F2 !important;
+    border: 1px solid rgba(23, 23, 23, 0.14) !important;
+    color: #171717 !important;
+    font-size: 1.1rem !important;
+    flex-shrink: 0 !important;
+  }
+}
