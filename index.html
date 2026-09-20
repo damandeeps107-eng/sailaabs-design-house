@@ -3,98 +3,725 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sailaab’s Design House | Under Maintenance</title>
-  <meta name="description" content="Sailaab’s Design House - Fine hand-knotted & hand-tufted luxury rugs from Bhadohi. Website is currently under scheduled maintenance.">
+  <title>Sailaab’s Design House | Luxury Handmade Carpets & Rugs | Bhadohi & Varanasi</title>
+  <meta name="description" content="Sailaab’s Design House - Fine hand-knotted, hand-tufted & custom carpets from Bhadohi looms. Showroom & office in Shivpur, Varanasi. Contact +91 92193 40149.">
+  
+  <!-- Google Fonts: Barlow Condensed, Montserrat, Playfair Display & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background-color: #171513;
-      color: #FFFFFF;
-      font-family: 'Inter', sans-serif;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
-    }
-    .m-card {
-      max-width: 620px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 16px;
-      padding: 48px 36px;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
-    }
-    .m-logo {
-      width: 72px;
-      height: 72px;
-      border-radius: 10px;
-      margin-bottom: 24px;
-    }
-    .m-eyebrow {
-      color: #DDAA55;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .m-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      line-height: 1.2;
-    }
-    .m-desc {
-      color: rgba(255, 255, 255, 0.82);
-      font-size: 1.05rem;
-      line-height: 1.65;
-      margin-bottom: 32px;
-    }
-    .m-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #7A242B;
-      color: #FFFFFF;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 14px 28px;
-      border-radius: 6px;
-      transition: all 0.25s ease;
-      box-shadow: 0 4px 14px rgba(122, 36, 43, 0.4);
-    }
-    .m-btn:hover {
-      background: #5D1A20;
-      transform: translateY(-2px);
-    }
-    .m-info {
-      margin-top: 32px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 0.88rem;
-      color: rgba(255, 255, 255, 0.65);
-    }
-  </style>
+  
+  <!-- Preload Critical Above-The-Fold Assets -->
+  <link rel="preload" as="image" href="/assets/hero_carpet.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/logo.jpg" fetchpriority="high">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/style.css">
 </head>
-<body>
-  <div class="m-card">
-    <img src="/assets/logo.jpg" alt="Sailaab's Design House" class="m-logo">
-    <div class="m-eyebrow">BHADOHI LOOMS • VARANASI OFFICE</div>
-    <h1 class="m-title">Website Under Scheduled Maintenance</h1>
-    <p class="m-desc">We are currently updating our digital catalog and carpet collection. Our Bhadohi looms and Varanasi showroom office are fully operational.</p>
-    <a href="https://wa.me/919219340149" target="_blank" class="m-btn">
-      <i class="fa-brands fa-whatsapp"></i> Contact Us on WhatsApp (+91 92193 40149)
-    </a>
-    <div class="m-info">
-      Showroom Office: Shivpur, Varanasi, UP 221003 &bull; Factory: Bhadohi City
+<body class="harsh-style-body">
+
+  <!-- 1. ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    <div class="container announcement-flex">
+      <span>PREMIUM HANDMADE CARPETS DIRECT FROM BHADOHI LOOMS &bull; NATIONWIDE DELIVERY</span>
+      <span class="announcement-contact">Call / WhatsApp: <strong>+91 92193 40149</strong> &bull; Showroom: <strong>Shivpur, Varanasi</strong></span>
     </div>
   </div>
+
+  <!-- 2. HEADER / NAVIGATION (HARSH CARPETS UN-CROWDED 2-ROW DESIGN) -->
+  <header class="harsh-header" id="main-header">
+    <div class="header-top-row">
+      <div class="container header-container">
+        <button class="hamburger-toggle" id="hamburger-btn" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <a href="#home" class="brand-link">
+          <img src="/assets/logo.jpg" alt="Sailaab's Design House" class="brand-logo" decoding="async" fetchpriority="high">
+          <div class="brand-text-block">
+            <span class="brand-name">SAILAAB'S DESIGN HOUSE</span>
+            <span class="brand-subname">LUXURY HANDMADE CARPETS & RUGS &bull; VARANASI & BHADOHI</span>
+          </div>
+        </a>
+
+        <div class="header-actions">
+          <button class="header-icon-btn" aria-label="Search Catalogue" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+
+          <button class="cart-btn" id="header-cart-btn" aria-label="View Shopping Basket">
+            <svg class="cart-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M16 11V7a4 4 0 0 0-8 0v4M5 9h14l1 12H4L5 9z"></path>
+            </svg>
+            <span class="cart-badge" id="cart-badge">0</span>
+          </button>
+          
+          <a href="https://wa.me/919219340149" target="_blank" class="header-wa-btn" aria-label="WhatsApp Contact">
+            <i class="fa-brands fa-whatsapp"></i> <span>WHATSAPP</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="header-nav-row desktop-nav" id="desktop-nav-menu">
+      <div class="container nav-container">
+        <a href="#home" class="nav-link active">HOME</a>
+        <a href="#about" class="nav-link">ABOUT US</a>
+        <a href="#collections" class="nav-link">CARPET & RUGS COLLECTION</a>
+        <a href="#catalog" class="nav-link">PRODUCT CATALOG</a>
+        <a href="#shop-by-size" class="nav-link">SHOP BY SIZE</a>
+        <a href="#buying-guide" class="nav-link">RUG BUYING GUIDE</a>
+        <a href="#contact" class="nav-link">SHOWROOM & CONTACT</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobile-nav-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="drawer-brand">
+        <img src="/assets/logo.jpg" alt="Sailaab's Design House" class="drawer-logo">
+        <div>
+          <div class="drawer-title">SAILAAB'S DESIGN HOUSE</div>
+          <div class="drawer-subtitle">BHADOHI LOOMS &bull; VARANASI</div>
+        </div>
+      </div>
+      <button class="drawer-close" id="mobile-nav-close" aria-label="Close Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <nav class="drawer-nav">
+      <a href="#home" class="drawer-link active">Home</a>
+      <a href="#about" class="drawer-link">About Us</a>
+      <a href="#collections" class="drawer-link">Collections</a>
+      <a href="#catalog" class="drawer-link">Product Catalog</a>
+      <a href="#shop-by-size" class="drawer-link">Shop by Size</a>
+      <a href="#why-us" class="drawer-link">Why Choose Us</a>
+      <a href="#services" class="drawer-link">Our Services</a>
+      <a href="#buying-guide" class="drawer-link">Rug Buying Guide</a>
+      <a href="#reviews" class="drawer-link">Customer Reviews</a>
+      <a href="#contact" class="drawer-link">Contact &amp; Showroom</a>
+    </nav>
+
+    <div class="drawer-footer">
+      <a href="https://wa.me/919219340149" target="_blank" class="drawer-wa-btn">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp Enquiry (+91 92193 40149)
+      </a>
+      <a href="tel:+919219340149" class="drawer-call-btn">
+        <i class="fa-solid fa-phone"></i> Call: +91 92193 40149
+      </a>
+    </div>
+  </div>
+  <div class="drawer-backdrop" id="mobile-nav-backdrop"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       1. HERO SECTION (100% PRESERVED UNTOUCHED)
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="hero-wrapper" id="home">
+    <div class="hero-bg-container">
+      <div class="hero-slide active" style="background-image: url('/assets/01-ivory-blue-floral-living-room.webp');"></div>
+      <div class="hero-slide" style="background-image: url('/assets/02-camel-classic-floral-living-room.webp');"></div>
+      <div class="hero-slide" style="background-image: url('/assets/hero_carpet.jpg');"></div>
+      <div class="hero-overlay"></div>
+    </div>
+
+    <button class="hero-arrow hero-arrow-left" id="hero-prev-btn" aria-label="Previous Slide">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="hero-arrow hero-arrow-right" id="hero-next-btn" aria-label="Next Slide">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <div class="container hero-content-inner text-center">
+      <span class="hero-eyebrow">NEW COLLECTION</span>
+      <h1 class="hero-title">HAND KNOTTED</h1>
+      <p class="hero-subtitle">DISCOVER PREMIUM CARPETS</p>
+      <div class="hero-cta-wrapper">
+        <a href="#catalog" class="btn-outline-box">SHOP NOW</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       2. MAIN ROOM CATEGORIES
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="section-categories bg-white" id="collections">
+    <div class="container">
+      <div class="category-grid-2col">
+        <div class="cat-tile" onclick="filterCategory('hand-knotted', null); document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <img src="/assets/01-ivory-blue-floral-living-room.webp" alt="Living Room Carpets" loading="lazy">
+          <div class="cat-tile-overlay">
+            <h3 class="cat-tile-title">LIVING ROOM</h3>
+            <span class="cat-tile-sub">CARPETS</span>
+          </div>
+        </div>
+
+        <div class="cat-tile" onclick="filterCategory('modern', null); document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <img src="/assets/03-ivory-charcoal-medallion-living-room.webp" alt="Bedroom Carpets" loading="lazy">
+          <div class="cat-tile-overlay">
+            <h3 class="cat-tile-title">BEDROOM</h3>
+            <span class="cat-tile-sub">CARPETS</span>
+          </div>
+        </div>
+
+        <div class="cat-tile" onclick="filterCategory('hand-knotted', null); document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <img src="/assets/02-camel-classic-floral-living-room.webp" alt="Dining Room Carpets" loading="lazy">
+          <div class="cat-tile-overlay">
+            <h3 class="cat-tile-title">DINING ROOM</h3>
+            <span class="cat-tile-sub">CARPETS</span>
+          </div>
+        </div>
+
+        <div class="cat-tile" onclick="filterCategory('irregular', null); document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <img src="/assets/08-ivory-cloud-irregular-room.webp" alt="Kids Room Carpets" loading="lazy">
+          <div class="cat-tile-overlay">
+            <h3 class="cat-tile-title">KIDS ROOM</h3>
+            <span class="cat-tile-sub">CARPETS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       3. BESTSELLERS SECTION
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="section-bestsellers bg-white">
+    <div class="container">
+      <h2 class="video-section-heading">BESTSELLERS</h2>
+
+      <div class="product-grid-2col" id="bestsellers-grid">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+
+      <div class="text-center section-action-btn-wrap">
+        <button class="btn-video-viewall" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">VIEW ALL</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       4. SHOP BY COLOR
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="section-shop-color bg-white">
+    <div class="container">
+      <h2 class="video-section-heading">SHOP BY COLOR</h2>
+
+      <div class="color-grid-2col">
+        <div class="color-tile" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <div class="color-tile-img">
+            <img src="/assets/09-burgundy-persian-living-room.webp" alt="Red & Burgundy Rugs" loading="lazy">
+          </div>
+          <span class="color-tile-label">RED</span>
+        </div>
+
+        <div class="color-tile" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <div class="color-tile-img">
+            <img src="/assets/06-black-mustard-irregular-product.webp" alt="Black & Charcoal Rugs" loading="lazy">
+          </div>
+          <span class="color-tile-label">BLACK</span>
+        </div>
+
+        <div class="color-tile" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <div class="color-tile-img">
+            <img src="/assets/01-ivory-blue-floral-living-room.webp" alt="Blue & Navy Rugs" loading="lazy">
+          </div>
+          <span class="color-tile-label">BLUE</span>
+        </div>
+
+        <div class="color-tile" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <div class="color-tile-img">
+            <img src="/assets/10-teal-botanical-living-room.webp" alt="Green & Teal Rugs" loading="lazy">
+          </div>
+          <span class="color-tile-label">GREEN</span>
+        </div>
+      </div>
+
+      <div class="text-center section-action-btn-wrap">
+        <button class="btn-video-viewall" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">VIEW MORE <i class="fa-solid fa-chevron-down"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       5. NEW ARRIVALS & CATALOGUE
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="section-catalog bg-white" id="catalog">
+    <div class="container">
+      <h2 class="video-section-heading">NEW ARRIVALS</h2>
+
+      <!-- Filter Controls -->
+      <div class="catalog-filter-bar">
+        <button class="filter-btn active" onclick="filterCategory('all', this)">All Carpets</button>
+        <button class="filter-btn" onclick="filterCategory('hand-knotted', this)">Hand-Knotted</button>
+        <button class="filter-btn" onclick="filterCategory('modern', this)">Modern</button>
+        <button class="filter-btn" onclick="filterCategory('irregular', this)">Irregular Shapes</button>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="product-grid-2col" id="catalog-grid">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       6. SHOP BY SIZE
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="section-shop-size bg-white" id="shop-by-size">
+    <div class="container">
+      <h2 class="video-section-heading">SHOP BY SIZE</h2>
+
+      <div class="size-grid-2col">
+        <div class="size-card-compact" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <div class="size-img-wrap">
+            <img src="/assets/08-ivory-cloud-irregular-room.webp" alt="Small Rugs" loading="lazy">
+          </div>
+          <div class="size-info-compact text-center">
+            <h3 class="size-title">SMALL RUGS</h3>
+            <span class="size-dim">4&times;6 Ft &bull; 5&times;8 Ft</span>
+          </div>
+        </div>
+
+        <div class="size-card-compact" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <div class="size-img-wrap">
+            <img src="/assets/02-camel-classic-floral-living-room.webp" alt="Medium Rugs" loading="lazy">
+          </div>
+          <div class="size-info-compact text-center">
+            <h3 class="size-title">MEDIUM RUGS</h3>
+            <span class="size-dim">6&times;9 Ft &bull; 8&times;10 Ft</span>
+          </div>
+        </div>
+
+        <div class="size-card-compact" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <div class="size-img-wrap">
+            <img src="/assets/01-ivory-blue-floral-living-room.webp" alt="Large Rugs" loading="lazy">
+          </div>
+          <div class="size-info-compact text-center">
+            <h3 class="size-title">LARGE RUGS</h3>
+            <span class="size-dim">9&times;12 Ft &bull; 10&times;14 Ft+</span>
+          </div>
+        </div>
+
+        <div class="size-card-compact" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <div class="size-img-wrap">
+            <img src="/assets/06-black-mustard-irregular-product.webp" alt="Bespoke Custom Sizes" loading="lazy">
+          </div>
+          <div class="size-info-compact text-center">
+            <h3 class="size-title">BESPOKE CUSTOM</h3>
+            <span class="size-dim">Custom Floorplans</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       7. SHOWROOM GALLERY
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="section-showroom-gallery bg-white">
+    <div class="container">
+      <span class="section-eyebrow text-center">COME SEE US IN PERSON</span>
+      <h2 class="video-section-heading">AVAILABLE IN OUR SHOWROOM</h2>
+
+      <div class="category-grid-2col">
+        <div class="cat-tile" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <img src="/assets/09-burgundy-persian-living-room.webp" alt="Irani Carpet" loading="lazy">
+          <div class="cat-tile-overlay">
+            <h3 class="cat-tile-title">IRANI CARPET</h3>
+            <span class="cat-tile-sub">IN-STORE</span>
+          </div>
+        </div>
+
+        <div class="cat-tile" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <img src="/assets/04-greige-abstract-luxury-living-room.webp" alt="Modern Abstract" loading="lazy">
+          <div class="cat-tile-overlay">
+            <h3 class="cat-tile-title">MODERN ABSTRACT</h3>
+            <span class="cat-tile-sub">IN-STORE</span>
+          </div>
+        </div>
+
+        <div class="cat-tile" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <img src="/assets/01-ivory-blue-floral-living-room.webp" alt="Traditional Carpet" loading="lazy">
+          <div class="cat-tile-overlay">
+            <h3 class="cat-tile-title">TRADITIONAL CARPET</h3>
+            <span class="cat-tile-sub">IN-STORE</span>
+          </div>
+        </div>
+
+        <div class="cat-tile" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <img src="/assets/03-ivory-charcoal-medallion-living-room.webp" alt="Clearance Sale" loading="lazy">
+          <div class="cat-tile-overlay">
+            <h3 class="cat-tile-title">CLEARANCE SALE</h3>
+            <span class="cat-tile-sub">IN-STORE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       8. ABOUT US / BRAND STORY
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="section-about bg-offwhite" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-frame">
+          <img src="/assets/bhadohi_craft.jpg" alt="Artisan Carpet Weaving in Bhadohi" loading="lazy">
+        </div>
+        <div class="about-content">
+          <span class="section-eyebrow">THE STORY BEHIND SAILAAB'S DESIGN HOUSE</span>
+          <h2 class="about-heading">Three Decades of Weaving Heritage</h2>
+          <p class="about-text">Founded in 1994 in Bhadohi — Asia’s premier carpet weaving center — Sailaab’s Design House represents over 30 years of authentic craftsmanship. Our master weavers hand-knot and hand-tuft every rug using 100% pure New Zealand wool, Kashmir silk, and eco-friendly organic fibers.</p>
+          <p class="about-text">With our corporate showroom in Shivpur, Varanasi, we provide interior designers, architects, and homeowners direct access to bespoke, loom-priced handmade carpets without middleman markups.</p>
+          
+          <div class="about-stats">
+            <div class="stat-box">
+              <span class="stat-number">30+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Artisan Looms</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">15,000+</span>
+              <span class="stat-label">Homes Delivered</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       9. CLIENT REVIEWS
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="section-reviews bg-cream" id="reviews">
+    <div class="container">
+      <h2 class="video-section-heading">OUR HAPPY CUSTOMERS</h2>
+
+      <div class="reviews-tape-wrapper" id="reviewsTapeWrapper">
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">"The ivory silk carpet we ordered for our living room in Delhi is breathtaking. Exceptional knot density and brilliant lustre. Worth every rupee."</p>
+            <div class="review-author">
+              <strong>Rajesh &amp; Sunita Agarwal</strong>
+              <span>New Delhi</span>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">"We ordered a bespoke 10x14 ft carpet for our penthouse in Mumbai. The team matched our exact interior color palette. Delivered on time!"</p>
+            <div class="review-author">
+              <strong>Vikramaditya Singhania</strong>
+              <span>Mumbai</span>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">"Direct loom pricing from Bhadohi without middleman commission. Authentic craftsmanship and prompt communication over WhatsApp."</p>
+            <div class="review-author">
+              <strong>Dr. Meera Nambiar</strong>
+              <span>Bengaluru</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       10. BUYING GUIDE / BLOG
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="section-guide bg-white" id="buying-guide">
+    <div class="container">
+      <span class="section-eyebrow text-center">EXPERT ADVICE</span>
+      <h2 class="video-section-heading">RUG BUYING GUIDE</h2>
+
+      <div class="blog-scroll-row">
+        <div class="blog-card-scroll">
+          <img src="/assets/01-ivory-blue-floral-living-room.webp" alt="Measurement Guide" loading="lazy">
+          <div class="blog-card-content">
+            <span class="blog-date">MAR 12, 2026</span>
+            <h3 class="blog-card-title">How to Measure &amp; Position a Rug for Your Living Room</h3>
+            <a href="#contact" class="btn-blog-read">READ ARTICLE</a>
+          </div>
+        </div>
+
+        <div class="blog-card-scroll">
+          <img src="/assets/03-ivory-charcoal-medallion-living-room.webp" alt="Material Selection" loading="lazy">
+          <div class="blog-card-content">
+            <span class="blog-date">FEB 28, 2026</span>
+            <h3 class="blog-card-title">Pure Wool vs Kashmir Silk: Selecting the Ideal Fibre</h3>
+            <a href="#contact" class="btn-blog-read">READ ARTICLE</a>
+          </div>
+        </div>
+
+        <div class="blog-card-scroll">
+          <img src="/assets/09-burgundy-persian-living-room.webp" alt="Knotted vs Tufted" loading="lazy">
+          <div class="blog-card-content">
+            <span class="blog-date">JAN 15, 2026</span>
+            <h3 class="blog-card-title">Hand-Knotted vs Hand-Tufted: Understanding Weave Durability</h3>
+            <a href="#contact" class="btn-blog-read">READ ARTICLE</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       11. ENQUIRY FORM & SHOWROOM CONTACT
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="section-contact bg-cream" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Info Column -->
+        <div class="contact-info-col">
+          <span class="section-eyebrow">VISIT &amp; CONNECT</span>
+          <h2 class="contact-heading">Get in Touch with Our Atelier</h2>
+          <p class="contact-intro">Whether you require a custom size quotation, sample request, or showroom visit in Varanasi, our team is ready to assist you.</p>
+
+          <div class="info-block">
+            <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <strong class="info-label">Flagship Showroom &amp; Office:</strong>
+              <p class="info-val">Shivpur, Varanasi, Uttar Pradesh &ndash; 221003, India</p>
+            </div>
+          </div>
+
+          <div class="info-block">
+            <div class="info-icon"><i class="fa-solid fa-industry"></i></div>
+            <div>
+              <strong class="info-label">Heritage Weaving Looms:</strong>
+              <p class="info-val">Bhadohi Carpet Weaving Cluster, Uttar Pradesh &ndash; 221401</p>
+            </div>
+          </div>
+
+          <div class="info-block">
+            <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <strong class="info-label">Direct Phone &amp; WhatsApp:</strong>
+              <p class="info-val"><a href="tel:+919219340149">+91 92193 40149</a></p>
+            </div>
+          </div>
+
+          <div class="info-block">
+            <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <strong class="info-label">Email Enquiries:</strong>
+              <p class="info-val"><a href="mailto:info@sailaabsdesignhouse.com">info@sailaabsdesignhouse.com</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Column -->
+        <div class="contact-form-col">
+          <h3 class="form-title">Send Us an Enquiry</h3>
+          
+          <div class="contact-alert" id="contact-alert" style="display: none;"></div>
+
+          <form id="main-contact-form" class="clean-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cnt-name">Your Full Name *</label>
+                <input type="text" id="cnt-name" class="form-input" placeholder="e.g. Ananya Sharma" required>
+              </div>
+              <div class="form-group">
+                <label for="cnt-phone">Phone / WhatsApp Number *</label>
+                <input type="tel" id="cnt-phone" class="form-input" placeholder="+91 98765 43210" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="cnt-email">Email Address</label>
+              <input type="email" id="cnt-email" class="form-input" placeholder="name@example.com">
+            </div>
+
+            <div class="form-group">
+              <label for="cnt-msg">Requirements &amp; Carpet Specifications *</label>
+              <textarea id="cnt-msg" class="form-textarea" rows="4" placeholder="Tell us about your room size, preferred color, weave type, or custom rug ideas..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Send Enquiry</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       12. FOOTER
+  ═══════════════════════════════════════════════════════════════ -->
+  <footer class="harsh-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Col 1 -->
+        <div class="footer-col footer-brand-col">
+          <div class="footer-brand">
+            <img src="/assets/logo.jpg" alt="Sailaab's Design House" class="footer-logo">
+            <span class="footer-brand-name">SAILAAB'S DESIGN HOUSE</span>
+          </div>
+          <p class="footer-about">Crafting fine hand-knotted, hand-tufted &amp; bespoke luxury carpets direct from Bhadohi heritage looms since 1994. Corporate showroom in Varanasi.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/919219340149" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2 -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#catalog">Product Catalog</a></li>
+            <li><a href="#shop-by-size">Shop by Size</a></li>
+            <li><a href="#buying-guide">Buying Guide</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3 -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Collections</h4>
+          <ul class="footer-links">
+            <li><a href="#catalog">Hand-Knotted Rugs</a></li>
+            <li><a href="#catalog">Modern Rugs</a></li>
+            <li><a href="#catalog">Transitional Rugs</a></li>
+            <li><a href="#catalog">Pure Silk Collection</a></li>
+            <li><a href="#catalog">Irregular Statement Rugs</a></li>
+            <li><a href="#catalog">Kilims &amp; Flatweaves</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4 -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Contact &amp; Showroom</h4>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Shivpur, Varanasi, Uttar Pradesh &ndash; 221003</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-industry"></i>
+            <span>Bhadohi Looms, Uttar Pradesh &ndash; 221401</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <span>+91 92193 40149</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <span>info@sailaabsdesignhouse.com</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Sailaab's Design House. All Rights Reserved. Fine Handmade Luxury Carpets.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/919219340149" target="_blank" class="floating-wa-circle" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- MOBILE FIXED BOTTOM NAVIGATION BAR -->
+  <div class="mobile-bottom-bar">
+    <a href="#home" class="bottom-nav-item active">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </a>
+    <a href="#contact" class="bottom-nav-item">
+      <i class="fa-regular fa-user"></i>
+      <span>Account</span>
+    </a>
+    <a href="#catalog" class="bottom-nav-item">
+      <i class="fa-solid fa-store"></i>
+      <span>Shop</span>
+    </a>
+    <button class="bottom-nav-item" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+      <div class="bottom-icon-badge">
+        <i class="fa-regular fa-heart"></i>
+        <span class="badge-num">0</span>
+      </div>
+      <span>Wishlist</span>
+    </button>
+    <button class="bottom-nav-item" id="bottom-cart-btn" onclick="openCartDrawer()">
+      <div class="bottom-icon-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M16 11V7a4 4 0 0 0-8 0v4M5 9h14l1 12H4L5 9z"></path>
+        </svg>
+        <span class="badge-num" id="bottom-cart-badge">0</span>
+      </div>
+      <span>Cart</span>
+    </button>
+  </div>
+
+  <!-- Slide-out Cart Drawer -->
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3 class="drawer-cart-title">Your Bespoke Selection (<span id="cart-items-count-text">0 items</span>)</h3>
+      <button class="cart-close-btn" id="cart-close-btn" aria-label="Close Cart">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    
+    <div class="cart-items-body" id="cart-items-body">
+      <!-- Items dynamically added -->
+    </div>
+
+    <div class="cart-drawer-footer" id="cart-drawer-footer">
+      <div class="cart-total-row">
+        <span>Estimated Total:</span>
+        <strong id="cart-total-price">&#8377;0</strong>
+      </div>
+      <div class="cart-actions-row">
+        <button class="btn-clear-cart" id="btn-clear-cart">Clear Cart</button>
+        <button class="btn-whatsapp-checkout" id="btn-whatsapp-checkout">
+          <i class="fa-brands fa-whatsapp"></i> Checkout via WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="cart-backdrop" id="cart-backdrop"></div>
+
+  <!-- Product Detail Modal -->
+  <div class="product-modal" id="product-modal">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-body" id="modal-body">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Toast -->
+  <div class="cart-toast" id="cart-toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toast-message">Item added to your collection</span>
+  </div>
+
+  <!-- Script File -->
+  <script src="/script.js" type="module"></script>
 </body>
 </html>

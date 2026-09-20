@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SAILAAB'S DESIGN HOUSE — DESKTOP TYPOGRAPHY & MOBILE HYBRID CSS
+   SAILAAB'S DESIGN HOUSE — DESKTOP TYPOGRAPHY & CLEAN HEADER CSS
    ========================================================================== */
 
 :root {
@@ -240,117 +240,216 @@ p, .intro-paragraph, .about-text, .service-text, .contact-intro {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   2. HEADER / NAVIGATION
+   2. HEADER / NAVIGATION (HARSH CARPETS UN-CROWDED 2-ROW STYLE)
    ═══════════════════════════════════════════════════════════════ */
 .harsh-header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: var(--bg-white);
-  border-bottom: 1px solid var(--border-light);
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
 
-.header-container {
+.header-top-row {
+  border-bottom: 1px solid #EAEAEA;
+}
+
+.header-top-row .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 72px;
 }
 
-.hamburger-toggle {
-  font-size: 1.3rem;
-  color: var(--text-dark);
-  padding: 6px;
-}
-
 .brand-link {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
+  text-decoration: none;
 }
 
 .brand-logo {
-  height: 44px;
+  height: 48px;
   width: auto;
+  object-fit: contain;
+}
+
+.brand-text-block {
+  display: flex;
+  flex-direction: column;
 }
 
 .brand-name {
   font-family: var(--font-heading-serif);
-  font-size: 1.15rem;
+  font-size: 1.22rem;
   font-weight: 700;
-  color: var(--text-dark);
+  letter-spacing: 0.04em;
+  color: #111111;
+  line-height: 1.2;
 }
 
-.brand-tagline {
-  font-size: 0.6rem;
+.brand-subname {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  color: #777777;
+  text-transform: uppercase;
+  margin-top: 2px;
 }
 
-.desktop-nav {
+.header-actions {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
+}
+
+.header-icon-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #222222;
+  cursor: pointer;
+  padding: 6px;
+  transition: color 0.2s;
+}
+
+.header-icon-btn:hover {
+  color: var(--accent-burgundy);
+}
+
+.cart-btn {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  color: #222222;
+  display: flex;
+  align-items: center;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -2px;
+  right: -6px;
+  background-color: var(--accent-red);
+  color: #FFFFFF;
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #25D366;
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.header-wa-btn:hover {
+  background-color: #20ba5a;
+}
+
+/* Nav Row */
+.header-nav-row {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.header-nav-row .nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  height: 46px;
 }
 
 .nav-link {
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-dark);
+  font-family: 'Barlow Condensed', var(--font-body), sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #262626;
+  text-decoration: none;
+  padding: 12px 0;
   position: relative;
-  padding: 6px 0;
+  transition: color 0.2s;
 }
 
 .nav-link:hover, .nav-link.active {
   color: var(--accent-burgundy);
 }
 
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.header-icon-btn {
-  font-size: 1.25rem;
-  color: var(--text-dark);
-}
-
-.cart-btn {
-  position: relative;
-  display: flex;
-  align-items: center;
-  color: var(--text-dark);
-}
-
-.cart-badge {
+.nav-link.active::after {
+  content: '';
   position: absolute;
-  top: -4px;
-  right: -8px;
-  background-color: var(--accent-red);
-  color: #FFFFFF;
-  font-size: 0.65rem;
-  font-weight: 700;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--accent-burgundy);
 }
 
-.header-wa-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background-color: #25D366;
-  color: #FFFFFF;
-  font-size: 1.1rem;
-  border-radius: 50%;
+/* Mobile responsive styles */
+.hamburger-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: #111111;
+  cursor: pointer;
+  padding: 6px;
+}
+
+@media (max-width: 991px) {
+  .header-nav-row, .desktop-nav {
+    display: none !important;
+  }
+
+  .header-top-row .header-container {
+    height: 56px;
+    padding: 0 14px;
+  }
+
+  .hamburger-toggle {
+    display: flex;
+    align-items: center;
+  }
+
+  .brand-logo {
+    height: 36px;
+  }
+
+  .brand-name {
+    font-size: 0.95rem;
+  }
+
+  .brand-subname {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 12px;
+  }
+
+  .header-wa-btn {
+    display: none;
+  }
 }
 
 /* Mobile Drawer */
