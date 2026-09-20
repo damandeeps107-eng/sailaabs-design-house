@@ -5447,328 +5447,344 @@ body.client-preview .btn-black-block {
 /* HEADINGS — near-black on light backgrounds */
 .page-section h2,
 .page-section h3,
-.light-section h2,
-.light-section h3,
-.about-section h2,
-.about-section h3,
-.about-section h4 {
-  color: #1A1714;
+
+/* ==========================================================================
+   GLOBAL CONTRAST SYSTEM & VISUAL HIERARCHY OVERRIDE
+   Luxury Editorial Carpet Brand — Strong Dark Typography & Rich Warm Rhythms
+   ========================================================================== */
+
+/* ── 1. BACKGROUND RHYTHM & SECTION CONTRAST ────────────────────────────── */
+#about.about-section {
+  background-color: #FAF7F2 !important; /* Warm Ivory */
 }
 
-/* Section main heading — anchors each section visually */
-.section-heading {
-  color: #1A1714 !important;
-  font-weight: 700 !important;
+.brand-intro-split {
+  background-color: #171513 !important; /* Deep Charcoal / Dark Luxury */
 }
 
-/* Section description — readable, not faded */
-.section-desc {
-  color: #525048 !important;
-  font-size: 1.02rem;
+#collections {
+  background-color: #FFFFFF !important; /* Clean Off-White */
 }
 
-/* Section tag eyebrow — gold accent, always visible */
-.section-tag {
-  color: var(--gold-luxury) !important;
-  font-weight: 600 !important;
-  opacity: 1 !important;
+#catalog {
+  background-color: #F3EEE8 !important; /* Very Light Warm Beige */
 }
 
-/* About subheading */
-.about-subheading {
-  color: #232120 !important;
-  font-weight: 600 !important;
+#why-us.why-us-section {
+  background-color: #191715 !important; /* Deep Charcoal / Dark Luxury */
 }
 
-/* About paragraph body */
-.about-paragraph {
-  color: #4A4744 !important;
-  font-size: 0.95rem;
-  line-height: 1.8;
+#process.process-section {
+  background-color: #FFFFFF !important; /* Clean Off-White */
 }
 
-/* About pillar headings */
-.pillar-detail h4 {
-  color: #252220 !important;
-  font-weight: 600 !important;
+#trade.trade-section {
+  background-color: #151312 !important; /* Deep Charcoal / Dark Luxury */
 }
 
-/* About pillar description */
-.pillar-detail p {
-  color: #555250 !important;
+#reviews.reviews-section {
+  background-color: #FAF7F2 !important; /* Warm Ivory */
 }
 
-/* About credibility strip labels */
-.stat-number {
-  color: #1A1714 !important;
-  font-weight: 700 !important;
-}
-.stat-label {
-  color: #5A5652 !important;
+#care-faq.care-faq-section {
+  background-color: #F3EEE8 !important; /* Very Light Warm Beige */
 }
 
-/* Collection card headings */
-.collection-card h3 {
-  color: #1A1714 !important;
-  font-weight: 600 !important;
-  font-size: 1.15rem;
+#contact {
+  background-color: #FFFFFF !important; /* Clean Off-White */
 }
 
-/* Collection card text */
-.card-body p {
-  color: #545048 !important;
+#instagram.insta-section {
+  background-color: #FAF7F2 !important; /* Warm Ivory */
 }
 
-/* Cat pill (label on card) */
-.cat-pill {
-  color: var(--gold-luxury) !important;
-  font-weight: 600 !important;
-  opacity: 1 !important;
+.site-footer {
+  background-color: #141211 !important; /* Deep Charcoal / Dark Luxury Footer */
 }
 
-/* Card material line */
-.card-material {
-  color: var(--gold-luxury) !important;
-  font-weight: 600 !important;
-}
 
-/* Process section — light background */
-.process-main-heading {
-  color: #1A1714 !important;
-  font-weight: 700 !important;
-}
-
-.process-intro-text {
-  color: #525048 !important;
-}
-
-.step-heading {
-  color: #1A1714 !important;
-  font-weight: 600 !important;
-  font-size: 1.15rem;
-}
-
-.step-text {
-  color: #525048 !important;
-  line-height: 1.75;
-}
-
-.step-eyebrow {
-  color: var(--gold-luxury) !important;
-  font-weight: 600 !important;
-  opacity: 1 !important;
-}
-
-/* About pillar numbers */
-.pillar-num {
-  color: var(--gold-luxury) !important;
-  font-weight: 700 !important;
-  opacity: 1 !important;
-}
-
-/* Heritage since text */
-.heritage-since {
-  color: var(--gold-luxury) !important;
-}
-
-/* About editorial caption */
-.about-editorial-caption {
-  color: #6A6560 !important;
-}
-
-/* FAQ on light background */
-.faq-question {
-  color: #1A1714 !important;
-  font-weight: 600 !important;
-}
-
-.faq-answer p,
-.faq-answer li {
-  color: #484340 !important;
-}
-
-/* Dark section overrides — Why Sailaab, Trade */
-.why-us-section .why-heading {
-  color: #F0EBE4 !important;
-  font-weight: 700 !important;
-}
-.why-us-section .why-subtext {
-  color: rgba(240, 235, 228, 0.85) !important;
-}
-.why-us-section .why-proof-title {
-  color: #F0EBE4 !important;
-  font-weight: 600 !important;
-}
-.why-us-section .why-proof-desc {
-  color: rgba(237, 232, 226, 0.78) !important;
-}
-.why-us-section .why-provenance {
-  color: rgba(168, 132, 50, 0.9) !important;
-}
-.why-us-section .why-tag {
-  color: var(--gold-luxury) !important;
-  opacity: 1 !important;
-}
-.why-us-section .why-stat-lbl {
-  color: rgba(237, 232, 226, 0.75) !important;
-}
-
-/* Trade/Bespoke section (dark bg) */
-.trade-section .trade-heading {
-  color: #F0EBE4 !important;
-  font-weight: 700 !important;
-}
-.trade-section .trade-desc {
-  color: rgba(237, 232, 226, 0.80) !important;
-}
-.trade-section .trade-title {
-  color: #F0EBE4 !important;
-  font-weight: 600 !important;
-  font-size: 1.05rem;
-}
-.trade-section .trade-text {
-  color: rgba(237, 232, 226, 0.75) !important;
-}
-.trade-section .trade-num {
-  color: var(--gold-luxury) !important;
-  font-weight: 700 !important;
-  opacity: 1 !important;
-}
-.trade-section .trade-cta-title {
-  color: #1A1714 !important;
-  font-weight: 700 !important;
-}
-.trade-section .trade-cta-desc {
-  color: #525048 !important;
-}
-.trade-section .capability-title {
-  color: rgba(237, 232, 226, 0.9) !important;
-  font-weight: 600 !important;
-}
-.trade-section .capability-sub {
-  color: rgba(237, 232, 226, 0.58) !important;
-}
-.trade-tag {
-  color: var(--gold-luxury) !important;
-  font-weight: 600 !important;
-  opacity: 1 !important;
-}
-
-/* Editorial statement strip */
-.editorial-statement-heading {
-  color: rgba(237, 232, 226, 0.95) !important;
-  font-weight: 400;
-}
-.editorial-statement-gold-accent {
-  color: var(--gold-luxury) !important;
-}
-
-/* Reviews section */
+/* ── 2. MAIN HEADINGS (#171717 / #1C1C1C, Weight 600-700) ───────────────── */
+h1, h2, h3, h4,
+.section-heading,
+.main-title,
+.about-heritage-heading,
+.process-main-heading,
+.about-subheading,
+.contact-heading,
+.hero-title,
+.care-faq-section .section-heading,
 .reviews-section .section-heading {
-  color: #1A1714 !important;
-}
-.review-text {
-  color: #484340 !important;
-}
-.reviewer-name {
-  color: #1A1714 !important;
-  font-weight: 600 !important;
-}
-
-/* Footer */
-.footer-brand-name {
-  color: rgba(237, 232, 226, 0.95) !important;
+  color: #171717 !important;
   font-weight: 700 !important;
-}
-.footer-brand-desc {
-  color: rgba(237, 232, 226, 0.65) !important;
-}
-.footer-col-title {
-  color: rgba(237, 232, 226, 0.95) !important;
-  font-weight: 600 !important;
-}
-.footer-links li a {
-  color: rgba(237, 232, 226, 0.65) !important;
-}
-.footer-links li a:hover {
-  color: rgba(237, 232, 226, 0.95) !important;
-}
-.footer-contact-list li {
-  color: rgba(237, 232, 226, 0.65) !important;
-}
-.footer-contact-list li a {
-  color: rgba(237, 232, 226, 0.75) !important;
+  opacity: 1 !important;
 }
 
-/* Hero main title */
-.main-title {
-  font-weight: 700 !important;
-  text-transform: none !important;
+.section-heading {
+  font-family: var(--font-serif) !important;
+  font-size: 2.35rem !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.01em !important;
+  margin-bottom: 0.6rem !important;
 }
 
-/* Hero tagline */
-.main-tagline {
-  color: rgba(251, 249, 246, 0.88) !important;
-}
-
-/* Catalog filter tabs */
-.tab-btn {
-  color: #4A4744 !important;
-  font-weight: 500 !important;
-}
-.tab-btn.active {
-  color: #1A1714 !important;
-  font-weight: 600 !important;
-}
-
-/* Brand intro dark section */
-.brand-intro-quote {
-  color: #EDE8E2 !important;
-}
-.brand-intro-body {
-  color: rgba(237, 232, 226, 0.78) !important;
-}
-.brand-pillar-label {
-  color: rgba(237, 232, 226, 0.85) !important;
-  font-weight: 500 !important;
-}
-
-/* Minimum contrast rule — no text below this */
-.section-subtext {
-  color: #525048 !important;
-}
-
-/* About lead */
-.about-lead {
-  color: #525048 !important;
-}
-
-/* Heritage header */
 .about-heritage-heading {
-  color: #1A1714 !important;
+  font-family: var(--font-serif) !important;
+  font-size: 2.5rem !important;
+  color: #171717 !important;
+}
+
+
+/* ── 3. BODY TEXT (#454545 - #505050, Weight 400-500, No Opacity) ────────── */
+p,
+.section-desc,
+.about-lead,
+.about-paragraph,
+.step-text,
+.faq-answer p,
+.faq-answer li,
+.review-text,
+.card-body p,
+.section-subtext,
+.pillar-detail p,
+.why-proof-desc {
+  color: #454545 !important;
+  font-weight: 450 !important;
+  opacity: 1 !important;
+  line-height: 1.68 !important;
+}
+
+.section-desc {
+  font-size: 1.05rem !important;
+  color: #4A4A4A !important;
+}
+
+
+/* ── 4. SECTION LABELS (Burgundy / Earthy Brand Accent) ─────────────────── */
+.section-tag,
+.hero-eyebrow,
+.step-eyebrow,
+.cat-pill,
+.card-material {
+  color: #7A242B !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  font-size: 0.78rem !important;
+  opacity: 1 !important;
+}
+
+/* Dark Section Eyebrow Badges */
+.why-us-section .why-tag,
+.trade-section .trade-tag,
+.brand-intro-split .brand-intro-eyebrow {
+  color: #F5C6CB !important;
+  background: rgba(122, 36, 43, 0.45) !important;
+  border: 1px solid rgba(245, 198, 203, 0.35) !important;
+  padding: 5px 14px !important;
+  border-radius: 4px !important;
+  display: inline-block !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  font-size: 0.76rem !important;
+  opacity: 1 !important;
+}
+
+
+/* ── 5. PRODUCT & CARD TITLES ────────────────────────────────────────────── */
+.collection-card h3,
+.catalog-card .card-title,
+.why-proof-title,
+.step-heading,
+.trade-title,
+.review-author-name,
+.pillar-detail h4,
+.faq-question {
+  color: #171717 !important;
+  font-weight: 700 !important;
+  font-size: 1.18rem !important;
+  line-height: 1.35 !important;
+  margin-bottom: 6px !important;
+}
+
+
+/* ── 6. STATISTICS & TRUST ANCHORS ──────────────────────────────────────── */
+.trust-anchors-bar,
+.about-stats-bar,
+.why-stats-bare {
+  display: flex !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 20px !important;
+  padding: 30px 24px !important;
+  background: #FFFFFF !important;
+  border: 1px solid rgba(23, 23, 23, 0.12) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04) !important;
+  margin-top: 44px !important;
+}
+
+.why-us-section .trust-anchors-bar,
+.why-us-section .why-stats-bare {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: none !important;
+}
+
+.stat-box, .why-stat-bare {
+  text-align: center !important;
+  flex: 1 1 140px !important;
+}
+
+.stat-number, .why-stat-num {
+  font-size: 2.85rem !important;
+  font-weight: 700 !important;
+  color: #171717 !important;
+  font-family: var(--font-serif) !important;
+  line-height: 1.05 !important;
+  display: block !important;
+  letter-spacing: -0.02em !important;
+}
+
+.why-us-section .why-stat-num {
+  color: #FFFFFF !important;
+}
+
+.stat-label, .why-stat-lbl {
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  color: #505050 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  margin-top: 6px !important;
+  display: block !important;
+  opacity: 1 !important;
+}
+
+.why-us-section .why-stat-lbl {
+  color: #E2DDD7 !important;
+}
+
+
+/* ── 7. BUTTONS & CTAs (Strong Burgundy + White Text) ───────────────────── */
+.btn-primary,
+.btn-burgundy,
+.why-wa-btn,
+.header-wa-btn,
+.cta-submit-btn,
+.btn-mobile-wa,
+.btn-card-add-cart,
+.btn-white-lg {
+  background-color: #7A242B !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  border: 1px solid #6E1F25 !important;
+  padding: 13px 26px !important;
+  border-radius: 6px !important;
+  transition: all 0.25s ease !important;
+  box-shadow: 0 4px 14px rgba(122, 36, 43, 0.25) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+.btn-primary:hover,
+.btn-burgundy:hover,
+.why-wa-btn:hover,
+.header-wa-btn:hover,
+.cta-submit-btn:hover,
+.btn-mobile-wa:hover,
+.btn-card-add-cart:hover,
+.btn-white-lg:hover {
+  background-color: #5D1A20 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(122, 36, 43, 0.35) !important;
+}
+
+.btn-outline,
+.btn-outline-white {
+  background-color: transparent !important;
+  color: #171717 !important;
+  border: 1.5px solid #171717 !important;
+  font-weight: 600 !important;
+  padding: 12px 24px !important;
+  border-radius: 6px !important;
+  transition: all 0.25s ease !important;
+}
+
+.btn-outline:hover,
+.btn-outline-white:hover {
+  background-color: #171717 !important;
+  color: #FFFFFF !important;
+}
+
+/* Hero CTAs */
+.hero-section .btn-white-lg {
+  background-color: #7A242B !important;
+  color: #FFFFFF !important;
+  border: 1px solid #7A242B !important;
+}
+.hero-section .btn-outline-white {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
+}
+.hero-section .btn-outline-white:hover {
+  background-color: #FFFFFF !important;
+  color: #171717 !important;
+}
+
+
+/* ── 8. DARK LUXURY SECTIONS REFINEMENT ──────────────────────────────────── */
+.brand-intro-split .brand-intro-quote,
+.why-us-section .why-heading,
+.trade-section .trade-heading,
+.trade-section .trade-cta-title,
+.footer-col-title {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+}
+
+.why-us-section .why-heading-accent,
+.editorial-statement-gold-accent {
+  color: #DDAA55 !important;
+}
+
+.brand-intro-split .brand-intro-body,
+.why-us-section .why-subtext,
+.why-us-section .why-proof-desc,
+.trade-section .trade-desc,
+.trade-section .trade-text,
+.trade-section .trade-cta-desc,
+.footer-links li a,
+.footer-contact-list li,
+.footer-brand-desc {
+  color: #E2DDD7 !important;
+  font-weight: 400 !important;
+  opacity: 1 !important;
+}
+
+.why-us-section .why-proof-title,
+.trade-section .trade-title {
+  color: #FFFFFF !important;
   font-weight: 700 !important;
 }
 
-/* Why catalog link */
-.why-catalog-link {
-  color: rgba(237, 232, 226, 0.80) !important;
-}
-.why-catalog-link:hover {
-  color: rgba(237, 232, 226, 1) !important;
-}
-
-/* Nav items */
-.nav-item {
-  color: var(--text-primary);
-  font-weight: 500 !important;
-}
-.nav-item:hover,
-.nav-item.active {
-  color: #1A1714 !important;
-}
-
-/* Brand name in header */
-.brand-name {
-  color: #1A1714 !important;
+.why-us-section .why-proof-num,
+.trade-section .trade-num {
+  color: #DDAA55 !important;
   font-weight: 700 !important;
+}
+
+.footer-brand-name {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+.footer-links li a:hover {
+  color: #FFFFFF !important;
 }
