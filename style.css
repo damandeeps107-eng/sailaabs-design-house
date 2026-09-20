@@ -6558,3 +6558,40 @@ p,
     height: 54px !important;
   }
 }
+
+
+/* ── NAV CART BASKET ICON & SPACING REFINEMENT ──────────────────────────── */
+.header-cart-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+}
+
+.header-cart-btn .nav-cart-icon {
+  width: 16px !important;
+  height: 16px !important;
+  stroke: var(--text-primary) !important;
+  flex-shrink: 0 !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  transition: stroke 0.25s ease, transform 0.2s ease !important;
+}
+
+.header-cart-btn:hover .nav-cart-icon {
+  stroke: var(--gold-luxury) !important;
+}
+
+.cart-badge {
+  background-color: var(--gold-luxury) !important; /* Soft gold tone */
+  color: #FFFFFF !important;
+  font-size: 0.68rem !important;
+  font-weight: 700 !important;
+  min-width: 18px !important;
+  height: 18px !important;
+  border-radius: 9px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 4px !important;
+  line-height: 1 !important;
+}
