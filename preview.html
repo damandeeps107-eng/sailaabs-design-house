@@ -23,9 +23,7 @@
 </head>
 <body class="harsh-style-body">
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       1. ANNOUNCEMENT BAR
-  ═══════════════════════════════════════════════════════════════ -->
+  <!-- 1. ANNOUNCEMENT BAR -->
   <div class="announcement-bar">
     <div class="container announcement-flex">
       <span>PREMIUM HANDMADE CARPETS DIRECT FROM BHADOHI LOOMS &bull; NATIONWIDE DELIVERY</span>
@@ -33,17 +31,13 @@
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       2. HEADER / NAVIGATION
-  ═══════════════════════════════════════════════════════════════ -->
+  <!-- 2. HEADER / NAVIGATION -->
   <header class="harsh-header" id="main-header">
     <div class="container header-container">
-      <!-- Left Hamburger on Mobile -->
       <button class="hamburger-toggle" id="hamburger-btn" aria-label="Toggle Menu">
         <i class="fa-solid fa-bars"></i>
       </button>
 
-      <!-- Center / Left Brand Logo -->
       <a href="#home" class="brand-link">
         <img src="/assets/logo.jpg" alt="Sailaab's Design House" class="brand-logo" decoding="async" fetchpriority="high">
         <div class="brand-text">
@@ -52,7 +46,6 @@
         </div>
       </a>
 
-      <!-- Desktop Navigation Menu -->
       <nav class="desktop-nav" id="desktop-nav-menu">
         <a href="#home" class="nav-link active">Home</a>
         <a href="#about" class="nav-link">About Us</a>
@@ -64,14 +57,13 @@
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
-      <!-- Right Header Actions (Search + Cart + WhatsApp) -->
       <div class="header-actions">
         <button class="header-icon-btn" aria-label="Search Catalogue" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
 
         <button class="cart-btn" id="header-cart-btn" aria-label="View Shopping Basket">
-          <svg class="cart-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="cart-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <path d="M16 11V7a4 4 0 0 0-8 0v4M5 9h14l1 12H4L5 9z"></path>
           </svg>
           <span class="cart-badge" id="cart-badge">0</span>
@@ -124,7 +116,7 @@
   <div class="drawer-backdrop" id="mobile-nav-backdrop"></div>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       3. HERO SECTION (SLIDER MATCHING SCREENSHOT)
+       1. HERO SECTION (PRESERVED 100% UNTOUCHED)
   ═══════════════════════════════════════════════════════════════ -->
   <section class="hero-wrapper" id="home">
     <div class="hero-bg-container">
@@ -134,7 +126,6 @@
       <div class="hero-overlay"></div>
     </div>
 
-    <!-- Carousel Nav Arrows -->
     <button class="hero-arrow hero-arrow-left" id="hero-prev-btn" aria-label="Previous Slide">
       <i class="fa-solid fa-chevron-left"></i>
     </button>
@@ -142,7 +133,6 @@
       <i class="fa-solid fa-chevron-right"></i>
     </button>
 
-    <!-- Overlay Content matching Screenshot -->
     <div class="container hero-content-inner text-center">
       <span class="hero-eyebrow">NEW COLLECTION</span>
       <h1 class="hero-title">HAND KNOTTED</h1>
@@ -154,91 +144,40 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       4. INTRODUCTION SECTION
-  ═══════════════════════════════════════════════════════════════ -->
-  <section class="section-intro bg-cream">
-    <div class="container container-narrow text-center">
-      <span class="section-eyebrow">INDIAN HANDMADE HERITAGE</span>
-      <h2 class="intro-heading">Handcrafted Carpets of Distinction</h2>
-      <p class="intro-paragraph">At Sailaab’s Design House, every carpet is an ode to centuries-old Indian weaving mastery. Operating directly from our heritage looms in Bhadohi with our flagship showroom in Varanasi, we combine organic fibres, rich dye recipes, and bespoke craftsmanship to create heirlooms for modern living spaces.</p>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       5. MAIN RUG CATEGORIES
+       2. MAIN ROOM CATEGORIES (2-COLUMN GRID RIGHT BELOW HERO)
   ═══════════════════════════════════════════════════════════════ -->
   <section class="section-categories bg-white" id="collections">
     <div class="container">
-      <div class="section-header-center">
-        <span class="section-eyebrow">CURATED SELECTIONS</span>
-        <h2 class="section-title">Main Rug Categories</h2>
-        <div class="heading-line"></div>
-      </div>
-
-      <div class="category-grid">
-        <!-- Category 1 -->
-        <div class="category-card" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
-          <div class="category-img-wrap">
-            <img src="/assets/10-teal-botanical-living-room.webp" alt="Modern Rugs" loading="lazy">
-          </div>
-          <div class="category-overlay-content">
-            <h3 class="category-name">Modern Rugs</h3>
-            <span class="category-link">Explore Collection <i class="fa-solid fa-arrow-right-long"></i></span>
+      <div class="category-grid-2col">
+        <div class="cat-tile" onclick="filterCategory('hand-knotted', null); document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <img src="/assets/01-ivory-blue-floral-living-room.webp" alt="Living Room Carpets" loading="lazy">
+          <div class="cat-tile-overlay">
+            <h3 class="cat-tile-title">LIVING ROOM</h3>
+            <span class="cat-tile-sub">CARPETS</span>
           </div>
         </div>
 
-        <!-- Category 2 -->
-        <div class="category-card" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
-          <div class="category-img-wrap">
-            <img src="/assets/01-ivory-blue-floral-living-room.webp" alt="Traditional Rugs" loading="lazy">
-          </div>
-          <div class="category-overlay-content">
-            <h3 class="category-name">Traditional Rugs</h3>
-            <span class="category-link">Explore Collection <i class="fa-solid fa-arrow-right-long"></i></span>
+        <div class="cat-tile" onclick="filterCategory('modern', null); document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <img src="/assets/03-ivory-charcoal-medallion-living-room.webp" alt="Bedroom Carpets" loading="lazy">
+          <div class="cat-tile-overlay">
+            <h3 class="cat-tile-title">BEDROOM</h3>
+            <span class="cat-tile-sub">CARPETS</span>
           </div>
         </div>
 
-        <!-- Category 3 -->
-        <div class="category-card" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
-          <div class="category-img-wrap">
-            <img src="/assets/04-greige-abstract-luxury-living-room.webp" alt="Transitional Rugs" loading="lazy">
-          </div>
-          <div class="category-overlay-content">
-            <h3 class="category-name">Transitional Rugs</h3>
-            <span class="category-link">Explore Collection <i class="fa-solid fa-arrow-right-long"></i></span>
+        <div class="cat-tile" onclick="filterCategory('hand-knotted', null); document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <img src="/assets/02-camel-classic-floral-living-room.webp" alt="Dining Room Carpets" loading="lazy">
+          <div class="cat-tile-overlay">
+            <h3 class="cat-tile-title">DINING ROOM</h3>
+            <span class="cat-tile-sub">CARPETS</span>
           </div>
         </div>
 
-        <!-- Category 4 -->
-        <div class="category-card" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
-          <div class="category-img-wrap">
-            <img src="/assets/03-ivory-charcoal-medallion-living-room.webp" alt="Silk Rugs" loading="lazy">
-          </div>
-          <div class="category-overlay-content">
-            <h3 class="category-name">Silk Rugs</h3>
-            <span class="category-link">Explore Collection <i class="fa-solid fa-arrow-right-long"></i></span>
-          </div>
-        </div>
-
-        <!-- Category 5 -->
-        <div class="category-card" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
-          <div class="category-img-wrap">
-            <img src="/assets/05-navy-beige-irregular-room.webp" alt="Irregular Rugs" loading="lazy">
-          </div>
-          <div class="category-overlay-content">
-            <h3 class="category-name">Irregular Statement Rugs</h3>
-            <span class="category-link">Explore Collection <i class="fa-solid fa-arrow-right-long"></i></span>
-          </div>
-        </div>
-
-        <!-- Category 6 -->
-        <div class="category-card" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
-          <div class="category-img-wrap">
-            <img src="/assets/09-burgundy-persian-living-room.webp" alt="Hand-Knotted Rugs" loading="lazy">
-          </div>
-          <div class="category-overlay-content">
-            <h3 class="category-name">Hand-Knotted Heritage</h3>
-            <span class="category-link">Explore Collection <i class="fa-solid fa-arrow-right-long"></i></span>
+        <div class="cat-tile" onclick="filterCategory('irregular', null); document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <img src="/assets/08-ivory-cloud-irregular-room.webp" alt="Kids Room Carpets" loading="lazy">
+          <div class="cat-tile-overlay">
+            <h3 class="cat-tile-title">KIDS ROOM</h3>
+            <span class="cat-tile-sub">CARPETS</span>
           </div>
         </div>
       </div>
@@ -246,7 +185,184 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       6. ABOUT US SECTION
+       3. BESTSELLERS SECTION (2-COLUMN PRODUCT GRID)
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="section-bestsellers bg-white">
+    <div class="container">
+      <h2 class="video-section-heading">BESTSELLERS</h2>
+
+      <div class="product-grid-2col" id="bestsellers-grid">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+
+      <div class="text-center section-action-btn-wrap">
+        <button class="btn-video-viewall" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">VIEW ALL</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       4. SHOP BY COLOR (2-COLUMN VISUAL CATEGORY GRID)
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="section-shop-color bg-white">
+    <div class="container">
+      <h2 class="video-section-heading">SHOP BY COLOR</h2>
+
+      <div class="color-grid-2col">
+        <div class="color-tile" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <div class="color-tile-img">
+            <img src="/assets/09-burgundy-persian-living-room.webp" alt="Red & Burgundy Rugs" loading="lazy">
+          </div>
+          <span class="color-tile-label">RED</span>
+        </div>
+
+        <div class="color-tile" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <div class="color-tile-img">
+            <img src="/assets/06-black-mustard-irregular-product.webp" alt="Black & Charcoal Rugs" loading="lazy">
+          </div>
+          <span class="color-tile-label">BLACK</span>
+        </div>
+
+        <div class="color-tile" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <div class="color-tile-img">
+            <img src="/assets/01-ivory-blue-floral-living-room.webp" alt="Blue & Navy Rugs" loading="lazy">
+          </div>
+          <span class="color-tile-label">BLUE</span>
+        </div>
+
+        <div class="color-tile" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <div class="color-tile-img">
+            <img src="/assets/10-teal-botanical-living-room.webp" alt="Green & Teal Rugs" loading="lazy">
+          </div>
+          <span class="color-tile-label">GREEN</span>
+        </div>
+      </div>
+
+      <div class="text-center section-action-btn-wrap">
+        <button class="btn-video-viewall" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">VIEW MORE <i class="fa-solid fa-chevron-down"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       5. NEW ARRIVALS & FULL PRODUCT CATALOGUE (2-COLUMN GRID)
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="section-catalog bg-white" id="catalog">
+    <div class="container">
+      <h2 class="video-section-heading">NEW ARRIVALS</h2>
+
+      <!-- Filter Controls -->
+      <div class="catalog-filter-bar">
+        <button class="filter-btn active" onclick="filterCategory('all', this)">All Carpets</button>
+        <button class="filter-btn" onclick="filterCategory('hand-knotted', this)">Hand-Knotted</button>
+        <button class="filter-btn" onclick="filterCategory('modern', this)">Modern</button>
+        <button class="filter-btn" onclick="filterCategory('irregular', this)">Irregular Shapes</button>
+      </div>
+
+      <!-- Catalogue 2-Column Product Grid -->
+      <div class="product-grid-2col" id="catalog-grid">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       6. SHOP BY SIZE
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="section-shop-size bg-white" id="shop-by-size">
+    <div class="container">
+      <h2 class="video-section-heading">SHOP BY SIZE</h2>
+
+      <div class="size-grid-2col">
+        <div class="size-card-compact" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <div class="size-img-wrap">
+            <img src="/assets/08-ivory-cloud-irregular-room.webp" alt="Small Rugs" loading="lazy">
+          </div>
+          <div class="size-info-compact text-center">
+            <h3 class="size-title">SMALL RUGS</h3>
+            <span class="size-dim">4&times;6 Ft &bull; 5&times;8 Ft</span>
+          </div>
+        </div>
+
+        <div class="size-card-compact" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <div class="size-img-wrap">
+            <img src="/assets/02-camel-classic-floral-living-room.webp" alt="Medium Rugs" loading="lazy">
+          </div>
+          <div class="size-info-compact text-center">
+            <h3 class="size-title">MEDIUM RUGS</h3>
+            <span class="size-dim">6&times;9 Ft &bull; 8&times;10 Ft</span>
+          </div>
+        </div>
+
+        <div class="size-card-compact" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <div class="size-img-wrap">
+            <img src="/assets/01-ivory-blue-floral-living-room.webp" alt="Large Rugs" loading="lazy">
+          </div>
+          <div class="size-info-compact text-center">
+            <h3 class="size-title">LARGE RUGS</h3>
+            <span class="size-dim">9&times;12 Ft &bull; 10&times;14 Ft+</span>
+          </div>
+        </div>
+
+        <div class="size-card-compact" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <div class="size-img-wrap">
+            <img src="/assets/06-black-mustard-irregular-product.webp" alt="Bespoke Custom Sizes" loading="lazy">
+          </div>
+          <div class="size-info-compact text-center">
+            <h3 class="size-title">BESPOKE CUSTOM</h3>
+            <span class="size-dim">Custom Floorplans</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       7. SHOWROOM & LIFESTYLE GALLERY (2x2 GRID)
+  ═══════════════════════════════════════════════════════════════ -->
+  <section class="section-showroom-gallery bg-white">
+    <div class="container">
+      <span class="section-eyebrow text-center">COME SEE US IN PERSON</span>
+      <h2 class="video-section-heading">AVAILABLE IN OUR SHOWROOM</h2>
+
+      <div class="category-grid-2col">
+        <div class="cat-tile" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <img src="/assets/09-burgundy-persian-living-room.webp" alt="Irani Carpet" loading="lazy">
+          <div class="cat-tile-overlay">
+            <h3 class="cat-tile-title">IRANI CARPET</h3>
+            <span class="cat-tile-sub">IN-STORE</span>
+          </div>
+        </div>
+
+        <div class="cat-tile" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <img src="/assets/04-greige-abstract-luxury-living-room.webp" alt="Modern Abstract" loading="lazy">
+          <div class="cat-tile-overlay">
+            <h3 class="cat-tile-title">MODERN ABSTRACT</h3>
+            <span class="cat-tile-sub">IN-STORE</span>
+          </div>
+        </div>
+
+        <div class="cat-tile" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <img src="/assets/01-ivory-blue-floral-living-room.webp" alt="Traditional Carpet" loading="lazy">
+          <div class="cat-tile-overlay">
+            <h3 class="cat-tile-title">TRADITIONAL CARPET</h3>
+            <span class="cat-tile-sub">IN-STORE</span>
+          </div>
+        </div>
+
+        <div class="cat-tile" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <img src="/assets/03-ivory-charcoal-medallion-living-room.webp" alt="Clearance Sale" loading="lazy">
+          <div class="cat-tile-overlay">
+            <h3 class="cat-tile-title">CLEARANCE SALE</h3>
+            <span class="cat-tile-sub">IN-STORE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       8. ABOUT US / FOUNDER BRAND STORY (LOWER DOWN THE PAGE)
   ═══════════════════════════════════════════════════════════════ -->
   <section class="section-about bg-offwhite" id="about">
     <div class="container">
@@ -255,10 +371,10 @@
           <img src="/assets/bhadohi_craft.jpg" alt="Artisan Carpet Weaving in Bhadohi" loading="lazy">
         </div>
         <div class="about-content">
-          <span class="section-eyebrow">ABOUT SAILAAB'S DESIGN HOUSE</span>
+          <span class="section-eyebrow">THE STORY BEHIND SAILAAB'S DESIGN HOUSE</span>
           <h2 class="about-heading">Three Decades of Weaving Heritage</h2>
-          <p class="about-text">Founded in 1994 in Bhadohi — Asia’s premier carpet weaving center — Sailaab’s Design House represents over 30 years of authentic craftsmanship. Our master weavers hand-knot and hand-tuft every rug using 100% pure New Zealand wool, Kashmir silk, and eco-friendly jute.</p>
-          <p class="about-text">With our corporate showroom in Shivpur, Varanasi, we provide interior designers, architects, and discerning homeowners direct access to bespoke, loom-priced handmade carpets without middleman markups.</p>
+          <p class="about-text">Founded in 1994 in Bhadohi — Asia’s premier carpet weaving center — Sailaab’s Design House represents over 30 years of authentic craftsmanship. Our master weavers hand-knot and hand-tuft every rug using 100% pure New Zealand wool, Kashmir silk, and eco-friendly organic fibers.</p>
+          <p class="about-text">With our corporate showroom in Shivpur, Varanasi, we provide interior designers, architects, and homeowners direct access to bespoke, loom-priced handmade carpets without middleman markups.</p>
           
           <div class="about-stats">
             <div class="stat-box">
@@ -274,63 +390,51 @@
               <span class="stat-label">Homes Delivered</span>
             </div>
           </div>
-
-          <a href="#contact" class="btn-primary-outline">Learn More &amp; Contact Us</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       7. OUR COLLECTION (By Material)
+       9. CLIENT REVIEWS & TESTIMONIALS (LOWER DOWN THE PAGE)
   ═══════════════════════════════════════════════════════════════ -->
-  <section class="section-collection bg-beige">
+  <section class="section-reviews bg-cream" id="reviews">
     <div class="container">
-      <div class="section-header-center">
-        <span class="section-eyebrow">MATERIALS &amp; WEAVES</span>
-        <h2 class="section-title">Our Collection</h2>
-        <p class="section-desc">Explore our specialized weave types engineered for sensory warmth and lasting durability.</p>
-        <div class="heading-line"></div>
-      </div>
+      <h2 class="video-section-heading">OUR HAPPY CUSTOMERS</h2>
 
-      <div class="collection-showcase-grid">
-        <div class="showcase-item">
-          <div class="showcase-img">
-            <img src="/assets/03-ivory-charcoal-medallion-living-room.webp" alt="Silk Rugs" loading="lazy">
+      <div class="reviews-tape-wrapper" id="reviewsTapeWrapper">
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">"The ivory silk carpet we ordered for our living room in Delhi is breathtaking. Exceptional knot density and brilliant lustre. Worth every rupee."</p>
+            <div class="review-author">
+              <strong>Rajesh &amp; Sunita Agarwal</strong>
+              <span>New Delhi</span>
+            </div>
           </div>
-          <div class="showcase-info">
-            <h3 class="showcase-title">Silk Rugs</h3>
-            <p class="showcase-desc">High-density Kashmir silk weaves with undeniable lustre, soft sheen, and intricate Persian motifs.</p>
-          </div>
-        </div>
 
-        <div class="showcase-item">
-          <div class="showcase-img">
-            <img src="/assets/02-camel-classic-floral-living-room.webp" alt="Wool Rugs" loading="lazy">
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">"We ordered a bespoke 10x14 ft carpet for our penthouse in Mumbai. The team matched our exact interior color palette. Delivered on time!"</p>
+            <div class="review-author">
+              <strong>Vikramaditya Singhania</strong>
+              <span>Mumbai</span>
+            </div>
           </div>
-          <div class="showcase-info">
-            <h3 class="showcase-title">Pure Wool Rugs</h3>
-            <p class="showcase-desc">Plush New Zealand wool carpets offering natural stain resilience, thermal comfort, and rich texture.</p>
-          </div>
-        </div>
 
-        <div class="showcase-item">
-          <div class="showcase-img">
-            <img src="/assets/11-beige-charcoal-geometric-room.webp" alt="Kilims & Dhurries" loading="lazy">
-          </div>
-          <div class="showcase-info">
-            <h3 class="showcase-title">Kilims &amp; Dhurries</h3>
-            <p class="showcase-desc">Lightweight, reversible flatweave carpets crafted with organic cotton warp and vibrant wool yarns.</p>
-          </div>
-        </div>
-
-        <div class="showcase-item">
-          <div class="showcase-img">
-            <img src="/assets/09-burgundy-persian-living-room.webp" alt="Hand-Knotted Rugs" loading="lazy">
-          </div>
-          <div class="showcase-info">
-            <h3 class="showcase-title">Hand-Knotted Rugs</h3>
-            <p class="showcase-desc">The pinnacle of rug making — woven knot by knot for decades of heirloom beauty and high KPSI density.</p>
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">"Direct loom pricing from Bhadohi without middleman commission. Authentic craftsmanship and prompt communication over WhatsApp."</p>
+            <div class="review-author">
+              <strong>Dr. Meera Nambiar</strong>
+              <span>Bengaluru</span>
+            </div>
           </div>
         </div>
       </div>
@@ -338,137 +442,38 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       8. WHY CHOOSE US
+       10. BUYING GUIDE / BLOG (HORIZONTALLY SCROLLABLE CARDS)
   ═══════════════════════════════════════════════════════════════ -->
-  <section class="section-why bg-white" id="why-us">
+  <section class="section-guide bg-white" id="buying-guide">
     <div class="container">
-      <div class="section-header-center">
-        <span class="section-eyebrow">THE SAILAAB ADVANTAGE</span>
-        <h2 class="section-title">Why Choose Us</h2>
-        <div class="heading-line"></div>
-      </div>
+      <span class="section-eyebrow text-center">EXPERT ADVICE</span>
+      <h2 class="video-section-heading">RUG BUYING GUIDE</h2>
 
-      <div class="why-grid">
-        <div class="why-item">
-          <div class="why-icon"><i class="fa-solid fa-hands-holding"></i></div>
-          <h3 class="why-title">Master Craftsmanship</h3>
-          <p class="why-text">Hand-knotted and hand-tufted by generational artisan families in Bhadohi using traditional techniques.</p>
-        </div>
-
-        <div class="why-item">
-          <div class="why-icon"><i class="fa-solid fa-gem"></i></div>
-          <h3 class="why-title">Premium Materials</h3>
-          <p class="why-text">100% pure New Zealand wool, genuine Kashmir silk, and eco-friendly organic cotton &amp; jute foundations.</p>
-        </div>
-
-        <div class="why-item">
-          <div class="why-icon"><i class="fa-solid fa-sliders"></i></div>
-          <h3 class="why-title">Bespoke Customisation</h3>
-          <p class="why-text">Custom shapes, exact floorplan dimensions, and tailored color palette matching to suit your interior design.</p>
-        </div>
-
-        <div class="why-item">
-          <div class="why-icon"><i class="fa-solid fa-shield-check"></i></div>
-          <h3 class="why-title">Quality Control</h3>
-          <p class="why-text">Rigorous multi-stage inspections covering knot density, yarn dyeing, fringe finishing, and pile height balance.</p>
-        </div>
-
-        <div class="why-item">
-          <div class="why-icon"><i class="fa-solid fa-tag"></i></div>
-          <h3 class="why-title">Direct Loom Pricing</h3>
-          <p class="why-text">Zero middleman markups. Buy direct from the manufacturer for authentic luxury at fair wholesale rates.</p>
-        </div>
-
-        <div class="why-item">
-          <div class="why-icon"><i class="fa-solid fa-truck-fast"></i></div>
-          <h3 class="why-title">Reliable Service</h3>
-          <p class="why-text">Safe doorstep delivery across India and worldwide, plus in-home sample consultation in select cities.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       9. PRODUCT CATALOGUE / NEW ARRIVALS
-  ═══════════════════════════════════════════════════════════════ -->
-  <section class="section-catalog bg-cream" id="catalog">
-    <div class="container">
-      <div class="section-header-center">
-        <span class="section-eyebrow">OUR CARPET COLLECTION</span>
-        <h2 class="section-title">New Arrivals &amp; Catalogue</h2>
-        <p class="section-desc">Handpicked luxury carpets in stock and ready for immediate delivery.</p>
-        <div class="heading-line"></div>
-      </div>
-
-      <!-- Filter Controls -->
-      <div class="catalog-filter-bar">
-        <button class="filter-btn active" onclick="filterCategory('all', this)">All Carpets</button>
-        <button class="filter-btn" onclick="filterCategory('hand-knotted', this)">Hand-Knotted</button>
-        <button class="filter-btn" onclick="filterCategory('modern', this)">Modern</button>
-        <button class="filter-btn" onclick="filterCategory('irregular', this)">Irregular Shapes</button>
-      </div>
-
-      <!-- Catalogue Product Grid -->
-      <div class="catalog-grid" id="catalog-grid">
-        <!-- Rendered dynamically by script.js -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       10. SHOP BY SIZE
-  ═══════════════════════════════════════════════════════════════ -->
-  <section class="section-shop-size bg-white" id="shop-by-size">
-    <div class="container">
-      <div class="section-header-center">
-        <span class="section-eyebrow">DIMENSIONS GUIDE</span>
-        <h2 class="section-title">Shop by Size</h2>
-        <p class="section-desc">Select the ideal dimension tailored to your room layout and furniture placement.</p>
-        <div class="heading-line"></div>
-      </div>
-
-      <div class="size-grid">
-        <div class="size-card" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
-          <div class="size-img-wrap">
-            <img src="/assets/08-ivory-cloud-irregular-room.webp" alt="Small Rugs" loading="lazy">
-          </div>
-          <div class="size-info">
-            <h3 class="size-title">Small Rugs</h3>
-            <span class="size-dim">4&times;6 Ft &bull; 5&times;8 Ft</span>
-            <p class="size-desc">Ideal for entryways, bedside areas, study nooks, and accent placements.</p>
+      <div class="blog-scroll-row">
+        <div class="blog-card-scroll">
+          <img src="/assets/01-ivory-blue-floral-living-room.webp" alt="Measurement Guide" loading="lazy">
+          <div class="blog-card-content">
+            <span class="blog-date">MAR 12, 2026</span>
+            <h3 class="blog-card-title">How to Measure &amp; Position a Rug for Your Living Room</h3>
+            <a href="#contact" class="btn-blog-read">READ ARTICLE</a>
           </div>
         </div>
 
-        <div class="size-card" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
-          <div class="size-img-wrap">
-            <img src="/assets/02-camel-classic-floral-living-room.webp" alt="Medium Rugs" loading="lazy">
-          </div>
-          <div class="size-info">
-            <h3 class="size-title">Medium Rugs</h3>
-            <span class="size-dim">6&times;9 Ft &bull; 8&times;10 Ft</span>
-            <p class="size-desc">Perfect for standard living rooms, 6-seater dining sets, and master bedrooms.</p>
+        <div class="blog-card-scroll">
+          <img src="/assets/03-ivory-charcoal-medallion-living-room.webp" alt="Material Selection" loading="lazy">
+          <div class="blog-card-content">
+            <span class="blog-date">FEB 28, 2026</span>
+            <h3 class="blog-card-title">Pure Wool vs Kashmir Silk: Selecting the Ideal Fibre</h3>
+            <a href="#contact" class="btn-blog-read">READ ARTICLE</a>
           </div>
         </div>
 
-        <div class="size-card" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
-          <div class="size-img-wrap">
-            <img src="/assets/01-ivory-blue-floral-living-room.webp" alt="Large Rugs" loading="lazy">
-          </div>
-          <div class="size-info">
-            <h3 class="size-title">Large &amp; Oversized Rugs</h3>
-            <span class="size-dim">9&times;12 Ft &bull; 10&times;14 Ft+</span>
-            <p class="size-desc">Designed for open-concept living spaces, grand halls, and luxury dining suites.</p>
-          </div>
-        </div>
-
-        <div class="size-card" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
-          <div class="size-img-wrap">
-            <img src="/assets/06-black-mustard-irregular-product.webp" alt="Bespoke Custom Sizes" loading="lazy">
-          </div>
-          <div class="size-info">
-            <h3 class="size-title">Bespoke Custom Sizes</h3>
-            <span class="size-dim">Made to Your Floorplan</span>
-            <p class="size-desc">Custom dimensions, runners, and non-standard shapes woven to exact architectural specifications.</p>
+        <div class="blog-card-scroll">
+          <img src="/assets/09-burgundy-persian-living-room.webp" alt="Knotted vs Tufted" loading="lazy">
+          <div class="blog-card-content">
+            <span class="blog-date">JAN 15, 2026</span>
+            <h3 class="blog-card-title">Hand-Knotted vs Hand-Tufted: Understanding Weave Durability</h3>
+            <a href="#contact" class="btn-blog-read">READ ARTICLE</a>
           </div>
         </div>
       </div>
@@ -476,77 +481,7 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       11. OUR SERVICES
-  ═══════════════════════════════════════════════════════════════ -->
-  <section class="section-services bg-offwhite" id="services">
-    <div class="container">
-      <div class="section-header-center">
-        <span class="section-eyebrow">ATELIER SERVICES</span>
-        <h2 class="section-title">Our Services</h2>
-        <div class="heading-line"></div>
-      </div>
-
-      <div class="services-list">
-        <!-- Service 1 -->
-        <div class="service-row">
-          <div class="service-img">
-            <img src="/assets/bhadohi_craft.jpg" alt="Custom Rug Atelier" loading="lazy">
-          </div>
-          <div class="service-content">
-            <span class="service-num">01</span>
-            <h3 class="service-name">Custom Rug Atelier</h3>
-            <p class="service-text">Have a specific design, room sketch, or color swatch? Our design studio crafts bespoke hand-knotted and hand-tufted carpets tailored to your exact floorplan requirements.</p>
-            <a href="https://wa.me/919219340149" target="_blank" class="service-link">Start Custom Order <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <!-- Service 2 -->
-        <div class="service-row reverse">
-          <div class="service-img">
-            <img src="/assets/09-burgundy-persian-living-room.webp" alt="Rug Restoration & Repair" loading="lazy">
-          </div>
-          <div class="service-content">
-            <span class="service-num">02</span>
-            <h3 class="service-name">Rug Restoration &amp; Repair</h3>
-            <p class="service-text">Preserve your treasured family heirlooms. Our master weavers perform delicate fringe repairs, pile re-weaving, edge binding, and hole restoration using original wool &amp; silk yarns.</p>
-            <a href="https://wa.me/919219340149" target="_blank" class="service-link">Enquire About Restoration <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <!-- Service 3 -->
-        <div class="service-row">
-          <div class="service-img">
-            <img src="/assets/04-greige-abstract-luxury-living-room.webp" alt="Professional Organic Rug Wash" loading="lazy">
-          </div>
-          <div class="service-content">
-            <span class="service-num">03</span>
-            <h3 class="service-name">Professional Organic Rug Wash</h3>
-            <p class="service-text">Traditional deep hand-washing service using pH-balanced organic soaps and flat drying to remove deep dust, restore pile elasticity, and enhance natural yarn radiance.</p>
-            <a href="https://wa.me/919219340149" target="_blank" class="service-link">Book Rug Cleaning <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       12. STRONG CONTACT CTA
-  ═══════════════════════════════════════════════════════════════ -->
-  <section class="strong-contact-cta">
-    <div class="cta-bg" style="background-image: url('/assets/01-ivory-blue-floral-living-room.webp');"></div>
-    <div class="cta-overlay"></div>
-    <div class="container cta-inner text-center">
-      <h2 class="cta-main-title">We're Just One Click Away.</h2>
-      <p class="cta-sub-text">Let our carpet specialists help you find or custom weave the right rug for your space.</p>
-      <div class="cta-btn-wrapper">
-        <a href="#contact" class="btn-primary-lg">Contact Us</a>
-        <a href="https://wa.me/919219340149" target="_blank" class="btn-wa-lg"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       13. ENQUIRY FORM & SHOWROOM CONTACT
+       11. ENQUIRY FORM & SHOWROOM CONTACT
   ═══════════════════════════════════════════════════════════════ -->
   <section class="section-contact bg-cream" id="contact">
     <div class="container">
@@ -626,174 +561,7 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       14. RUG BUYING GUIDE
-  ═══════════════════════════════════════════════════════════════ -->
-  <section class="section-guide bg-white" id="buying-guide">
-    <div class="container">
-      <div class="section-header-center">
-        <span class="section-eyebrow">RUG BUYING GUIDE</span>
-        <h2 class="section-title">How to Choose the Right Rug for Your Home</h2>
-        <p class="section-desc">Essential considerations to keep in mind when investing in a fine handmade carpet.</p>
-        <div class="heading-line"></div>
-      </div>
-
-      <div class="guide-grid">
-        <div class="guide-card">
-          <div class="guide-num">01</div>
-          <h3 class="guide-title">Measurement &amp; Placement</h3>
-          <p class="guide-text">Measure your seating area carefully. In living rooms, aim to place at least the front two legs of all sofas on the carpet for a cohesive aesthetic.</p>
-        </div>
-
-        <div class="guide-card">
-          <div class="guide-num">02</div>
-          <h3 class="guide-title">Foot Traffic &amp; Room Function</h3>
-          <p class="guide-text">Select plush wool flatweaves or hand-tufted piles for high-traffic corridors and living areas, while reserving delicate Kashmiri silk rugs for bedrooms.</p>
-        </div>
-
-        <div class="guide-card">
-          <div class="guide-num">03</div>
-          <h3 class="guide-title">Material Resilience</h3>
-          <p class="guide-text">Pure New Zealand wool provides natural stain resistance and elasticity, while silk adds unparalleled sheen and high knot density detail.</p>
-        </div>
-
-        <div class="guide-card">
-          <div class="guide-num">04</div>
-          <h3 class="guide-title">Knotted vs Tufted Weave</h3>
-          <p class="guide-text">Hand-knotted rugs are generation-lasting heirloom investments, whereas hand-tufted rugs offer rich plushness and quicker lead times.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       15. FREQUENTLY ASKED QUESTIONS (FAQ)
-  ═══════════════════════════════════════════════════════════════ -->
-  <section class="section-faq bg-offwhite" id="faq">
-    <div class="container container-narrow">
-      <div class="section-header-center">
-        <span class="section-eyebrow">HELP &amp; INFORMATION</span>
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <div class="heading-line"></div>
-      </div>
-
-      <div class="faq-accordion">
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>How long does it take to weave a custom handmade carpet?</span>
-            <i class="fa-solid fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
-            <p>Custom hand-tufted carpets typically take 3 to 5 weeks, depending on size and intricate detailing. Fine hand-knotted silk and wool rugs take 8 to 16 weeks as each knot is woven individually by hand.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Do you deliver across India and internationally?</span>
-            <i class="fa-solid fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
-            <p>Yes, we provide insured doorstep shipping across India and worldwide. All shipments are packed securely in weatherproof protective rolls with trackable logistics partners.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Can I request a physical wool or silk sample before placing an order?</span>
-            <i class="fa-solid fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
-            <p>Absolutely. We send small swatch samples (tuft &amp; yarn pom-poms) directly to your home so you can verify color tone, pile height, and material softness in your own lighting.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>What is the difference between hand-knotted and hand-tufted carpets?</span>
-            <i class="fa-solid fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
-            <p>Hand-knotted rugs are tied knot by knot on a vertical loom without synthetic glues — lasting for generations. Hand-tufted rugs use a tufting tool to push yarn through a canvas backing, sealed with natural latex for a thick, soft feel.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>How do I clean and care for a handmade wool or silk rug?</span>
-            <i class="fa-solid fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
-            <p>Vacuum regularly using a suction-only setting without a rotating beater brush. For liquid spills, blot immediately with a clean dry cotton cloth. We also offer professional organic rug wash services.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       16. CUSTOMER TESTIMONIALS
-  ═══════════════════════════════════════════════════════════════ -->
-  <section class="section-reviews bg-cream" id="reviews">
-    <div class="container">
-      <div class="section-header-center">
-        <span class="section-eyebrow">CLIENT FEEDBACK</span>
-        <h2 class="section-title">Our Happy Customers</h2>
-        <div class="heading-line"></div>
-      </div>
-
-      <div class="reviews-tape-wrapper" id="reviewsTapeWrapper">
-        <div class="reviews-grid">
-          <div class="review-card">
-            <div class="review-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="review-text">"The ivory silk carpet we ordered for our living room in Delhi is breathtaking. Exceptional knot density and brilliant lustre. Worth every rupee."</p>
-            <div class="review-author">
-              <strong>Rajesh &amp; Sunita Agarwal</strong>
-              <span>New Delhi</span>
-            </div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="review-text">"We ordered a bespoke 10x14 ft carpet for our penthouse in Mumbai. The team matched our exact interior color palette. Delivered on time!"</p>
-            <div class="review-author">
-              <strong>Vikramaditya Singhania</strong>
-              <span>Mumbai</span>
-            </div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="review-text">"Direct loom pricing from Bhadohi without middleman commission. Authentic craftsmanship and prompt communication over WhatsApp."</p>
-            <div class="review-author">
-              <strong>Dr. Meera Nambiar</strong>
-              <span>Bengaluru</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       17. FINAL HOME VISIT / CONTACT CTA
-  ═══════════════════════════════════════════════════════════════ -->
-  <section class="section-final-cta bg-beige text-center">
-    <div class="container container-narrow">
-      <span class="section-eyebrow">PERSONALIZED CONSULTATION</span>
-      <h2 class="final-cta-heading">Request a Home Visit &amp; Sample Consultation</h2>
-      <p class="final-cta-text">Experience sample yarn pom-poms and rug swatches in your own space before finalizing your order.</p>
-      <a href="https://wa.me/919219340149" target="_blank" class="btn-primary-lg">Request Visit / Swatch Sample</a>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       18. FOOTER
+       12. FOOTER
   ═══════════════════════════════════════════════════════════════ -->
   <footer class="harsh-footer">
     <div class="container">
@@ -867,16 +635,12 @@
     </div>
   </footer>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       FLOATING WHATSAPP BUTTON (DESKTOP & MOBILE)
-  ═══════════════════════════════════════════════════════════════ -->
+  <!-- FLOATING WHATSAPP BUTTON -->
   <a href="https://wa.me/919219340149" target="_blank" class="floating-wa-circle" aria-label="Chat on WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       MOBILE FIXED BOTTOM NAVIGATION BAR (MATCHING SCREENSHOT)
-  ═══════════════════════════════════════════════════════════════ -->
+  <!-- MOBILE FIXED BOTTOM NAVIGATION BAR -->
   <div class="mobile-bottom-bar">
     <a href="#home" class="bottom-nav-item active">
       <i class="fa-solid fa-house"></i>

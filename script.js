@@ -279,6 +279,7 @@ document.addEventListener('touchmove', (e) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   initBgSlider();
+  renderBestsellers();
   renderCatalog('all');
   initTabs();
   initCalculator();
@@ -402,7 +403,34 @@ function initBgSlider() {
   }
 }
 
-// Catalog Renderer — Harsh Carpets Style Product Card
+// Bestsellers Renderer (2-Column Grid matching reference video)
+function renderBestsellers() {
+  const grid = document.getElementById('bestsellers-grid');
+  if (!grid) return;
+
+  const bestsellers = productsData.filter(p => (p.badge || '').includes('Bestseller') || p.price > 20000).slice(0, 4);
+
+  grid.innerHTML = bestsellers.map((p, idx) => `
+    <div class="product-card-v" onclick="openModal('${p.id}')">
+      <div class="p-img-box">
+        <img src="${p.image}" alt="${p.name}" loading="${idx < 2 ? 'eager' : 'lazy'}" decoding="async">
+        <span class="p-discount-badge">-50%</span>
+      </div>
+      <div class="p-info-box">
+        <h3 class="p-title">${p.name}</h3>
+        <div class="p-stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <div class="p-price-row">
+          <span class="p-price-current">Rs. ${(p.price || 18500).toLocaleString('en-IN')}.00</span>
+          <span class="p-price-old">Rs. ${((p.price || 18500) * 2).toLocaleString('en-IN')}.00</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// Catalog Renderer — 2-Column Product Grid (Reference Video Matching)
 function renderCatalog(filter = 'all') {
   const grid = document.getElementById('catalog-grid');
   if (!grid) return;
@@ -416,8 +444,8 @@ function renderCatalog(filter = 'all') {
     : filtered.map((p, idx) => {
         const isPriority = idx < 4;
         return `
-    <div class="product-card" onclick="openModal('${p.id}')">
-      <div class="product-card-img-wrap">
+    <div class="product-card-v" onclick="openModal('${p.id}')">
+      <div class="p-img-box">
         <img 
           src="${p.image}" 
           alt="${p.name}" 
@@ -425,18 +453,16 @@ function renderCatalog(filter = 'all') {
           ${isPriority ? 'fetchpriority="high"' : ''}
           decoding="async"
         >
-        <span class="product-badge-tag">${p.badge}</span>
+        <span class="p-discount-badge">-50%</span>
       </div>
-      <div class="product-card-content">
-        <span class="product-category-lbl">${(p.category || '').toUpperCase().replace('-', ' ')}</span>
-        <h3 class="product-card-title">${p.name}</h3>
-        <p class="product-material-lbl">${p.material || '100% Wool & Silk'}</p>
-        <div class="product-price-row">
-          <span class="product-price">₹${(p.price || 18500).toLocaleString('en-IN')}</span>
-          <div class="card-btn-group">
-            <button class="btn-card-details" onclick="event.stopPropagation(); openModal('${p.id}')">Details</button>
-            <button class="btn-card-add" onclick="event.stopPropagation(); addToCart('${p.id}', null, event)"><i class="fa-solid fa-bag-shopping"></i> Add</button>
-          </div>
+      <div class="p-info-box">
+        <h3 class="p-title">${p.name}</h3>
+        <div class="p-stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <div class="p-price-row">
+          <span class="p-price-current">Rs. ${(p.price || 18500).toLocaleString('en-IN')}.00</span>
+          <span class="p-price-old">Rs. ${((p.price || 18500) * 2).toLocaleString('en-IN')}.00</span>
         </div>
       </div>
     </div>
