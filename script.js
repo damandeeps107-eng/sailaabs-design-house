@@ -1121,8 +1121,60 @@ function initMobileMenu() {
 }
 
 function initReviewsTape() {
-  const track = document.getElementById('reviews-tape-track');
+  const track = document.getElementById('reviewsSliderTrack');
+  const prevBtn = document.getElementById('reviewsPrevBtn');
+  const nextBtn = document.getElementById('reviewsNextBtn');
+  const dotsContainer = document.getElementById('reviewsDots');
+
   if (!track) return;
+
+  const cards = track.querySelectorAll('.luxury-testimonial-card');
+  if (cards.length === 0) return;
+
+  // Build pagination dots dynamically
+  if (dotsContainer) {
+    dotsContainer.innerHTML = '';
+    cards.forEach((_, idx) => {
+      const dot = document.createElement('div');
+      dot.className = `reviews-dot ${idx === 0 ? 'active' : ''}`;
+      dot.ariaLabel = `Go to review slide ${idx + 1}`;
+      dot.addEventListener('click', () => {
+        const cardWidth = cards[0].offsetWidth + 24;
+        track.scrollTo({ left: idx * cardWidth, behavior: 'smooth' });
+      });
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  // Prev / Next button click handlers
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      const cardWidth = cards[0].offsetWidth + 24;
+      track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      const cardWidth = cards[0].offsetWidth + 24;
+      track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    });
+  }
+
+  // Update active indicator dot on scroll
+  track.addEventListener('scroll', () => {
+    if (!dotsContainer) return;
+    const cardWidth = cards[0].offsetWidth + 24;
+    const activeIndex = Math.round(track.scrollLeft / cardWidth);
+    const dots = dotsContainer.querySelectorAll('.reviews-dot');
+    dots.forEach((dot, idx) => {
+      if (idx === activeIndex) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  });
 }
 
 window.showAccountToast = function() {
