@@ -6408,3 +6408,69 @@ p,
   padding: 13px 26px !important;
   border-radius: 6px !important;
 }
+
+
+/* ── REQUEST A SAMPLE & TRADE SAMPLE HIGHLIGHT OVERRIDES ──────────────── */
+.btn-trade-outline {
+  background-color: #FFFFFF !important;
+  color: #7A242B !important;
+  border: 2px solid #7A242B !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  padding: 13px 26px !important;
+  border-radius: 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  transition: all 0.25s ease !important;
+  box-shadow: 0 4px 14px rgba(122, 36, 43, 0.15) !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+}
+
+.btn-trade-outline:hover {
+  background-color: #7A242B !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(122, 36, 43, 0.3) !important;
+}
+
+/* Sample Frame Overlay Badge Highlight */
+.trade-sample-inset {
+  position: absolute !important;
+  bottom: 16px !important;
+  right: 16px !important;
+  background: #171717 !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 8px !important;
+  padding: 8px 14px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  z-index: 5 !important;
+}
+
+.trade-inset-label {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+.trade-inset-img {
+  width: 42px !important;
+  height: 42px !important;
+  object-fit: cover !important;
+  border-radius: 4px !important;
+  border: 1.5px solid #FFFFFF !important;
+}
+
+.trade-cta-action {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  flex-wrap: wrap !important;
+}
