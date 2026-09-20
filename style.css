@@ -6474,3 +6474,87 @@ p,
   gap: 14px !important;
   flex-wrap: wrap !important;
 }
+
+
+/* ==========================================================================
+   LUXURY FLOATING CART BUTTON — BRAND DEEP PLUM/BURGUNDY & GOLD ACCENT
+   ========================================================================== */
+.floating-cart-btn {
+  position: fixed !important;
+  bottom: 28px !important;
+  right: 28px !important;
+  width: 58px !important;
+  height: 58px !important;
+  border-radius: 50% !important;
+  background-color: #6F2C46 !important; /* Deep plum/burgundy brand accent */
+  color: #FFFFFF !important; /* Crisp white icon */
+  border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 24px rgba(111, 44, 70, 0.45) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 9999 !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  outline: none !important;
+}
+
+.floating-cart-btn i {
+  color: #FFFFFF !important;
+  font-size: 1.35rem !important;
+  transition: transform 0.2s ease !important;
+}
+
+.floating-cart-btn:hover {
+  background-color: #5E243B !important; /* Darker plum hover */
+  transform: translateY(-3px) scale(1.05) !important;
+  box-shadow: 0 12px 30px rgba(94, 36, 59, 0.55) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.floating-cart-btn:active {
+  transform: translateY(-1px) scale(0.98) !important;
+}
+
+/* Premium Muted Gold Badge (#C9A24A) */
+.floating-cart-badge {
+  position: absolute !important;
+  top: -4px !important;
+  right: -4px !important;
+  background-color: #C9A24A !important; /* Muted gold badge */
+  color: #171717 !important; /* High contrast dark number */
+  font-weight: 700 !important;
+  font-size: 0.76rem !important;
+  font-family: var(--font-sans) !important;
+  min-width: 22px !important;
+  height: 22px !important;
+  padding: 0 6px !important;
+  border-radius: 11px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 2px solid #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important;
+  line-height: 1 !important;
+  transition: transform 0.25s ease !important;
+}
+
+/* Bounce animation on update */
+.floating-cart-badge.bump {
+  animation: badgePop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+@keyframes badgePop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+  .floating-cart-btn {
+    bottom: 20px !important;
+    right: 20px !important;
+    width: 54px !important;
+    height: 54px !important;
+  }
+}
