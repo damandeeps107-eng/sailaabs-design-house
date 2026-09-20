@@ -1,4 +1,4 @@
-// SAILAAB'S DESIGN HOUSE — CATALOG WITH 20 REAL CARPET IMAGES
+// SAILAAB'S DESIGN HOUSE — CATALOG & INTERACTIVE FEATURES
 
 const productsData = [
   // ── LIVING ROOM / BESTSELLERS ──────────────────────────────────────────
@@ -291,85 +291,49 @@ document.addEventListener('DOMContentLoaded', () => {
   initReviewsTape();
   initScrollReveal();
   initCartEvents();
+  initWishlistEvents();
+  updateWishlistBadge();
+  updateCartBadge();
 });
 
 // ── SCROLL REVEAL SYSTEM ────────────────────────────────────────────────────
-// Adds reveal animation classes to key elements, then watches with IntersectionObserver
 function initScrollReveal() {
-  // Only animate if user hasn't requested reduced motion
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  // Automatically assign reveal classes to key section elements
   const revealMap = [
-    // Section tags always fade up
     { selector: '.section-tag, .trade-tag, .why-tag, .eyebrow-label', cls: 'reveal', delay: 0 },
-    // Major headings fade up with slight delay
     { selector: '.section-heading, .about-heritage-heading, .why-heading, .process-main-heading, .trade-heading, .about-subheading', cls: 'reveal', delay: 1 },
-    // Body text
     { selector: '.section-desc, .section-subtext, .about-lead, .why-subtext, .trade-desc', cls: 'reveal', delay: 2 },
-    // Images reveal with scale
     { selector: '.about-img-frame, .why-us-img-frame, .trade-img-frame', cls: 'reveal-img', delay: 0 },
-    // Left columns slide in
     { selector: '.why-us-img-col', cls: 'reveal-left', delay: 0 },
-    // Right columns slide in
     { selector: '.why-us-content-col', cls: 'reveal-right', delay: 0 },
-    // Process steps stagger
-    { selector: '.process-step-editorial:nth-child(1)', cls: 'reveal', delay: 1 },
-    { selector: '.process-step-editorial:nth-child(3)', cls: 'reveal', delay: 2 },
-    { selector: '.process-step-editorial:nth-child(5)', cls: 'reveal', delay: 3 },
-    // Feature items
-    { selector: '.why-feat', cls: 'reveal', delay: 0 },
-    // Stats
     { selector: '.stat-box, .why-stat', cls: 'reveal', delay: 0 },
-    // Pillar cards
     { selector: '.pillar-card', cls: 'reveal', delay: 0 },
-    // Collection cards stagger
     { selector: '.collection-card', cls: 'reveal', delay: 0 },
-    // Trade blocks
-    { selector: '.trade-service-block', cls: 'reveal', delay: 0 },
-    // Editorial strips
-    { selector: '.editorial-statement-heading', cls: 'reveal', delay: 1 },
-    // Contact & insta
-    { selector: '.contact-details, .contact-form-card', cls: 'reveal', delay: 0 },
   ];
 
-  // Apply classes — don't double-assign
   revealMap.forEach(({ selector, cls, delay }) => {
     document.querySelectorAll(selector).forEach((el, i) => {
       if (!el.classList.contains('reveal') && !el.classList.contains('reveal-left') && !el.classList.contains('reveal-right') && !el.classList.contains('reveal-img')) {
         el.classList.add(cls);
         if (delay > 0) el.classList.add(`reveal-delay-${delay}`);
-        // For groups (feat, stat, pillar, collection), stagger each item
-        else if (selector.includes(',') === false && delay === 0) {
-          const idx = i % 4;
-          if (idx > 0) el.classList.add(`reveal-delay-${idx}`);
-        }
       }
     });
   });
 
-  // Create observer
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target); // Only animate once
+        observer.unobserve(entry.target);
       }
     });
-  }, {
-    threshold: 0.12,
-    rootMargin: '0px 0px -40px 0px'
-  });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-  // Observe all reveal elements
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-img').forEach(el => {
-    observer.observe(el);
-  });
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-img').forEach(el => observer.observe(el));
 }
 
-
-
-// Background Slider with Navigation Arrows
+// Background Slider
 function initBgSlider() {
   const slides = document.querySelectorAll('.hero-slide, .bg-slide');
   if (!slides || slides.length === 0) return;
@@ -403,18 +367,140 @@ function initBgSlider() {
   }
 }
 
+// ── WISHLIST STATE & LOGIC ──────────────────────────────────────────────────
+const WISHLIST_STORAGE_KEY = 'sailaab_wishlist';
+
+function getWishlist() {
+  try {
+    const data = localStorage.getItem(WISHLIST_STORAGE_KEY);
+    return data ? JSON.parse(data) : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveWishlist(list) {
+  try {
+    localStorage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify(list));
+  } catch (e) {}
+  updateWishlistBadge();
+  renderWishlistDrawer();
+}
+
+window.toggleWishlist = function(productId, event = null) {
+  if (event) event.stopPropagation();
+  let list = getWishlist();
+  const idx = list.indexOf(productId);
+  const p = productsData.find(prod => prod.id === productId);
+
+  if (idx > -1) {
+    list.splice(idx, 1);
+    showCartToast(`Removed "${p ? p.name : 'Carpet'}" from Wishlist.`);
+  } else {
+    list.push(productId);
+    showCartToast(`❤️ Saved "${p ? p.name : 'Carpet'}" to Wishlist!`);
+  }
+
+  saveWishlist(list);
+  renderBestsellers();
+  renderCatalog();
+};
+
+function updateWishlistBadge() {
+  const list = getWishlist();
+  const count = list.length;
+  document.querySelectorAll('.wishlist-badge, #bottom-wishlist-badge').forEach(b => {
+    b.textContent = count;
+  });
+  const countText = document.getElementById('wishlist-items-count-text');
+  if (countText) countText.textContent = `${count} ${count === 1 ? 'item' : 'items'}`;
+}
+
+function initWishlistEvents() {
+  const wishlistBtn = document.getElementById('bottom-nav-wishlist');
+  const drawer = document.getElementById('wishlist-drawer');
+  const closeBtn = document.getElementById('wishlist-close-btn');
+  const backdrop = document.getElementById('wishlist-backdrop');
+
+  function openDrawer() {
+    renderWishlistDrawer();
+    drawer?.classList.add('active');
+    backdrop?.classList.add('active');
+  }
+
+  function closeDrawer() {
+    drawer?.classList.remove('active');
+    backdrop?.classList.remove('active');
+  }
+
+  wishlistBtn?.addEventListener('click', openDrawer);
+  closeBtn?.addEventListener('click', closeDrawer);
+  backdrop?.addEventListener('click', closeDrawer);
+
+  const moveAllBtn = document.getElementById('btn-move-all-cart');
+  moveAllBtn?.addEventListener('click', () => {
+    const list = getWishlist();
+    if (list.length === 0) return;
+    list.forEach(id => addToCart(id));
+    saveWishlist([]);
+    closeDrawer();
+    showCartToast('Moved all Wishlist items to Cart!');
+  });
+}
+
+function renderWishlistDrawer() {
+  const body = document.getElementById('wishlist-items-body');
+  if (!body) return;
+
+  const list = getWishlist();
+  if (list.length === 0) {
+    body.innerHTML = `
+      <div style="text-align:center;padding:40px 20px;color:#777">
+        <i class="fa-regular fa-heart" style="font-size:2.8rem;color:#ccc;margin-bottom:12px;display:block"></i>
+        <p style="font-size:15px;font-weight:600;color:#222;margin-bottom:6px">Your Wishlist is Empty</p>
+        <p style="font-size:13px;line-height:1.5">Tap the heart icon on any carpet card to save your favourite designs here!</p>
+      </div>`;
+    return;
+  }
+
+  const items = productsData.filter(p => list.includes(p.id));
+  body.innerHTML = items.map(p => `
+    <div class="cart-item-row" style="display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #eee;align-items:center">
+      <img src="${p.image}" alt="${p.name}" style="width:64px;height:64px;object-fit:cover;border-radius:6px">
+      <div style="flex:1">
+        <h4 style="font-size:13.5px;font-weight:600;margin:0 0 4px;line-height:1.3;color:#111">${p.name}</h4>
+        <div style="font-size:13px;font-weight:700;color:var(--accent-burgundy)">Rs. ${p.price.toLocaleString('en-IN')}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end">
+        <button onclick="addToCart('${p.id}')" style="background:var(--accent-burgundy);color:#fff;border:none;padding:6px 10px;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer">
+          + Cart
+        </button>
+        <button onclick="toggleWishlist('${p.id}')" style="background:none;border:none;color:#999;font-size:13px;cursor:pointer">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+      </div>
+    </div>
+  `).join('');
+}
+
 // Bestsellers Renderer (2-Column Grid matching reference video)
 function renderBestsellers() {
   const grid = document.getElementById('bestsellers-grid');
   if (!grid) return;
 
   const bestsellers = productsData.filter(p => (p.badge || '').includes('Bestseller') || p.price > 20000).slice(0, 4);
+  const wishlist = getWishlist();
 
-  grid.innerHTML = bestsellers.map((p, idx) => `
+  grid.innerHTML = bestsellers.map((p, idx) => {
+    const isWishlisted = wishlist.includes(p.id);
+    return `
     <div class="product-card-v" onclick="openModal('${p.id}')">
       <div class="p-img-box">
         <img src="${p.image}" alt="${p.name}" loading="${idx < 2 ? 'eager' : 'lazy'}" decoding="async">
         <span class="p-discount-badge">-50%</span>
+        <button type="button" class="p-wishlist-btn ${isWishlisted ? 'active' : ''}" onclick="toggleWishlist('${p.id}', event)" aria-label="Add to Wishlist">
+          <i class="${isWishlisted ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
+        </button>
       </div>
       <div class="p-info-box">
         <h3 class="p-title">${p.name}</h3>
@@ -427,10 +513,11 @@ function renderBestsellers() {
         </div>
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 }
 
-// Catalog Renderer — 2-Column Product Grid (Reference Video Matching)
+// Catalog Renderer — 2-Column Product Grid
 function renderCatalog(filter = 'all') {
   const grid = document.getElementById('catalog-grid');
   if (!grid) return;
@@ -439,10 +526,13 @@ function renderCatalog(filter = 'all') {
     ? productsData
     : productsData.filter(p => p.category === filter);
 
+  const wishlist = getWishlist();
+
   grid.innerHTML = filtered.length === 0
     ? `<p style="grid-column:1/-1;text-align:center;color:#888;padding:40px 0">No products in this category.</p>`
     : filtered.map((p, idx) => {
         const isPriority = idx < 4;
+        const isWishlisted = wishlist.includes(p.id);
         return `
     <div class="product-card-v" onclick="openModal('${p.id}')">
       <div class="p-img-box">
@@ -454,6 +544,9 @@ function renderCatalog(filter = 'all') {
           decoding="async"
         >
         <span class="p-discount-badge">-50%</span>
+        <button type="button" class="p-wishlist-btn ${isWishlisted ? 'active' : ''}" onclick="toggleWishlist('${p.id}', event)" aria-label="Add to Wishlist">
+          <i class="${isWishlisted ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
+        </button>
       </div>
       <div class="p-info-box">
         <h3 class="p-title">${p.name}</h3>
@@ -521,7 +614,14 @@ function initCalculator() {
     const l = lengthInp?.value || '';
     const shape = document.getElementById('calc-shape')?.value || '';
     const area = (parseFloat(w) * parseFloat(l)).toFixed(1);
-    const msg = `Hello Sailaab's Design House (+91 92193 40149),\n\nCustom Rug Specs:\n- Style: ${style}\n- Dimensions: ${w} Ft × ${l} Ft (${area} Sq. Ft.)\n- Shape: ${shape}\n\nPlease share price quote.`;
+    const msg = `Hello Sailaab's Design House (+91 92193 40149),
+
+Custom Rug Specs:
+- Style: ${style}
+- Dimensions: ${w} Ft × ${l} Ft (${area} Sq. Ft.)
+- Shape: ${shape}
+
+Please share price quote.`;
     window.open(`https://wa.me/919219340149?text=${encodeURIComponent(msg)}`, '_blank');
   });
 }
@@ -537,7 +637,12 @@ function initContactForm() {
     alertBox?.classList.remove('hidden');
     form.reset();
     setTimeout(() => {
-      const waMsg = `Hello Sailaab's Design House,\n\nNew Inquiry:\n- Name: ${name}\n- Phone: ${phone}\n- Message: ${msg}`;
+      const waMsg = `Hello Sailaab's Design House,
+
+New Inquiry:
+- Name: ${name}
+- Phone: ${phone}
+- Message: ${msg}`;
       window.open(`https://wa.me/919219340149?text=${encodeURIComponent(waMsg)}`, '_blank');
     }, 800);
   });
@@ -550,63 +655,166 @@ function initModal() {
   modal?.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
 }
 
+// ── PRODUCT DETAIL MODAL WITH COUPON & SIZES ────────────────────────────────
 window.openModal = function(id) {
   if (touchIsScrolling) return;
   const p = productsData.find(prod => prod.id === id);
   if (!p) return;
+
   const modal = document.getElementById('product-modal');
   const modalBody = document.getElementById('modal-body');
   const isClient = document.body.classList.contains('client-preview');
 
-  let selectedSize = (p.sizes && p.sizes[0]) || "Standard";
+  let selectedSize = (p.sizes && p.sizes[0]) || "5×8 Ft";
+  let sizeMultiplier = 1.0;
+  let appliedCoupon = null;
+  let discountAmount = 0;
+  let qty = 1;
 
-  const sizePillsHtml = (p.sizes || ["Standard"]).map((s, i) => `
+  function calculatePrice() {
+    let basePrice = (p.price || 18500);
+    if (selectedSize.includes('6×9')) sizeMultiplier = 1.3;
+    else if (selectedSize.includes('8×10')) sizeMultiplier = 1.7;
+    else if (selectedSize.includes('9×12')) sizeMultiplier = 2.3;
+    else if (selectedSize.includes('10×14')) sizeMultiplier = 2.8;
+    else sizeMultiplier = 1.0;
+
+    let totalBeforeDiscount = Math.round(basePrice * sizeMultiplier) * qty;
+    discountAmount = 0;
+
+    if (appliedCoupon === 'SAILAAB10') {
+      discountAmount = Math.round(totalBeforeDiscount * 0.10);
+    } else if (appliedCoupon === 'WELCOME500') {
+      discountAmount = 500;
+    } else if (appliedCoupon === 'BHADOHI15') {
+      discountAmount = Math.round(totalBeforeDiscount * 0.15);
+    } else if (appliedCoupon === 'FESTIVE20') {
+      discountAmount = Math.round(totalBeforeDiscount * 0.20);
+    }
+
+    let finalPrice = Math.max(0, totalBeforeDiscount - discountAmount);
+    return { totalBeforeDiscount, discountAmount, finalPrice };
+  }
+
+  function updateModalUI() {
+    const { totalBeforeDiscount, discountAmount, finalPrice } = calculatePrice();
+    const priceDisplay = document.getElementById('modal-price-display');
+    const oldPriceDisplay = document.getElementById('modal-old-price-display');
+    const couponMsg = document.getElementById('modal-coupon-msg');
+    const waBtn = document.getElementById('modal-wa-btn');
+
+    if (priceDisplay) priceDisplay.textContent = `₹${finalPrice.toLocaleString('en-IN')}`;
+    if (oldPriceDisplay) oldPriceDisplay.textContent = `₹${(totalBeforeDiscount * 2).toLocaleString('en-IN')}`;
+
+    if (couponMsg) {
+      if (appliedCoupon && discountAmount > 0) {
+        couponMsg.className = 'coupon-msg success';
+        couponMsg.innerHTML = `<i class="fa-solid fa-circle-check"></i> Coupon <strong>${appliedCoupon}</strong> applied! Saved ₹${discountAmount.toLocaleString('en-IN')}`;
+      } else if (appliedCoupon) {
+        couponMsg.className = 'coupon-msg error';
+        couponMsg.innerHTML = `<i class="fa-solid fa-circle-exclamation"></i> Invalid Coupon Code. Try <strong>SAILAAB10</strong> or <strong>WELCOME500</strong>`;
+      } else {
+        couponMsg.className = 'coupon-msg';
+        couponMsg.textContent = '';
+      }
+    }
+
+    if (waBtn && !isClient) {
+      const waText = `Hello Sailaab's Design House! I want to order:
+- Carpet: ${p.name}
+- Size: ${selectedSize}
+- Quantity: ${qty}
+- Final Price: ₹${finalPrice.toLocaleString('en-IN')} ${appliedCoupon ? '(Coupon ' + appliedCoupon + ' applied)' : ''}
+
+Please share delivery & loom dispatch time.`;
+      waBtn.href = `https://wa.me/919219340149?text=${encodeURIComponent(waText)}`;
+    }
+  }
+
+  const sizePillsHtml = (p.sizes || ["5×8 Ft", "6×9 Ft", "8×10 Ft", "9×12 Ft"]).map((s, i) => `
     <button type="button" class="size-pill ${i === 0 ? 'active' : ''}" data-size="${s}">
       ${s}
     </button>
   `).join('');
 
-  const modalCta = isClient
-    ? `<a href="javascript:void(0)" class="btn btn-black-block" style="pointer-events: none; cursor: default;">
-        <i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp (+91 92193 40149)
-      </a>`
-    : `<a href="https://wa.me/919219340149?text=${encodeURIComponent("Hello Sailaab's Design House, I am inquiring about " + p.name + " (" + p.category + ", Size: " + selectedSize + ")")}" target="_blank" rel="noopener noreferrer" class="btn btn-black-block" id="modal-wa-btn">
-        <i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp
-      </a>`;
+  const isWishlisted = getWishlist().includes(p.id);
 
   modalBody.innerHTML = `
     <div class="modal-img-wrap">
       <img src="${p.image}" alt="${p.name}" decoding="async" class="modal-carpet-img">
+      <span class="modal-discount-badge">-50% OFF</span>
     </div>
-    <h3 style="font-family:var(--font-serif);font-size:1.55rem;font-weight:600;color:var(--text-primary);margin:14px 0 6px;line-height:1.25">${p.name}</h3>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px">
-      <span style="font-size:11.5px;text-transform:uppercase;color:var(--gold-luxury);font-weight:700;letter-spacing:1.8px">${p.category} · ${p.badge}</span>
-      <span style="font-size:1.15rem;font-weight:700;color:var(--text-primary);font-family:var(--font-serif)">Starting ₹${(p.price || 18500).toLocaleString('en-IN')}</span>
-    </div>
-    <p style="margin:10px 0 14px;font-size:14.5px;color:var(--text-secondary);line-height:1.6;font-weight:400">${p.description}</p>
-    
-    <!-- Size Selector -->
-    <div class="modal-size-select-wrap">
-      <label class="modal-size-label">Select Loom Dimensions:</label>
-      <div class="modal-size-pills" id="modal-size-pills">
-        ${sizePillsHtml}
+    <div class="modal-content-details">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-top:12px">
+        <div>
+          <span class="modal-category-tag">${p.category.toUpperCase()} • ${p.badge}</span>
+          <h3 class="modal-title">${p.name}</h3>
+        </div>
+        <button class="modal-wishlist-toggle ${isWishlisted ? 'active' : ''}" id="modal-wishlist-btn" title="Add to Wishlist">
+          <i class="${isWishlisted ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
+        </button>
       </div>
-    </div>
 
-    <div style="font-size:13.5px;margin-bottom:18px;display:flex;flex-direction:column;gap:5px;color:var(--text-secondary)">
-      <p><strong style="color:var(--text-primary);font-weight:650">Material:</strong> ${p.material}</p>
-      <p><strong style="color:var(--text-primary);font-weight:650">Density/Weave:</strong> ${p.density}</p>
-      <p><strong style="color:var(--text-primary);font-weight:650">Manufacturer:</strong> Sailaab's Design House, Bhadohi Looms</p>
-    </div>
+      <div class="modal-price-box">
+        <span class="modal-current-price" id="modal-price-display">₹${(p.price || 18500).toLocaleString('en-IN')}</span>
+        <span class="modal-old-price" id="modal-old-price-display">₹${((p.price || 18500) * 2).toLocaleString('en-IN')}</span>
+        <span class="modal-tax-tag">Inclusive of All Taxes • Free Shipping</span>
+      </div>
 
-    <div class="modal-action-row">
-      <button type="button" class="btn btn-modal-add-cart" id="modal-add-cart-btn">
-        <i class="fa-solid fa-bag-shopping"></i> Add to Cart
-      </button>
-      ${modalCta}
+      <p class="modal-desc">${p.description}</p>
+      
+      <!-- Size Selector -->
+      <div class="modal-section-block">
+        <label class="modal-block-label"><i class="fa-solid fa-ruler-combined"></i> Select Loom Size:</label>
+        <div class="modal-size-pills" id="modal-size-pills">
+          ${sizePillsHtml}
+        </div>
+      </div>
+
+      <!-- Specs -->
+      <div class="modal-specs-box">
+        <p><strong>Material:</strong> ${p.material}</p>
+        <p><strong>Density:</strong> ${p.density}</p>
+        <p><strong>Origin:</strong> Handcrafted in Bhadohi & Varanasi Looms</p>
+      </div>
+
+      <!-- Coupon Code Apply Box -->
+      <div class="modal-section-block coupon-section">
+        <label class="modal-block-label"><i class="fa-solid fa-ticket"></i> Apply Discount Coupon:</label>
+        <div class="coupon-input-group">
+          <input type="text" id="modal-coupon-input" placeholder="e.g. SAILAAB10, WELCOME500" uppercase>
+          <button type="button" id="modal-apply-coupon-btn" class="coupon-apply-btn">APPLY</button>
+        </div>
+        <div class="quick-coupon-pills">
+          <span class="quick-coupon-pill" data-code="SAILAAB10">🏷️ SAILAAB10 (10% OFF)</span>
+          <span class="quick-coupon-pill" data-code="WELCOME500">🏷️ WELCOME500 (₹500 OFF)</span>
+          <span class="quick-coupon-pill" data-code="BHADOHI15">🏷️ BHADOHI15 (15% OFF)</span>
+        </div>
+        <div id="modal-coupon-msg" class="coupon-msg"></div>
+      </div>
+
+      <!-- Quantity Row -->
+      <div class="modal-qty-row">
+        <span style="font-weight:600;font-size:14px;color:#333">Quantity:</span>
+        <div class="qty-counter">
+          <button type="button" id="modal-qty-minus">-</button>
+          <span id="modal-qty-val">1</span>
+          <button type="button" id="modal-qty-plus">+</button>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="modal-action-row">
+        <button type="button" class="btn btn-modal-add-cart" id="modal-add-cart-btn">
+          <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+        </button>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-modal-wa" id="modal-wa-btn">
+          <i class="fa-brands fa-whatsapp"></i> ORDER ON WHATSAPP
+        </a>
+      </div>
     </div>`;
 
-  // Attach size selection listeners
+  // Attach Listeners inside Modal
   const pillBtns = modalBody.querySelectorAll('.size-pill');
   pillBtns.forEach(pill => {
     pill.addEventListener('click', (e) => {
@@ -614,20 +822,57 @@ window.openModal = function(id) {
       pillBtns.forEach(b => b.classList.remove('active'));
       pill.classList.add('active');
       selectedSize = pill.getAttribute('data-size');
-      const waBtn = document.getElementById('modal-wa-btn');
-      if (waBtn && !isClient) {
-        waBtn.href = `https://wa.me/919219340149?text=${encodeURIComponent("Hello Sailaab's Design House, I am inquiring about " + p.name + " (" + p.category + ", Size: " + selectedSize + ")")}`;
-      }
+      updateModalUI();
     });
   });
 
+  // Coupon Apply
+  const couponInput = document.getElementById('modal-coupon-input');
+  const applyBtn = document.getElementById('modal-apply-coupon-btn');
+  const quickPills = modalBody.querySelectorAll('.quick-coupon-pill');
+
+  function triggerApply(code) {
+    appliedCoupon = (code || couponInput?.value || '').trim().toUpperCase();
+    if (couponInput) couponInput.value = appliedCoupon;
+    updateModalUI();
+  }
+
+  applyBtn?.addEventListener('click', () => triggerApply());
+  quickPills.forEach(qp => {
+    qp.addEventListener('click', () => triggerApply(qp.getAttribute('data-code')));
+  });
+
+  // Quantity Counter
+  const minusBtn = document.getElementById('modal-qty-minus');
+  const plusBtn = document.getElementById('modal-qty-plus');
+  const qtyVal = document.getElementById('modal-qty-val');
+
+  minusBtn?.addEventListener('click', () => {
+    if (qty > 1) { qty--; if (qtyVal) qtyVal.textContent = qty; updateModalUI(); }
+  });
+  plusBtn?.addEventListener('click', () => {
+    qty++; if (qtyVal) qtyVal.textContent = qty; updateModalUI();
+  });
+
+  // Wishlist toggle inside modal
+  const modalWishlistBtn = document.getElementById('modal-wishlist-btn');
+  modalWishlistBtn?.addEventListener('click', () => {
+    toggleWishlist(p.id);
+    const activeNow = getWishlist().includes(p.id);
+    modalWishlistBtn.classList.toggle('active', activeNow);
+    modalWishlistBtn.querySelector('i').className = activeNow ? 'fa-solid fa-heart' : 'fa-regular fa-heart';
+  });
+
+  // Add to Cart
   const addCartBtn = document.getElementById('modal-add-cart-btn');
   addCartBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
-    addToCart(p.id, selectedSize);
+    const { finalPrice } = calculatePrice();
+    addToCart(p.id, selectedSize, null, finalPrice, qty);
     modal.classList.remove('active');
   });
 
+  updateModalUI();
   modal.classList.add('active');
 };
 
@@ -651,17 +896,28 @@ function saveCart(cart) {
   renderCartDrawer();
 }
 
-window.addToCart = function(productId, customSize = null, event = null) {
+function updateCartBadge() {
+  const cart = getCart();
+  const totalItems = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+  document.querySelectorAll('.cart-badge, #bottom-cart-badge').forEach(b => {
+    b.textContent = totalItems;
+  });
+  const countText = document.getElementById('cart-items-count-text');
+  if (countText) countText.textContent = `${totalItems} ${totalItems === 1 ? 'item' : 'items'}`;
+}
+
+window.addToCart = function(productId, customSize = null, event = null, customPrice = null, quantity = 1) {
   if (event) event.stopPropagation();
   const product = productsData.find(p => p.id === productId);
   if (!product) return;
 
-  const size = customSize || (product.sizes && product.sizes[0]) || "Standard";
+  const size = customSize || (product.sizes && product.sizes[0]) || "5×8 Ft";
+  const price = customPrice || product.price || 18500;
   const cart = getCart();
 
   const existingIdx = cart.findIndex(item => item.id === productId && item.size === size);
   if (existingIdx > -1) {
-    cart[existingIdx].qty += 1;
+    cart[existingIdx].qty += quantity;
   } else {
     cart.push({
       id: product.id,
@@ -669,10 +925,10 @@ window.addToCart = function(productId, customSize = null, event = null) {
       category: product.category,
       material: product.material,
       image: product.image,
-      sizes: product.sizes || ["Standard"],
+      sizes: product.sizes || ["5×8 Ft"],
       size: size,
-      price: product.price || 18500,
-      qty: 1
+      price: price,
+      qty: quantity
     });
   }
 
@@ -699,477 +955,176 @@ window.removeFromCart = function(index) {
   showCartToast(`Removed "${removedName}" from cart.`);
 };
 
-window.updateCartItemSize = function(index, newSize) {
-  const cart = getCart();
-  if (!cart[index]) return;
-  cart[index].size = newSize;
-  saveCart(cart);
-};
+function initCartEvents() {
+  const cartBtn = document.getElementById('header-cart-btn');
+  const bottomCartBtn = document.getElementById('bottom-nav-cart');
+  const drawer = document.getElementById('cart-drawer');
+  const closeBtn = document.getElementById('cart-close-btn');
+  const backdrop = document.getElementById('cart-backdrop');
+  const clearBtn = document.getElementById('btn-clear-cart');
+  const checkoutBtn = document.getElementById('btn-whatsapp-checkout');
 
-window.clearCart = function() {
-  saveCart([]);
-  showCartToast("Cart cleared.");
-};
-
-function updateCartBadge() {
-  const cart = getCart();
-  const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
-
-  const headerBadge = document.getElementById('cart-badge');
-  const floatBadge = document.getElementById('floating-cart-badge');
-  const bottomBadge = document.getElementById('bottom-cart-badge');
-  const countText = document.getElementById('cart-items-count-text');
-  const floatBtn = document.getElementById('floating-cart-btn');
-
-  if (headerBadge) headerBadge.textContent = totalCount;
-  if (floatBadge) floatBadge.textContent = totalCount;
-  if (bottomBadge) bottomBadge.textContent = totalCount;
-  if (countText) countText.textContent = `${totalCount} ${totalCount === 1 ? 'carpet' : 'carpets'} selected`;
-
-  if (floatBtn) {
-    if (totalCount > 0) {
-      floatBtn.classList.add('has-items');
-    } else {
-      floatBtn.classList.remove('has-items');
-    }
+  function openCart() {
+    renderCartDrawer();
+    drawer?.classList.add('active');
+    backdrop?.classList.add('active');
   }
+
+  function closeCart() {
+    drawer?.classList.remove('active');
+    backdrop?.classList.remove('active');
+  }
+
+  cartBtn?.addEventListener('click', openCart);
+  bottomCartBtn?.addEventListener('click', openCart);
+  closeBtn?.addEventListener('click', closeCart);
+  backdrop?.addEventListener('click', closeCart);
+
+  clearBtn?.addEventListener('click', () => {
+    saveCart([]);
+    showCartToast('Cleared shopping cart.');
+  });
+
+  checkoutBtn?.addEventListener('click', () => {
+    const cart = getCart();
+    if (cart.length === 0) {
+      alert('Your cart is empty!');
+      return;
+    }
+
+    let summary = `Hello Sailaab's Design House (+91 92193 40149),
+
+I would like to order the following bespoke carpets:
+
+`;
+    let total = 0;
+
+    cart.forEach((item, i) => {
+      const itemTotal = item.price * item.qty;
+      total += itemTotal;
+      summary += `${i + 1}. ${item.name}
+   - Size: ${item.size}
+   - Qty: ${item.qty}
+   - Price: ₹${itemTotal.toLocaleString('en-IN')}
+
+`;
+    });
+
+    summary += `Total Order Amount: ₹${total.toLocaleString('en-IN')}
+
+Please share dispatch timeline & showroom payment details.`;
+    window.open(`https://wa.me/919219340149?text=${encodeURIComponent(summary)}`, '_blank');
+  });
 }
 
 function renderCartDrawer() {
   const body = document.getElementById('cart-items-body');
-  const totalPriceEl = document.getElementById('cart-total-price');
-  const footerEl = document.getElementById('cart-drawer-footer');
+  const totalEl = document.getElementById('cart-total-price');
   if (!body) return;
 
   const cart = getCart();
-
   if (cart.length === 0) {
     body.innerHTML = `
-      <div class="cart-empty-state">
-        <i class="fa-solid fa-bag-shopping cart-empty-icon"></i>
-        <h4 class="cart-empty-title">Your Bespoke Selection is Empty</h4>
-        <p class="cart-empty-desc">Select handcrafted rugs from our collections crafted on traditional Bhadohi looms.</p>
-        <button class="btn-explore-carpets" onclick="closeCartDrawer(); document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
-          <i class="fa-solid fa-compass"></i> Explore Carpets
-        </button>
-      </div>
-    `;
-    if (totalPriceEl) totalPriceEl.textContent = "₹0";
-    if (footerEl) footerEl.style.display = "none";
+      <div style="text-align:center;padding:40px 20px;color:#777">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5" style="margin:0 auto 12px;display:block">
+          <path d="M16 11V7a4 4 0 0 0-8 0v4M5 9h14l1 12H4L5 9z"></path>
+        </svg>
+        <p style="font-size:15px;font-weight:600;color:#222;margin-bottom:6px">Your Cart is Empty</p>
+        <p style="font-size:13px;line-height:1.5">Browse our luxury Bhadohi hand-knotted collection and select carpets for your space.</p>
+      </div>`;
+    if (totalEl) totalEl.textContent = '₹0';
     return;
   }
 
-  if (footerEl) footerEl.style.display = "flex";
-
-  let grandTotal = 0;
-
+  let total = 0;
   body.innerHTML = cart.map((item, idx) => {
-    const itemTotal = (item.price || 18500) * item.qty;
-    grandTotal += itemTotal;
-
-    const sizeOptions = (item.sizes || ["Standard"]).map(s => `
-      <option value="${s}" ${s === item.size ? 'selected' : ''}>${s}</option>
-    `).join('');
-
+    const itemTotal = item.price * item.qty;
+    total += itemTotal;
     return `
-      <div class="cart-item-card">
-        <img src="${item.image}" alt="${item.name}" class="cart-item-img">
-        <div class="cart-item-info">
-          <div>
-            <span class="cart-item-cat">${item.category}</span>
-            <h5 class="cart-item-name">${item.name}</h5>
-            <select class="cart-size-select" onchange="updateCartItemSize(${idx}, this.value)">
-              ${sizeOptions}
-            </select>
-          </div>
-          <div class="cart-item-bottom">
-            <span class="cart-item-price">₹${itemTotal.toLocaleString('en-IN')}</span>
-            <div class="cart-qty-stepper">
-              <button class="cart-qty-btn" onclick="updateCartQty(${idx}, -1)" aria-label="Decrease quantity">−</button>
-              <span class="cart-qty-val">${item.qty}</span>
-              <button class="cart-qty-btn" onclick="updateCartQty(${idx}, 1)" aria-label="Increase quantity">+</button>
-            </div>
-          </div>
+      <div class="cart-item-row" style="display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #eee;align-items:center">
+        <img src="${item.image}" alt="${item.name}" style="width:64px;height:64px;object-fit:cover;border-radius:6px">
+        <div style="flex:1">
+          <h4 style="font-size:13.5px;font-weight:600;margin:0 0 2px;line-height:1.3;color:#111">${item.name}</h4>
+          <div style="font-size:11.5px;color:#666;margin-bottom:4px">Size: <strong>${item.size}</strong></div>
+          <div style="font-size:13px;font-weight:700;color:var(--accent-burgundy)">₹${itemTotal.toLocaleString('en-IN')}</div>
         </div>
-        <button class="cart-item-remove" onclick="removeFromCart(${idx})" title="Remove item" aria-label="Remove item">
-          <i class="fa-regular fa-trash-can"></i>
-        </button>
+        <div style="display:flex;align-items:center;gap:6px">
+          <button onclick="updateCartQty(${idx}, -1)" style="width:24px;height:24px;border:1px solid #ccc;background:#f9f9f9;border-radius:3px;font-weight:700;cursor:pointer">-</button>
+          <span style="font-size:13px;font-weight:700;width:16px;text-align:center">${item.qty}</span>
+          <button onclick="updateCartQty(${idx}, 1)" style="width:24px;height:24px;border:1px solid #ccc;background:#f9f9f9;border-radius:3px;font-weight:700;cursor:pointer">+</button>
+          <button onclick="removeFromCart(${idx})" style="background:none;border:none;color:#999;font-size:13px;margin-left:4px;cursor:pointer">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </div>
       </div>
     `;
   }).join('');
 
-  if (totalPriceEl) {
-    totalPriceEl.textContent = `₹${grandTotal.toLocaleString('en-IN')}`;
-  }
+  if (totalEl) totalEl.textContent = `₹${total.toLocaleString('en-IN')}`;
 }
 
-window.openCartDrawer = function() {
-  const drawer = document.getElementById('cart-drawer');
-  const backdrop = document.getElementById('cart-backdrop');
-  renderCartDrawer();
-  drawer?.classList.add('active');
-  backdrop?.classList.add('active');
-  drawer?.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
-};
-
-window.closeCartDrawer = function() {
-  const drawer = document.getElementById('cart-drawer');
-  const backdrop = document.getElementById('cart-backdrop');
-  drawer?.classList.remove('active');
-  backdrop?.classList.remove('active');
-  drawer?.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
-};
-
-let toastTimeout = null;
 function showCartToast(msg) {
   const toast = document.getElementById('cart-toast');
   const toastMsg = document.getElementById('toast-message');
-  if (!toast || !toastMsg) return;
-
-  toastMsg.textContent = msg;
-  toast.classList.add('show');
-
-  clearTimeout(toastTimeout);
-  toastTimeout = setTimeout(() => {
-    toast.classList.remove('show');
-  }, 2800);
-}
-
-function sendWhatsAppCartInquiry() {
-  const cart = getCart();
-  if (cart.length === 0) {
-    showCartToast("Your cart is empty.");
-    return;
+  if (toast && toastMsg) {
+    toastMsg.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
   }
-
-  const isClient = document.body.classList.contains('client-preview');
-  if (isClient) return;
-
-  let text = "Namaste Sailaab's Design House!\nI would like to request a direct loom quote for my bespoke carpet selection:\n\n";
-  let total = 0;
-
-  cart.forEach((item, i) => {
-    const sub = (item.price || 18500) * item.qty;
-    total += sub;
-    text += `${i + 1}. *${item.name}*\n   • Size: ${item.size}\n   • Quantity: ${item.qty}\n   • Est. Loom Price: ₹${sub.toLocaleString('en-IN')}\n\n`;
-  });
-
-  text += `--------------------------------\n`;
-  text += `*Estimated Total:* ₹${total.toLocaleString('en-IN')}\n`;
-  text += `(Direct Loom Factory Estimate — Bhadohi Looms)\n\n`;
-  text += `Please confirm loom weaving availability, custom sizing, and shipping timeline.`;
-
-  const url = `https://wa.me/919219340149?text=${encodeURIComponent(text)}`;
-  window.open(url, '_blank');
 }
 
-function initCartEvents() {
-  const headerCartBtn = document.getElementById('header-cart-btn');
-  const floatingCartBtn = document.getElementById('floating-cart-btn');
-  const closeBtn = document.getElementById('cart-close-btn');
-  const backdrop = document.getElementById('cart-backdrop');
-  const clearBtn = document.getElementById('btn-clear-cart');
-  const waCheckoutBtn = document.getElementById('btn-whatsapp-checkout');
-
-  headerCartBtn?.addEventListener('click', openCartDrawer);
-  floatingCartBtn?.addEventListener('click', openCartDrawer);
-  closeBtn?.addEventListener('click', closeCartDrawer);
-  backdrop?.addEventListener('click', closeCartDrawer);
-  clearBtn?.addEventListener('click', clearCart);
-  waCheckoutBtn?.addEventListener('click', sendWhatsAppCartInquiry);
-
-  // Initial render
-  updateCartBadge();
-  renderCartDrawer();
-}
-
-// FAQ Accordion Handler
 function initFaqAccordion() {
-  const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach(item => {
-    const questionBtn = item.querySelector('.faq-question');
-    questionBtn?.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
-      faqItems.forEach(i => i.classList.remove('active'));
-      if (!isActive) {
-        item.classList.add('active');
-      }
+  const accs = document.querySelectorAll('.faq-accordion-item');
+  accs.forEach(acc => {
+    const q = acc.querySelector('.faq-q');
+    q?.addEventListener('click', () => {
+      accs.forEach(other => { if (other !== acc) other.classList.remove('active'); });
+      acc.classList.toggle('active');
     });
   });
 }
 
-// Active Nav Link on Scroll
 function initNavScroll() {
-  const sections = document.querySelectorAll('section[id], div[id="home"]');
-  const navLinks = document.querySelectorAll('.nav-menu .nav-item');
-  const mobileNavLinks = document.querySelectorAll('.mobile-nav-links .mobile-nav-item');
-
-  const header = document.getElementById('main-header');
-
-  window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 20) {
-      header?.classList.add('scrolled');
-    } else {
-      header?.classList.remove('scrolled');
-    }
-
-    let current = 'home';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
-      if (window.pageYOffset >= sectionTop) {
-        current = section.getAttribute('id') || 'home';
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
-      }
-    });
-
-    mobileNavLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
+  const links = document.querySelectorAll('a[href^="#"]');
+  links.forEach(l => {
+    l.addEventListener('click', (e) => {
+      const targetId = l.getAttribute('href')?.replace('#', '');
+      if (!targetId || targetId === 'home') return;
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        targetEl.scrollIntoView({ behavior: 'smooth' });
       }
     });
   });
 }
 
-// Mobile Menu Drawer Handler
 function initMobileMenu() {
-  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const hamburger = document.getElementById('hamburger-btn');
   const drawer = document.getElementById('mobile-nav-drawer');
-  const backdrop = document.getElementById('mobile-nav-backdrop');
   const closeBtn = document.getElementById('mobile-nav-close');
-  const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+  const backdrop = document.getElementById('mobile-nav-backdrop');
 
-  function openMenu() {
-    drawer?.classList.add('open');
-    backdrop?.classList.add('open');
-    document.body.classList.add('menu-open');
-    drawer?.setAttribute('aria-hidden', 'false');
+  function openDrawer() {
+    drawer?.classList.add('active');
+    backdrop?.classList.add('active');
   }
 
-  function closeMenu() {
-    drawer?.classList.remove('open');
-    backdrop?.classList.remove('open');
-    document.body.classList.remove('menu-open');
-    drawer?.setAttribute('aria-hidden', 'true');
+  function closeDrawer() {
+    drawer?.classList.remove('active');
+    backdrop?.classList.remove('active');
   }
 
-  hamburgerBtn?.addEventListener('click', openMenu);
-  closeBtn?.addEventListener('click', closeMenu);
-  backdrop?.addEventListener('click', closeMenu);
-
-  mobileNavItems.forEach(item => {
-    item.addEventListener('click', () => {
-      closeMenu();
-    });
-  });
+  hamburger?.addEventListener('click', openDrawer);
+  closeBtn?.addEventListener('click', closeDrawer);
+  backdrop?.addEventListener('click', closeDrawer);
 }
 
-// Infinite Reviews Horizontal Tape — High-performance RAF scroller with full mobile swipe & touch drag
 function initReviewsTape() {
-  const wrapper = document.getElementById('reviewsTapeWrapper');
-  if (!wrapper) return;
-  const track = wrapper.querySelector('.reviews-tape-track');
+  const track = document.getElementById('reviews-tape-track');
   if (!track) return;
-
-  // Kill CSS animation so JS has full 60fps control without CSS/reduced-motion clashes
-  track.style.animation = 'none';
-  track.style.webkitAnimation = 'none';
-  track.style.willChange = 'transform';
-
-  let currentX = 0;
-  const speed = 0.9; // Smooth luxury scrolling speed (px per frame)
-  let isPaused = false;
-  let isDragging = false;
-  let startTouchX = 0;
-  let startTouchY = 0;
-  let startX = 0;
-  let isHorizontalDrag = null;
-  let resumeTimer = null;
-
-  // Track width calculations
-  const getHalfWidth = () => {
-    // Total width divided by 2 (since 2 identical sets of 6 cards exist)
-    const w = track.scrollWidth;
-    return w > 0 ? w / 2 : 1800;
-  };
-
-  function step() {
-    if (!isPaused && !isDragging) {
-      currentX -= speed;
-      const halfWidth = getHalfWidth();
-      if (halfWidth > 0 && Math.abs(currentX) >= halfWidth) {
-        currentX += halfWidth;
-      }
-      track.style.transform = `translate3d(${currentX}px, 0, 0)`;
-    }
-    requestAnimationFrame(step);
-  }
-
-  // Desktop hover pause
-  wrapper.addEventListener('mouseenter', () => {
-    isPaused = true;
-  });
-  wrapper.addEventListener('mouseleave', () => {
-    if (!isDragging) isPaused = false;
-  });
-
-  // Mobile Touch Swipe & Drag: allows natural swiping while scrolling continuously
-  wrapper.addEventListener('touchstart', (e) => {
-    if (e.touches.length !== 1) return;
-    clearTimeout(resumeTimer);
-    startTouchX = e.touches[0].clientX;
-    startTouchY = e.touches[0].clientY;
-    startX = currentX;
-    isDragging = false;
-    isHorizontalDrag = null;
-  }, { passive: true });
-
-  wrapper.addEventListener('touchmove', (e) => {
-    if (e.touches.length !== 1) return;
-    const diffX = e.touches[0].clientX - startTouchX;
-    const diffY = e.touches[0].clientY - startTouchY;
-
-    if (isHorizontalDrag === null) {
-      if (Math.abs(diffX) > 6 || Math.abs(diffY) > 6) {
-        isHorizontalDrag = Math.abs(diffX) >= Math.abs(diffY);
-      }
-    }
-
-    if (isHorizontalDrag) {
-      isDragging = true;
-      currentX = startX + diffX;
-      const halfWidth = getHalfWidth();
-      if (halfWidth > 0) {
-        while (currentX > 0) currentX -= halfWidth;
-        while (Math.abs(currentX) >= halfWidth) currentX += halfWidth;
-      }
-      track.style.transform = `translate3d(${currentX}px, 0, 0)`;
-    }
-  }, { passive: true });
-
-  const handleTouchEnd = () => {
-    if (isDragging) {
-      isDragging = false;
-      isHorizontalDrag = null;
-      const halfWidth = getHalfWidth();
-      if (halfWidth > 0) {
-        while (currentX > 0) currentX -= halfWidth;
-        while (Math.abs(currentX) >= halfWidth) currentX += halfWidth;
-      }
-    }
-    // Briefly delay before resuming smooth crawl
-    isPaused = true;
-    clearTimeout(resumeTimer);
-    resumeTimer = setTimeout(() => {
-      isPaused = false;
-    }, 400);
-  };
-
-  wrapper.addEventListener('touchend', handleTouchEnd, { passive: true });
-  wrapper.addEventListener('touchcancel', handleTouchEnd, { passive: true });
-
-  // Mouse Drag on Desktop
-  let mouseStartX = 0;
-  let isMouseDown = false;
-
-  wrapper.addEventListener('mousedown', (e) => {
-    isMouseDown = true;
-    mouseStartX = e.clientX;
-    startX = currentX;
-    wrapper.style.cursor = 'grabbing';
-  });
-
-  window.addEventListener('mousemove', (e) => {
-    if (!isMouseDown) return;
-    const diffX = e.clientX - mouseStartX;
-    if (Math.abs(diffX) > 3) {
-      isDragging = true;
-      currentX = startX + diffX;
-      const halfWidth = getHalfWidth();
-      if (halfWidth > 0) {
-        while (currentX > 0) currentX -= halfWidth;
-        while (Math.abs(currentX) >= halfWidth) currentX += halfWidth;
-      }
-      track.style.transform = `translate3d(${currentX}px, 0, 0)`;
-    }
-  });
-
-  window.addEventListener('mouseup', () => {
-    if (isMouseDown) {
-      isMouseDown = false;
-      isDragging = false;
-      wrapper.style.cursor = 'grab';
-      clearTimeout(resumeTimer);
-      resumeTimer = setTimeout(() => {
-        isPaused = false;
-      }, 400);
-    }
-  });
-
-  // Start smooth 60fps RAF loop
-  requestAnimationFrame(step);
 }
 
-
-// Global Client Lockdown — Intercept and prevent all WhatsApp, Call (tel:), and Inquire links from opening ONLY in client-preview mode
-document.addEventListener('click', (e) => {
-  if (!document.body.classList.contains('client-preview')) return;
-  const target = e.target.closest('a, button');
-  if (!target) return;
-  const href = (target.getAttribute('href') || '').toLowerCase();
-  const text = (target.textContent || '').toLowerCase();
-
-  if (
-    href.startsWith('tel:') ||
-    href.includes('wa.me') ||
-    href.includes('whatsapp') ||
-    href.includes('api.whatsapp.com') ||
-    text.includes('whatsapp') ||
-    text.includes('inquire') ||
-    target.classList.contains('header-wa-btn') ||
-    target.classList.contains('header-mobile-wa-link') ||
-    target.classList.contains('btn-mobile-wa') ||
-    target.classList.contains('btn-mobile-call') ||
-    target.classList.contains('why-cta-btn') ||
-    target.classList.contains('btn-trade-wa') ||
-    target.classList.contains('btn-dark-cta') ||
-    target.classList.contains('btn-black-block')
-  ) {
-    e.preventDefault();
-    e.stopPropagation();
-    return false;
-  }
-}, true);
-
-// ── Dynamic Responsive Header Height Sync ─────────────────────────────────
-// Measures real header height and sets --site-header-height for zero content overlap
-function syncHeaderHeight() {
-  const headerWrap = document.querySelector('.site-header-wrap') || document.querySelector('.minimal-header');
-  if (headerWrap) {
-    const h = headerWrap.getBoundingClientRect().height;
-    if (h > 0) {
-      document.documentElement.style.setProperty('--site-header-height', `${Math.round(h)}px`);
-    }
-  }
-}
-
-window.addEventListener('resize', syncHeaderHeight, { passive: true });
-window.addEventListener('orientationchange', syncHeaderHeight, { passive: true });
-if (typeof ResizeObserver !== 'undefined') {
-  const headerElem = document.querySelector('.site-header-wrap') || document.querySelector('.minimal-header');
-  if (headerElem) {
-    new ResizeObserver(() => syncHeaderHeight()).observe(headerElem);
-  }
-}
-document.addEventListener('DOMContentLoaded', syncHeaderHeight);
-setTimeout(syncHeaderHeight, 100);
-setTimeout(syncHeaderHeight, 500);
-
+window.showAccountToast = function() {
+  showCartToast('🔑 Customer Login & Order History coming soon! Contact support on WhatsApp.');
+};
