@@ -368,16 +368,38 @@ function initScrollReveal() {
 
 
 
-// Background Slider
+// Background Slider with Navigation Arrows
 function initBgSlider() {
-  const slides = document.querySelectorAll('.bg-slide');
+  const slides = document.querySelectorAll('.hero-slide, .bg-slide');
   if (!slides || slides.length === 0) return;
   let idx = 0;
-  setInterval(() => {
+
+  function showSlide(nextIdx) {
     slides[idx].classList.remove('active');
-    idx = (idx + 1) % slides.length;
+    idx = (nextIdx + slides.length) % slides.length;
     slides[idx].classList.add('active');
-  }, 4500);
+  }
+
+  let interval = setInterval(() => showSlide(idx + 1), 5000);
+
+  const prevBtn = document.getElementById('hero-prev-btn');
+  const nextBtn = document.getElementById('hero-next-btn');
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      clearInterval(interval);
+      showSlide(idx - 1);
+      interval = setInterval(() => showSlide(idx + 1), 5000);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      clearInterval(interval);
+      showSlide(idx + 1);
+      interval = setInterval(() => showSlide(idx + 1), 5000);
+    });
+  }
 }
 
 // Catalog Renderer — Harsh Carpets Style Product Card
@@ -669,11 +691,13 @@ function updateCartBadge() {
 
   const headerBadge = document.getElementById('cart-badge');
   const floatBadge = document.getElementById('floating-cart-badge');
+  const bottomBadge = document.getElementById('bottom-cart-badge');
   const countText = document.getElementById('cart-items-count-text');
   const floatBtn = document.getElementById('floating-cart-btn');
 
   if (headerBadge) headerBadge.textContent = totalCount;
   if (floatBadge) floatBadge.textContent = totalCount;
+  if (bottomBadge) bottomBadge.textContent = totalCount;
   if (countText) countText.textContent = `${totalCount} ${totalCount === 1 ? 'carpet' : 'carpets'} selected`;
 
   if (floatBtn) {
