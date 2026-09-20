@@ -6,10 +6,10 @@
   <title>Sailaab’s Design House | Luxury Handmade Carpets & Rugs | Bhadohi & Varanasi</title>
   <meta name="description" content="Sailaab’s Design House - Fine hand-knotted, hand-tufted & custom carpets from Bhadohi looms. Showroom & office in Shivpur, Varanasi. Contact +91 92193 40149.">
   
-  <!-- Google Fonts: Playfair Display, Cormorant Garamond & Inter -->
+  <!-- Google Fonts: Montserrat, Playfair Display & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -28,7 +28,7 @@
   ═══════════════════════════════════════════════════════════════ -->
   <div class="announcement-bar">
     <div class="container announcement-flex">
-      <span>Premium Handmade Carpets Direct from Bhadohi Looms &bull; Nationwide &amp; Global Enquiries</span>
+      <span>PREMIUM HANDMADE CARPETS DIRECT FROM BHADOHI LOOMS &bull; NATIONWIDE DELIVERY</span>
       <span class="announcement-contact">Call / WhatsApp: <strong>+91 92193 40149</strong> &bull; Showroom: <strong>Shivpur, Varanasi</strong></span>
     </div>
   </div>
@@ -38,6 +38,12 @@
   ═══════════════════════════════════════════════════════════════ -->
   <header class="harsh-header" id="main-header">
     <div class="container header-container">
+      <!-- Left Hamburger on Mobile -->
+      <button class="hamburger-toggle" id="hamburger-btn" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <!-- Center / Left Brand Logo -->
       <a href="#home" class="brand-link">
         <img src="/assets/logo.jpg" alt="Sailaab's Design House" class="brand-logo" decoding="async" fetchpriority="high">
         <div class="brand-text">
@@ -46,6 +52,7 @@
         </div>
       </a>
 
+      <!-- Desktop Navigation Menu -->
       <nav class="desktop-nav" id="desktop-nav-menu">
         <a href="#home" class="nav-link active">Home</a>
         <a href="#about" class="nav-link">About Us</a>
@@ -57,23 +64,22 @@
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
+      <!-- Right Header Actions (Search + Cart + WhatsApp) -->
       <div class="header-actions">
+        <button class="header-icon-btn" aria-label="Search Catalogue" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
         <button class="cart-btn" id="header-cart-btn" aria-label="View Shopping Basket">
-          <svg class="cart-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="cart-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M16 11V7a4 4 0 0 0-8 0v4M5 9h14l1 12H4L5 9z"></path>
           </svg>
-          <span class="cart-btn-text">Cart</span>
           <span class="cart-badge" id="cart-badge">0</span>
         </button>
         
         <a href="https://wa.me/919219340149" target="_blank" class="header-wa-link" aria-label="WhatsApp Contact">
           <i class="fa-brands fa-whatsapp"></i>
-          <span class="wa-text">WhatsApp</span>
         </a>
-
-        <button class="hamburger-toggle" id="hamburger-btn" aria-label="Toggle Navigation Menu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
       </div>
     </div>
   </header>
@@ -118,20 +124,31 @@
   <div class="drawer-backdrop" id="mobile-nav-backdrop"></div>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       3. HERO SECTION
+       3. HERO SECTION (SLIDER MATCHING SCREENSHOT)
   ═══════════════════════════════════════════════════════════════ -->
   <section class="hero-wrapper" id="home">
     <div class="hero-bg-container">
-      <div class="hero-slide active" style="background-image: url('/assets/hero_carpet.jpg');"></div>
+      <div class="hero-slide active" style="background-image: url('/assets/01-ivory-blue-floral-living-room.webp');"></div>
+      <div class="hero-slide" style="background-image: url('/assets/02-camel-classic-floral-living-room.webp');"></div>
+      <div class="hero-slide" style="background-image: url('/assets/hero_carpet.jpg');"></div>
       <div class="hero-overlay"></div>
     </div>
-    <div class="container hero-content-inner">
-      <span class="hero-eyebrow">BHADOHI LOOMS &bull; ESTABLISHED 1994</span>
-      <h1 class="hero-title">Timeless Rugs.<br>Made for Your Space.</h1>
-      <p class="hero-subtitle">Handcrafted luxury hand-knotted &amp; hand-tufted carpets, woven knot by knot in Bhadohi from pure New Zealand wool, Kashmir silk, and organic jute.</p>
-      <div class="hero-cta-group">
-        <a href="#catalog" class="btn-primary">Explore Collection</a>
-        <a href="https://wa.me/919219340149" target="_blank" class="btn-secondary">Request Consultation</a>
+
+    <!-- Carousel Nav Arrows -->
+    <button class="hero-arrow hero-arrow-left" id="hero-prev-btn" aria-label="Previous Slide">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="hero-arrow hero-arrow-right" id="hero-next-btn" aria-label="Next Slide">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <!-- Overlay Content matching Screenshot -->
+    <div class="container hero-content-inner text-center">
+      <span class="hero-eyebrow">NEW COLLECTION</span>
+      <h1 class="hero-title">HAND KNOTTED</h1>
+      <p class="hero-subtitle">DISCOVER PREMIUM CARPETS</p>
+      <div class="hero-cta-wrapper">
+        <a href="#catalog" class="btn-outline-box">SHOP NOW</a>
       </div>
     </div>
   </section>
@@ -851,14 +868,45 @@
   </footer>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       FLOATING CART BUTTON & DRAWER / MODAL
+       FLOATING WHATSAPP BUTTON (DESKTOP & MOBILE)
   ═══════════════════════════════════════════════════════════════ -->
-  <button class="floating-cart-btn" id="floating-cart-btn" aria-label="Open Shopping Basket">
-    <svg class="cart-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M16 11V7a4 4 0 0 0-8 0v4M5 9h14l1 12H4L5 9z"></path>
-    </svg>
-    <span class="floating-badge" id="floating-cart-badge">0</span>
-  </button>
+  <a href="https://wa.me/919219340149" target="_blank" class="floating-wa-circle" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       MOBILE FIXED BOTTOM NAVIGATION BAR (MATCHING SCREENSHOT)
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="mobile-bottom-bar">
+    <a href="#home" class="bottom-nav-item active">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </a>
+    <a href="#contact" class="bottom-nav-item">
+      <i class="fa-regular fa-user"></i>
+      <span>Account</span>
+    </a>
+    <a href="#catalog" class="bottom-nav-item">
+      <i class="fa-solid fa-store"></i>
+      <span>Shop</span>
+    </a>
+    <button class="bottom-nav-item" onclick="document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'});">
+      <div class="bottom-icon-badge">
+        <i class="fa-regular fa-heart"></i>
+        <span class="badge-num">0</span>
+      </div>
+      <span>Wishlist</span>
+    </button>
+    <button class="bottom-nav-item" id="bottom-cart-btn" onclick="openCartDrawer()">
+      <div class="bottom-icon-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M16 11V7a4 4 0 0 0-8 0v4M5 9h14l1 12H4L5 9z"></path>
+        </svg>
+        <span class="badge-num" id="bottom-cart-badge">0</span>
+      </div>
+      <span>Cart</span>
+    </button>
+  </div>
 
   <!-- Slide-out Cart Drawer -->
   <div class="cart-drawer" id="cart-drawer">
