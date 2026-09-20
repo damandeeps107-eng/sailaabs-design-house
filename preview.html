@@ -31,9 +31,9 @@
     </div>
   </div>
 
-  <!-- 2. HEADER / NAVIGATION (HARSH CARPETS UN-CROWDED 2-ROW DESIGN) -->
+  <!-- 2. HEADER / NAVIGATION (HARSH CARPETS DESKTOP & SCREENSHOT MOBILE) -->
   <header class="harsh-header" id="main-header">
-    <div class="header-top-row">
+    <div class="header-main-row">
       <div class="container header-container">
         <button class="hamburger-toggle" id="hamburger-btn" aria-label="Toggle Navigation Menu">
           <i class="fa-solid fa-bars"></i>
@@ -59,13 +59,14 @@
             <span class="cart-badge" id="cart-badge">0</span>
           </button>
           
-          <a href="https://wa.me/919219340149" target="_blank" class="header-wa-btn" aria-label="WhatsApp Contact">
-            <i class="fa-brands fa-whatsapp"></i> <span>WHATSAPP</span>
+          <a href="https://wa.me/919219340149" target="_blank" class="header-wa-icon-link" aria-label="WhatsApp Contact">
+            <i class="fa-brands fa-whatsapp"></i>
           </a>
         </div>
       </div>
     </div>
 
+    <!-- Desktop Navigation Row -->
     <nav class="header-nav-row desktop-nav" id="desktop-nav-menu">
       <div class="container nav-container">
         <a href="#home" class="nav-link active">HOME</a>
@@ -702,6 +703,27 @@
     </div>
   </div>
   <div class="cart-backdrop" id="cart-backdrop"></div>
+
+  <!-- Slide-out Wishlist Drawer -->
+  <div class="cart-drawer" id="wishlist-drawer">
+    <div class="cart-drawer-header">
+      <h3 class="drawer-cart-title">Your Saved Wishlist (<span id="wishlist-items-count-text">0 items</span>)</h3>
+      <button class="cart-close-btn" id="wishlist-close-btn" aria-label="Close Wishlist">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    
+    <div class="cart-items-body" id="wishlist-items-body">
+      <!-- Dynamic Wishlist Items -->
+    </div>
+
+    <div class="cart-drawer-footer" id="wishlist-drawer-footer">
+      <button class="btn-whatsapp-checkout" id="btn-move-all-cart" style="width:100%">
+        <i class="fa-solid fa-bag-shopping"></i> Move All to Cart
+      </button>
+    </div>
+  </div>
+  <div class="cart-backdrop" id="wishlist-backdrop"></div>
 
   <!-- Product Detail Modal -->
   <div class="product-modal" id="product-modal">
